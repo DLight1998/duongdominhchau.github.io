@@ -1,0 +1,31 @@
+@media print {
+	.pages {
+		box-shadow: none;
+		width: 21cm;
+		margin: 0;
+		padding: 0;
+	}
+	.page-a4:first-child {
+		margin-top: 0;
+	}
+	.page-a4:last-child {
+		margin-bottom: 0;
+	}
+	.page-a4 {
+		box-sizing: border-box;
+		box-shadow: none;
+		width: 21cm;
+		/* Something is been added between pages that make the content
+		 * slip to new page, so reducing paper height is needed to keep
+		 * them on correct page.
+		 */
+		height: 29.65cm;
+		padding: 2cm;
+		margin: 0;
+	}
+	.page-content {
+		background-color: white;
+		padding: 0 1cm;
+		height: 100%;
+	}
+}

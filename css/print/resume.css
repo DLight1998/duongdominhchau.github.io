@@ -1,0 +1,9 @@
+@media print {
+  #print-btn {
+		display: none;
+  }
+
+  .programming-language {
+    display: block;
+  }
+}

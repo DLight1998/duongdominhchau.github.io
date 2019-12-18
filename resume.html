@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Duong Do Minh Chau</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/checkbox.css" />
+    <link rel="stylesheet" href="css/link.css" />
+    <link rel="stylesheet" href="css/paper.css" />
+    <link rel="stylesheet" href="css/progress.css" />
+    <link rel="stylesheet" href="css/resume.css" />
+    <link rel="stylesheet" href="css/print/checkbox.css" />
+    <link rel="stylesheet" href="css/print/link.css" />
+    <link rel="stylesheet" href="css/print/paper.css" />
+    <link rel="stylesheet" href="css/print/resume.css" />
+  </head>
+  <body>
+    <button id="print-btn">Print</button>
+    <div class="pages">
+      <section class="page-a4">
+        <div class="page-content">
+          <!-- CV header is not page header, page header contains navigation links -->
+          <div class="cv-header">
+            <div class="avatar-placeholder"></div>
+            <div class="basic-info">
+              <h1>Duong Do Minh Chau</h1>
+              <p>
+                <span>Email:</span>
+                <a href="mailto:duongdominhchau@gmail.com"
+                  >duongdominhchau@gmail.com</a
+                >
+              </p>
+              <p>
+                <span>Phone:</span>
+                <a href="tel:+84968095487">+84 968 09 54 87</a>
+              </p>
+              <p>
+                <span>Location:</span> Ninh Kieu District, Can Tho, Viet Nam
+              </p>
+              <!-- <p>TODO: Short description about myself here</p> -->
+            </div>
+          </div>
+          <!--
+                    TODO: Add icons for each heading like Education, Skill, ...
+                    TODO: Timeline-style job history
+                    TODO: Bars to describe skill level
+                -->
+
+          <h2>Skills</h2>
+          <div class="skills">
+            <!-- TODO: Style them -->
+
+            <h3>Version control system</h3>
+            <div class="skill-category">
+              <!--
+                            TODO: Make this a link to blog posts about Git,
+                            maybe a post about custom git prompt for zsh,
+                            or some git tutorials
+                        -->
+              <div><i class="checkbox checked"></i>Git</div>
+              <div><i class="checkbox"></i>Mercurial</div>
+              <div><i class="checkbox"></i>Subversion</div>
+            </div>
+
+            <h3>Programming language</h3>
+            <div class="programming-language">
+              <!-- TODO: Express my attitude about these languages -->
+              <!-- TODO: Replace progress with custom widget -->
+              <!-- TODO: Write a section about how I rated my skills -->
+              <div class="skill">
+                <h4 class="skill-label">C++</h4>
+                <div class="progress-wrapper progress-60p">
+                  <progress max="100" value="60"></progress>
+                </div>
+                <p class="skill-description">
+                  I use this for desktop applications, Qt is a nice framework
+                  for this task.
+                </p>
+              </div>
+              <div class="skill">
+                <h4 class="skill-label">PHP</h4>
+                <div class="progress-wrapper progress-30p">
+                  <progress max="100" value="30"></progress>
+                </div>
+                <p class="skill-description">
+                  PHP is used in all my web applications. My experience with
+                  previous versions is terrible, but in PHP 7 things are getting
+                  better.
+                </p>
+              </div>
+              <div class="skill">
+                <h4 class="skill-label">Java</h4>
+                <div class="progress-wrapper progress-25p">
+                  <progress max="100" value="25"></progress>
+                </div>
+                <p class="skill-description">
+                  Used purely for school projects. I don't like it, but if I
+                  have to choose, I will favor Java over C# because of its
+                  ecosystem.
+                </p>
+              </div>
+              <div class="skill">
+                <h4 class="skill-label">JavaScript</h4>
+                <div class="progress-wrapper progress-30p">
+                  <progress max="100" value="30"></progress>
+                </div>
+                <p class="skill-description">
+                  Essential for all my websites. Besides, writing ad-hoc
+                  JavaScript to gather informations is not something unusual.
+                </p>
+              </div>
+              <div class="skill">
+                <h4 class="skill-label">Python</h4>
+                <div class="progress-wrapper progress-15p">
+                  <progress max="100" value="15"></progress>
+                </div>
+                <p class="skill-description">
+                  This is the language to go when my shell script grows too
+                  complex. I don't write many scripts, though.
+                </p>
+              </div>
+            </div>
+
+            <h3>Database</h3>
+            <div class="database">
+              <!-- TODO: Style this -->
+              <p>
+                I use MySQL and SQL Server for my web apps, SQLite for desktop
+                apps.
+              </p>
+              <!-- TODO: Add NoSQL databases: Cassandra, CouchDB, Neo4j, ... -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="page-a4">
+        <div class="page-content">
+          <h2>Education</h2>
+          <div class="education">
+            <p class="education-date">2016&ndash;2021 (in progress)</p>
+            <div class="education-description">
+              <p>
+                Can Tho University<br />
+                Bachelor in Software Engineering, Can Tho University
+              </p>
+              <p>GPA: 3.56/4.0</p>
+              <p>
+                Academic transcription:
+                <a href="Transcript/CTU Official (retrieved 2020-05-20).pdf">
+                  official version from CTU
+                </a>
+                (nearly unreadable) or
+                <a href="Transcript/Reorganized.html">
+                  my reorganized version </a
+                >.
+              </p>
+            </div>
+          </div>
+
+          <h2>Work Experience</h2>
+          <div class="experiences">
+            <p>No past job for now, I have not graduated yet.</p>
+          </div>
+
+          <h2>Projects</h2>
+          <div class="featured-projects">
+            <p>
+              Check my GitHub:
+              <a href="https://github.com/duongdominhchau">
+                duongdominhchau
+              </a>
+            </p>
+            <p>
+              Sadly, currently I have nothing big enough to show here, most
+              repos are just forked from existing applications and slightly
+              modified to fit my need.
+            </p>
+            <!-- TODO: Put informations of some projects here -->
+          </div>
+        </div>
+      </section>
+      <!-- <section class="page-a4"> -->
+      <!--     <div class="page-content"> -->
+      <!--         <!-1- TODO: Group technologies, e.g: Sass + TypeScript + Bootstrap for front-end, ... -1-> -->
+      <!--         GitHub: <a href="https://github.com/duongdominhchau">duongdominhchau</a> -->
+      <!--         Zalo: ... -->
+      <!--         <p>Skill</p> -->
+      <!--         Node.js, Laravel, Phalcon, Symfony, ASP.NET Core -->
+      <!--         Electron -->
+      <!--         Jenkins, Sonarqube, JUnit, Codeception, Doctest, Selenium -->
+      <!--         jQuery, Sass, Webpack, CSS, HTML, Android -->
+      <!--     </div> -->
+      <!-- </section> -->
+    </div>
+    <script>
+      document
+        .getElementById("print-btn")
+        .addEventListener("click", event => {
+            alert("You need these settings to print this page properly:\n" +
+                "    - Paper size: A4\n" +
+                "    - Orientation: Portrait\n" +
+                "    - Paper margin: 0\n" +
+                "    - Scaling: none\n" +
+                "    - Print background colors: true\n" +
+                ""
+            );
+            window.print();
+        });
+    </script>
+  </body>
+</html>

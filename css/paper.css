@@ -1,0 +1,39 @@
+body {
+  background-color: hsla(30, 10%, 70%, 1);
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0.35rem 0;
+}
+
+.pages {
+  box-sizing: border-box;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25), 0 12px 12px rgba(0, 0, 0, 0.2);
+  margin: 2cm auto;
+  width: 80%;
+}
+.page-a4:first-child {
+  margin-top: 2cm;
+  padding-top: 2cm;
+}
+.page-a4:last-child {
+  margin-bottom: 2cm;
+  padding-bottom: 2cm;
+}
+.page-a4 {
+  background-color: white;
+  box-shadow: none;
+  display: block;
+  height: auto;
+  padding: 0 2cm;
+}
+.page-content {
+  background-color: hsla(130, 100%, 85%, 0.5);
+  padding: 0.5cm 1cm;
+  width: calc(100% - 1cm * 2);
+  height: calc(100% - 0.5cm * 2);
+}

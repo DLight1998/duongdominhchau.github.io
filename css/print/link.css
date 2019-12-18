@@ -1,0 +1,18 @@
+@media print {
+	a::before {
+		content: attr()
+	}
+	a {
+		color: hsla(210, 100%, 50%, 1);
+	}
+	a::after {
+		content: "[" attr(href) "]";
+		text-decoration: underline;
+	}
+	a[href^="mailto:"]::before,
+	a[href^="mailto:"]::after,
+	a[href^="tel:"]::before,
+	a[href^="tel:"]::after {
+		content: none;
+	}
+}
