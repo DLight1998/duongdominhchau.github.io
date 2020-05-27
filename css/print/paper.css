@@ -1,4 +1,8 @@
 @media print {
+	body {
+		background-color: white;
+	}
+
 	.pages {
 		box-shadow: none;
 		width: 21cm;

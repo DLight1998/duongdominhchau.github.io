@@ -1,0 +1,52 @@
+@media screen and (min-width: 1000px) {
+	#print-btn {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+
+	.cv-header {
+		align-items: center;
+		border-bottom: 1px solid black;
+		display: flex;
+		margin-bottom: 1cm;
+	}
+	.avatar-placeholder {
+		background: hsla(0, 100%, 50%, 0.4);
+		border-radius: 50%;
+		display: inline-block;
+		height: 5cm;
+		margin: 0 0.5cm 0.5cm 0;
+		width: 5cm;
+	}
+	.basic-info {
+		display: inline-block;
+	}
+
+	.education {
+		display: grid;
+		grid-column-gap: 0.5cm;
+		grid-row-gap: 1cm;
+		grid-template-columns: 2.5cm auto;
+	}
+	.education-date {
+		font-weight: bold;
+	}
+
+	.version-control > div {
+		align-items: center;
+		display: inline-flex;
+		margin-right: 1rem;
+	}
+	.skill-label {
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+	}
+	.programming-language {
+		display: grid;
+		grid-column-gap: 1cm;
+		grid-row-gap: 0.25cm;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

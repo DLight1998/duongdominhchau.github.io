@@ -1,0 +1,30 @@
+@media screen and (max-width: 599px) {
+	.cv-header {
+		display: block;
+	}
+	.avatar-placeholder {
+		display: block;
+		margin: 0 auto;
+	}
+	.basic-info > h1 {
+		text-align: center;
+	}
+	.basic-info {
+		display: block;
+	}
+
+	.education {
+		display: block;
+	}
+	.education > div {
+		margin-left: 2rem;
+	}
+
+	.version-control > div {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.programming-language {
+		display: block;
+	}
+}

@@ -1,0 +1,18 @@
+@media screen and (max-width: 599px) {
+	body {
+		background-color: white;
+	}
+
+	.pages {
+		background-color: hsla(130, 100%, 85%, 0.5);
+		margin: 0;
+		padding: 2rem;
+	}
+	.page-a4 {
+		margin: 0;
+		padding: 0;
+	}
+	.page-content {
+		padding: 0;
+	}
+}
