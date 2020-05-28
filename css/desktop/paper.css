@@ -1,6 +1,19 @@
 @media screen and (min-width: 1000px) {
 	.pages {
-		background-color: hsla(130, 100%, 85%, 0.5);
+		/* 
+		 * A dirty hack to avoid the green blends with body background.
+		 * `linear-gradient` is required to add another color layer
+		 * ecause only the final layer can be a color, as written in
+		 * https://drafts.csswg.org/css-backgrounds-3/#typedef-bg-layer
+		 *
+		 * > Note that a color is permitted in <final-bg-layer>,
+		 * > but not in <bg-layer>. 
+		 */
+		background: linear-gradient(
+									hsla(130, 100%, 85%, 0.5),
+									hsla(130, 100%, 85%, 0.5)
+								),
+								white;
 		box-sizing: border-box;
 		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25), 0 12px 12px rgba(0, 0, 0, 0.2);
 		margin: 5rem auto;
