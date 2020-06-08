@@ -1,0 +1,11 @@
+<header>
+	<nav role="navigation">
+		<a href="/" title="Home">
+			<span class="logo">{{ .Site.Title }}</span>
+		</a>
+		{{ range .Site.Menus.social }}
+			<a href="{{ .URL }}" title="{{ .Name }}"><span>{{ .Pre }}</span></a>
+		{{ end }}
+		</a>
+	</nav>
+</header>
