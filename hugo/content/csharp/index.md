@@ -36,7 +36,7 @@ ghép lại là lỗi lúc chạy).
 ## Hello world
 Dưới này là chương trình Hello world viết bằng C#
 
-```cs
+```c#
 using System;
 
 namespace Application
@@ -122,7 +122,7 @@ thôi chứ máy nó không quan tâm, nên là chọn tên sao cho có ý nghĩ
 
 Khai báo biến theo cú pháp `<kiểu> <tên>;` với `<kiểu>` là tên kiểu dữ liệu, `<tên>` là
 tên biến.
-```cs
+```c#
 int paymentPerHour; // Biến kiểu số nguyên có dấu, tên là paymentPerHour
 int hoursWorked;
 ```
@@ -130,7 +130,7 @@ int hoursWorked;
 Lần đầu tiên gán giá trị cho biến được gọi là khởi tạo. Có thể khởi tạo ngay sau khi
 khai báo biến luôn:
 
-```cs
+```c#
 int paymentPerHour = 20000;
 int hoursWorked = 80;
 ```
@@ -138,7 +138,7 @@ int hoursWorked = 80;
 Có thể sử dụng biến với các phép toán mà kiểu của nó có (ví dụ số nguyên có phép toán
 cộng, trừ, nhân, chia, chia dư, ...)
 
-```cs
+```c#
 int paymentPerHour = 20000;
 int hoursWorked = 80;
 // Biến paymentPerHour và hoursWorked thuộc kiểu số nguyên nên có thể nhân
@@ -154,7 +154,7 @@ Viết giá trị muốn in vào trong cặp ngoặc tròn, mỗi lần chỉ đ
 in 1 giá trị. Muốn in nhiều giá trị thì viết nhiều câu lệnh,
 mỗi lần truyền 1 giá trị.
 
-```cs
+```c#
 // Đoạn chương trình trên in ra `Helloworld` (không có khoảng trắng ở giữa).
 // `Console.Write()` chỉ in cái được truyền vào, không in thêm gì khác.
 // Sau `world` có ký tự xuống dòng do `Console.WriteLine()` in kèm.
@@ -169,7 +169,7 @@ dưới dạng chuỗi.
 lớp này có các phương thức như `ToInt32()` để chuyển sang kiểu `int`,
 `ToDouble()` để sang kiểu `double`
 
-```cs
+```c#
 string name = Console.ReadLine();
 int age = Convert.ToInt32(Console.ReadLine());
 double weightInKg = Convert.ToDouble(Console.ReadLine());
@@ -178,7 +178,7 @@ double weightInKg = Convert.ToDouble(Console.ReadLine());
 Lưu ý là đoạn code trên chỉ đọc vào chứ không in ra, nên lúc chạy sẽ thấy như chương trình
 không phản hồi người dùng. Để người dùng biết cần nhập gì, cần in thông báo ra trước:
 
-```cs
+```c#
 Console.Write("Your name: ");
 string name = Console.ReadLine();
 Console.Write("Your age: ");
@@ -198,7 +198,7 @@ Console.WriteLine(" kg");
 In từng giá trị như trên sẽ rất phiền phức, nên `Console` có cho phép dùng
 `Write` và `WriteLine` theo một cách khác ngắn gọn hơn:
 
-```cs
+```c#
 Console.Write("Your name: ");
 string name = Console.ReadLine();
 Console.Write("Your age: ");
@@ -216,7 +216,7 @@ mô tả kết quả sau khi in sẽ ra cái gì. Phía sau có thể truyền b
 cũng được, giá trị đầu tiên có số thứ tự là 0 và sẽ được dùng để thế vào `{0}`
 trong chuỗi định dạng. Một giá trị có thể dùng nhiều lần trong chuỗi định dạng:
 
-```cs
+```c#
 Console.WriteLine("{0}{1}{0}", 'a', 'b'); // In ra "aba"
 ```
 
@@ -244,7 +244,7 @@ Nhìn hình bên trên có thể thấy, các phần tử của mảng được 
 Để sử dụng mảng, trước hết cần khai báo một biến kiểu mảng để chỉ tới vùng
 lưu giá trị các phần tử.
 
-```cs
+```c#
 int[] arr;
 ```
 
@@ -254,7 +254,7 @@ Sau đó là tạo mảng mới bằng toán tử `new`, lúc này bộ nhớ s�
 chương trình để lưu các phần tử của mảng, cho nên trong cặp ngoặc vuông cần
 phải có kích thước cụ thể của mảng.
 
-```cs
+```c#
 int[] arr;
 // Cấp phát 1 vùng nhớ đủ chứa 4 phần tử kiểu int và cho `arr` trỏ đến
 arr = new int[4]; 
@@ -263,14 +263,14 @@ arr = new int[4];
 ![Hình minh họa biến kiểu mảng sau khi đã khởi tạo](img/Array-new.svg)
 
 Có thể kết hợp 2 bước khai báo và khởi tạo lại
-```cs
+```c#
 int[] arr = new int[4];
 ```
 
 Đọc/ghi giá trị từng phần tử trong mảng bằng toán tử `[]`, trong cặp ngoặc vuông
 ghi chỉ số (index) của phần tử cần truy cập, phần tử đầu của mảng có chỉ số là `0`.
 
-```cs
+```c#
 int[] arr = new int[4];
 arr[0] = 123;
 arr[1] = 456;
@@ -285,7 +285,7 @@ mặc định của kiểu, đối với kiểu số thì giá trị mặc đị
 `arr[3] = 0` bên trên có thể loại bỏ mà không làm thay đổi ý nghĩa
 của chương trình.
 
-```cs
+```c#
 int[] arr = new int[4];
 arr[0] = 123;
 arr[1] = 456;
@@ -295,7 +295,7 @@ Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 
 Có thể khởi tạo giá trị các phần tử ngay khi cấp phát bộ nhớ bằng `new`
 
-```cs
+```c#
 int[] arr = new int[4] { 123, 456, 789, 0 };
 Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
@@ -304,7 +304,7 @@ Nếu trong cặp ngoặc nhọn có đủ giá trị cho tất cả các phần
 có thể bỏ trống kích thước mảng, trình biên dịch nó tự biết đếm số phần
 tử trong cặp ngoặc nhọn.
 
-```cs
+```c#
 // arr vẫn là mảng 4 phần tử
 int[] arr = new int[] { 123, 456, 789, 0 };
 Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
@@ -316,13 +316,13 @@ của nó bằng những giá trị được ghi trong cặp ngoặc nhọn.
 Nếu khởi tạo giá trị các phần tử của mảng ngay khi khai báo biến kiểu mảng thì
 có thể bỏ qua `new` luôn
 
-```cs
+```c#
 int[] arr = { 123, 456, 789, 0 };
 Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
 
 Trong trường hợp biến đã được khai báo trước đó thì không bỏ `new` được
-```cs
+```c#
 int[] arr;
 // Nếu viết như dòng này sẽ bị lỗi biên dịch
 // arr = { 123, 456, 789, 0 }; 
@@ -333,7 +333,7 @@ Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 Lưu ý là trong trường hợp không khởi tạo tất cả phần tử trong mảng thì không thể
 bỏ qua kích thước mảng, nếu không sẽ làm thay đổi ý nghĩa chương trình.
 
-```cs
+```c#
 int[] arr1 = new int[4] { 1, 2, 3 }; // Mảng 4 phần tử 1, 2, 3, 0
 int[] arr2 = new int[] { 1, 2, 3 }; // Mảng 3 phần tử 1, 2, 3
 int[] arr3 = { 1, 2, 3 }; // Như trên, mảng 3 phần tử 1, 2, 3
@@ -341,7 +341,7 @@ int[] arr3 = { 1, 2, 3 }; // Như trên, mảng 3 phần tử 1, 2, 3
 
 Kích thước của mảng (số phần tử) được lưu trong thuộc tính (property) `Length`.
 
-```cs
+```c#
 int[] arr = new int[4];
 Console.WriteLine("Length of arr = {0}", arr.Length);
 ```
@@ -350,7 +350,7 @@ Có thể dùng `foreach` để duyệt qua từng phần tử trong mảng, ho�
 biến lặp duyệt qua từng chỉ số (index) của mảng, sau đó dùng biến lặp (đang chứa
 chỉ số phần tử mảng) để truy cập phần tử trong mảng.
 
-```cs
+```c#
 int[] arr = { 1, 2, 3 };
 // Duyệt qua mảng bằng vòng lặp for, chỉ số của
 // phần tử hiện tại được lưu trong biến i
@@ -369,7 +369,7 @@ foreach (int value in arr)
 `foreach` sẽ lần lượt lấy từng giá trị trong mảng gán cho biến tạm rồi
 thực thi đoạn code trong thân vòng lặp.
 
-```cs
+```c#
 int[] arr = { 1, 2, 3 };
 /*
 Vòng lặp foreach bên dưới tương tự với đoạn code này:
@@ -393,7 +393,7 @@ foreach (int value in arr)
 Biến kiểu mảng chỉ chứa địa chỉ của nơi lưu các phần tử trên bộ nhớ,
 cho nên không thể sao chép mảng bằng phép gán.
 
-```cs
+```c#
 int[] arr = { 1, 2, 3 };
 int[] anotherArray = arr;
 arr[0] = 0;
@@ -404,7 +404,7 @@ Console.WriteLine(anotherArray[0]); // In ra 0 chứ không phải 1
 
 Để chép nội dung mảng cần tạo mảng mới trước rồi chép giá trị từng phần tử sang.
 
-```cs
+```c#
 int[] arr = { 1, 2, 3 };
 int[] anotherArray = new int[arr.Length];
 // Đây là một trường hợp không thể dùng foreach, tại vì
@@ -422,7 +422,7 @@ Bởi vì việc sao chép nội dung mảng rất thường gặp nên C# có c
 phương thức cho việc sao chép trong lớp `Array` (một lớp chứa các phương
 thức giúp thao tác với mảng tiện lợi hơn).
 
-```cs
+```c#
 int[] arr = { 1, 2, 3 };
 int[] anotherArray = new int[arr.Length];
 // Mảng nguồn, mảng đích, số phần tử cần chép
@@ -439,7 +439,7 @@ Chỉ sử dụng các kiểu cơ bản như `int`, `float`, `char`, `bool` khô
 viết ra code dễ đọc. Lấy ví dụ như đoạn chương trình nhập 2 điểm và in ra
 khoảng cách giữa 2 điểm vừa nhập
 
-```cs
+```c#
 Console.WriteLine("Nhập tọa độ điểm thứ nhất: ");
 double x1 = Convert.ToDouble(Console.ReadLine());
 double y1 = Convert.ToDouble(Console.ReadLine());
@@ -466,7 +466,7 @@ tượng không cần công khai.
 ### Khai báo lớp, trường, phương thức
 Để sử dụng đối tượng cần khai báo lớp, sử dụng từ khóa `class`
 
-```cs
+```c#
 class Point
 {
 }
@@ -474,7 +474,7 @@ class Point
 
 Trong class có thể có trường (field), cách khai báo giống với khai báo biến.
 
-```cs {hl_lines=[3,4]}
+```c#
 class Point
 {
 	double x;
@@ -485,7 +485,7 @@ class Point
 Trong class cũng có thể có phương thức (method), khai báo theo cú pháp
 `<kiểu trả về> <tên>(<các tham số>)`.
 
-```cs {hl_lines=[5-8]}
+```c#
 class Point
 {
 	double x;
@@ -499,7 +499,7 @@ class Point
 
 Tạo object bằng `new`
 
-```cs
+```c#
 using System;
 
 namespace Application
@@ -544,7 +544,8 @@ namespace Application
 
 Chương trình lúc này dài hơn chương trình ban đầu, nhưng phần xử lý việc nhập
 2 điểm và tính khoảng cách trở thành
-```cs
+
+```c#
 Point firstPoint = ReadFromConsole("Nhập thông tin điểm thứ nhất:");
 Point secondPoint = ReadFromConsole("Nhập thông tin điểm thứ hai:");
 Console.WriteLine("Khoảng cách giữa 2 điểm vừa nhập là {0}",
@@ -564,7 +565,9 @@ Thông thường trường (field) sẽ được khai báo `private`, còn thu�
 và phương thức (method) thì được khai báo `public`. Nếu một phương thức chỉ được
 dùng bên trong lớp thì có thể khai báo `private`.
 
-```cs
+Chương trình lúc này sẽ ra như bên dưới, chỉ có một vấn đề: không biên dịch được.
+
+```c#
 using System;
 
 namespace Application
@@ -614,7 +617,8 @@ Trong trường hợp này C# cung cấp một tính năng khác phù hợp hơn
 đó là thuộc tính (property). Thuộc tính có thể được sử dụng tương tự như trường,
 nhưng có thể định nghĩa getter (phương thức được dùng khi property được đọc)
 và setter (phương thức được dùng khi property được ghi).
-```cs
+
+```c#
 using System;
 
 namespace Application
@@ -678,7 +682,8 @@ namespace Application
 ```
 
 Sử dụng thuộc tính, đoạn code trên có thể sửa thành
-```cs
+
+```c#
 using System;
 
 namespace Application
@@ -726,7 +731,8 @@ namespace Application
 ### Phương thức khởi tạo
 Với những gì đã biết đến hiện tại, để tạo một đối tượng thể hiện cho điểm (1,2)
 `Point` cần phải viết
-```cs
+
+```c#
 Point pt = new Point();
 pt.X = 1;
 pt.Y = 2;
@@ -737,7 +743,7 @@ Hơn nữa phần code khởi tạo sẽ bị rải ra khắp nơi, khi cần th
 tới từng chỗ để sửa. Để giải quyết vấn đề này, C# có phương thức khởi tạo (constructor),
 phương thức này **trùng tên với lớp** và **không ghi kiểu trả về**.
 
-```cs
+```c#
 class Point
 {
 	public double X;
@@ -756,7 +762,8 @@ class Point
 ```
 
 Phương thức khởi tạo sẽ được gọi khi dùng `new`
-```cs
+
+```c#
 using System;
 
 namespace Application
@@ -794,7 +801,7 @@ nên không thể định nghĩa 2 phương thức giống y nhau chỉ khác ki
 Đoạn chương trình dưới này cho ra cùng kết quả với đoạn phía trên, nhưng lần
 này không dùng giá trị mặc định cho tham số nữa mà dùng nạp chồng.
 
-```cs
+```c#
 using System;
 
 namespace Application
@@ -825,12 +832,13 @@ namespace Application
 }
 ```
 
-### `this` và `static`
+### `this`
 Đối tượng có những hành động (thể hiện trong code qua phương thức) và những
 đặc tính (thể hiện trong code dưới dạng các trường và thuộc tính). Những
 phương thức thông thường cần có đối tượng mới có thể gọi, ví dụ như trong
 lớp `Point` dưới đây, phương thức `Distance` cần 
-```cs
+
+```c#
 using System;
 
 namespace Application
@@ -873,7 +881,8 @@ Bên trong phương thức `Distance` có một giá trị đặc biệt gọi l
 buộc phải ghi rõ `this.X` để chỉ thuộc tính X của đối tượng hiện tại, chỉ cần
 ghi `X` là nó tự hiểu "truy cập `X` của đối tượng hiện tại". Đoạn code trên
 có thể viết lại như sau:
-```cs
+
+```c#
 using System;
 
 namespace Application
@@ -910,17 +919,113 @@ namespace Application
 }
 ```
 
-Tuy nhiên, cách viết này quá dài dòng mà không có ích lợi gì, nên là nếu tránh được cứ tránh.
-Viết trực tiếp `X` là được rồi, không cần `this.X`.
+Tuy nhiên, cách viết này quá dài dòng mà không có ích lợi gì, nên là nếu
+được cứ tránh. Viết trực tiếp `X` là được rồi, không cần `this.X`.
 
-`this` trỏ tới đối tượng gọi phương thức lên, vậy trong `Main()` thì this trỏ tới đâu?
+Ngoài ra `this` còn dùng trong một trường hợp khác nữa. Xem đoạn code dưới đây:
+
+```c#
+class Window
+{
+	private int width;
+	private int height;
+	private string title;
+	// ...
+
+	public Window(int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+	}
+	public Window(string title, int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+		this.title = title;
+	}
+	// ...
+}
+```
+
+Trong đoạn code trên, phần khởi tạo của 2 trường `width` và `height` bị
+lặp lại trong mỗi phương thức khởi tạo. Đối với phương thức thông thường
+thì để tránh lặp lại có thể đưa phần code chung ra một phương thức mới
+rồi gọi tới. Cái đó là cho phương thức thông thường, còn với phương thức
+khởi tạo thì cần viết khác đi:
+
+```c#
+class Window
+{
+	private int width;
+	private int height;
+	private string title;
+	// ...
+
+	public Window(int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+	}
+	public Window(string title, int width, int height): this(width, height)
+	{
+		this.title = title;
+	}
+	// ...
+}
+```
+
+`this()` ở đây không phải chỉ tới đối tượng hiện tại nữa, mà được xài như
+là tên phương thức khởi tạo của lớp hiện tại, còn cái nào được chọn để chạy
+sẽ phụ thuộc vào danh sách tham số.
+
+Về nguồn gốc, cách viết này (thêm dấu hai chấm rồi ghi `this(...)`
+thay vì viết bên trong thân phương thức khởi tạo) bắt nguồn từ C++.
+C# quyết định đơn giản hóa nó rồi giữ lại xài luôn. Bên dưới là đoạn
+code ở trên được viết lại bằng C++
+
+```c++
+#include <string>
+
+class Window
+{
+private:
+	int width;
+	int height;
+	std::string title;
+	// ...
+public:
+	Window(int width, int height)
+	{
+	  this->width = width;
+	  this->height = height;
+	}
+	Window(std::string title, int width, int height) : Window(width, height)
+	{
+		this->title = title;
+	}
+	// ...
+};
+```
+
+Bên C++ có 2 cách để khởi tạo giá trị của thành viên trong lớp. Cách thứ nhất
+là cách được dùng với phương thức khởi tạo 2 tham số trong đoạn code trên,
+tức là viết các câu lệnh gán trong thân của phương thức khởi tạo. Cách thứ hai
+là viết dấu hai chấm ngay sau phần khai báo của phương thức khởi tạo, sau đó
+khởi tạo cho các thành viên theo cú pháp `<thành viên>(<giá trị>)`. Để gọi tới
+phương thức khởi tạo khác thì dùng tên lớp. Bởi vì viết như vầy thì đổi tên lớp
+là phải sửa lại nên C# không chọn dùng tên lớp mà chọn `this`, vậy nên trong C++
+viết `Window(width, height)` còn bên C# thì viết `this(width, height)`.
+
+### Thành viên `static`
+`this` trỏ tới đối tượng gọi phương thức lên, vậy trong `Main()` thì `this` trỏ tới đâu?
 Câu trả lời là: `Main()` không có `this`. Những phương thức như `Main()` có thể được
 gọi lên để thực thi luôn mà không cần đối tượng. Những phương thức như vậy được khai báo
 bằng từ khóa `static`, khi truy cập thì dùng tên lớp thay vì một đối tượng nào đó.
 
 Phương thức `static` không có `this` nên nó không thể gọi tới phương thức không có khai báo
 `static`. Xem đoạn code dưới này:
-```cs
+
+```c#
 class Cls
 {
 	public void Method1()
@@ -948,14 +1053,15 @@ trên: thành viên `static` là thành viên thuộc về lớp, không cần �
 có cái từ khóa dịch ra thấy chả liên quan gì với chức năng của nó.
 
 Vậy `static` xài để làm gì được? Trước hết là, bên C# không có hàm, chỉ có phương thức,
-nên nếu muốn khai báo một phương thức có thể xài như hàm (tức là khỏi cần đối tượng vẫn
-gọi hàm được) như bên ngôn ngữ khác thì phải thêm `static` vô. Ví dụ cho trường hợp này
-thì có rất nhiều, mấy đoạn code trước đó cũng có xài tới vài cái: `Sqrt` (tính căn bậc
-hai) hay `Pow` (tính lũy thừa) trong lớp `Math`, hoặc lùi về tới Hello world thì có
-`Write` với `WriteLine` của lớp `Console`, mấy cái đó đều là phương thức `static`.
+mà phương thức thông thường thì lúc gọi lên phải có đối tượng. Để có thể khai báo phương
+thức giống như hàm trong mấy ngôn ngữ lập trình khác thì phải thêm static vô phương thức.
+Ví dụ cho trường hợp này thì có rất nhiều, mấy đoạn code trước đó cũng có xài tới vài cái:
+`Sqrt` (tính căn bậc hai) hay `Pow` (tính lũy thừa) trong lớp `Math`, hoặc lùi về trước
+nữa thì có `Write` với `WriteLine` của lớp `Console`, mấy cái đó đều là `static`.
 
 Còn làm gì được với nó nữa? Xem đoạn code dưới đây
-```cs
+
+```c#
 class Rectangle // Hình chữ nhật
 {
 	public int Left
@@ -1005,9 +1111,9 @@ bằng cách nhận góc trên bên trái và kích thước của hình. Vấn 
 số không nằm trong dấu hiệu của phương thức, nên là 2 phương thức khởi tạo ở trên
 trùng dấu hiệu với nhau, thành ra không nạp chồng được.
 
-Vậy `static` giúp ích gì được trong trường hợp này? Nhìn đoạn code được viết lại
-với `static` sẽ thấy
-```cs
+Vậy `static` giúp ích gì được trong trường hợp này? Xem đoạn code được viết lại
+
+```c#
 class Rectangle
 {
 	public int Left
@@ -1062,20 +1168,29 @@ class Rectangle
 }
 ```
 
-Dựa theo định nghĩa của constructor trong C# thì 2 phương thức ở trên không thể
-gọi là phương thức khởi tạo được, tại vì nó sai hết cả 2 yêu cầu (tên không giống
-tên lớp, lại có kiểu trả về). Tuy nhiên, vì nó được sử dụng để tạo ra đối tượng,
-mà nó lại có thể được đặt tên tùy ý nên người ta gọi nó là phương thức khởi tạo
-có tên (named constructor). Cách viết này rất phổ biến, và thường được ưu tiên hơn
-vì nó có thể được đặt tên mô tả chức năng của nó, chứ không bắt buộc phải dùng tên
-lớp nữa. Khi dùng lớp `Rectangle` sẽ viết khác trước, không còn cần `new` nữa.
+Khi viết như ở trên thì lúc dùng lớp `Rectangle` cũng sẽ viết khác đi,
+không còn cần `new` nữa.
 
-```cs
+```c#
 Rectangle firstRect = Rectangle.fromPointPair(1, 1, 11, 11);
 Rectangle secondRect = Rectangle.fromPointAndSize(1, 1, 10, 10);
 ```
 
+Dựa theo định nghĩa của constructor trong C# thì 2 phương thức ở trên không thể
+gọi là phương thức khởi tạo được, tại vì nó sai hết cả 2 yêu cầu (tên không giống
+tên lớp, lại có kiểu trả về). Tuy nhiên, vì nó được sử dụng để tạo ra đối tượng,
+mà nó lại có thể được đặt tên tùy ý nên người ta gọi nó là phương thức khởi tạo
+có tên (named constructor). Cách viết này rất phổ biến, và thường được ưu tiên
+hơn vì nó có thể được đặt tên mô tả chức năng của nó, chứ không bắt buộc phải
+dùng tên lớp nữa.
+
 ### Kế thừa
+Lớp trong C# có thể kế thừa lớp khác để thừa hưởng tất cả các thành viên từ lớp đó.
+Lúc này lớp được kế thừa sẽ được gọi là lớp cơ sở (base class) và lớp kế thừa gọi là
+lớp dẫn xuất (derived class). Ngoài cách gọi này vẫn có những cách gọi khác, như ở
+nước mình hay kêu là lớp con (child class) với lớp cha (parent class). Tuy nhiên,
+dùng từ base và derived thì nó 
+
 override, base, inherit
 
 TODO: Write this

@@ -22,7 +22,7 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://duongdominhchau.github.io/csharp/" />
 <meta property="article:published_time" content="2020-06-09T01:08:20+07:00" />
-<meta property="article:modified_time" content="2020-06-09T01:29:55+07:00" />
+<meta property="article:modified_time" content="2020-06-09T19:36:28+07:00" />
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C#"/>
@@ -45,7 +45,7 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
 	<h1>C#</h1>
 	<p class="publish-date">Published: 2020-06-09 01:08:20 &#43;07:00</p>
 	
-		<p class="last-modified-date">Last modified: 2020-06-09 01:29:55 &#43;07:00</p>
+		<p class="last-modified-date">Last modified: 2020-06-09 19:36:28 &#43;07:00</p>
 	
 </section>
 <article class="post-content">
@@ -65,7 +65,8 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
         <li><a href="#thuộc-tính">Thuộc tính</a></li>
         <li><a href="#phương-thức-khởi-tạo">Phương thức khởi tạo</a></li>
         <li><a href="#nạp-chồng">Nạp chồng</a></li>
-        <li><a href="#this-và-static"><code>this</code> và <code>static</code></a></li>
+        <li><a href="#this"><code>this</code></a></li>
+        <li><a href="#thành-viên-static">Thành viên <code>static</code></a></li>
         <li><a href="#kế-thừa">Kế thừa</a></li>
       </ul>
     </li>
@@ -104,7 +105,7 @@ không có lỗi biên dịch nhưng mà tới lúc chạy gặp lỗi thì lỗ
 ghép lại là lỗi lúc chạy).</p>
 <h2 id="hello-world">Hello world</h2>
 <p>Dưới này là chương trình Hello world viết bằng C#</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -175,15 +176,15 @@ nó mới được gọi là biến, chữ biến trong biến đổi ấy). Tê
 thôi chứ máy nó không quan tâm, nên là chọn tên sao cho có ý nghĩa tí.</p>
 <p>Khai báo biến theo cú pháp <code>&lt;kiểu&gt; &lt;tên&gt;;</code> với <code>&lt;kiểu&gt;</code> là tên kiểu dữ liệu, <code>&lt;tên&gt;</code> là
 tên biến.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span> paymentPerHour; <span style="color:#75715e">// Biến kiểu số nguyên có dấu, tên là paymentPerHour
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span> paymentPerHour; <span style="color:#75715e">// Biến kiểu số nguyên có dấu, tên là paymentPerHour
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> hoursWorked;
 </code></pre></div><p>Lần đầu tiên gán giá trị cho biến được gọi là khởi tạo. Có thể khởi tạo ngay sau khi
 khai báo biến luôn:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span> paymentPerHour = <span style="color:#ae81ff">20000</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span> paymentPerHour = <span style="color:#ae81ff">20000</span>;
 <span style="color:#66d9ef">int</span> hoursWorked = <span style="color:#ae81ff">80</span>;
 </code></pre></div><p>Có thể sử dụng biến với các phép toán mà kiểu của nó có (ví dụ số nguyên có phép toán
 cộng, trừ, nhân, chia, chia dư, &hellip;)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span> paymentPerHour = <span style="color:#ae81ff">20000</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span> paymentPerHour = <span style="color:#ae81ff">20000</span>;
 <span style="color:#66d9ef">int</span> hoursWorked = <span style="color:#ae81ff">80</span>;
 <span style="color:#75715e">// Biến paymentPerHour và hoursWorked thuộc kiểu số nguyên nên có thể nhân
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> wage = paymentPerHour * hoursWorked;
@@ -194,7 +195,7 @@ in giá trị xong sẽ in thêm 1 ký tự xuống dòng.</p>
 <p>Viết giá trị muốn in vào trong cặp ngoặc tròn, mỗi lần chỉ được
 in 1 giá trị. Muốn in nhiều giá trị thì viết nhiều câu lệnh,
 mỗi lần truyền 1 giá trị.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Đoạn chương trình trên in ra `Helloworld` (không có khoảng trắng ở giữa).
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Đoạn chương trình trên in ra `Helloworld` (không có khoảng trắng ở giữa).
 </span><span style="color:#75715e">// `Console.Write()` chỉ in cái được truyền vào, không in thêm gì khác.
 </span><span style="color:#75715e">// Sau `world` có ký tự xuống dòng do `Console.WriteLine()` in kèm.
 </span><span style="color:#75715e"></span>Console.Write(<span style="color:#e6db74">&#34;Hello&#34;</span>);
@@ -204,12 +205,12 @@ dưới dạng chuỗi.</p>
 <p>Để chuyển chuỗi đọc được sang kiểu khác, có thể dùng lớp <code>Convert</code>,
 lớp này có các phương thức như <code>ToInt32()</code> để chuyển sang kiểu <code>int</code>,
 <code>ToDouble()</code> để sang kiểu <code>double</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">string</span> name = Console.ReadLine();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">string</span> name = Console.ReadLine();
 <span style="color:#66d9ef">int</span> age = Convert.ToInt32(Console.ReadLine());
 <span style="color:#66d9ef">double</span> weightInKg = Convert.ToDouble(Console.ReadLine());
 </code></pre></div><p>Lưu ý là đoạn code trên chỉ đọc vào chứ không in ra, nên lúc chạy sẽ thấy như chương trình
 không phản hồi người dùng. Để người dùng biết cần nhập gì, cần in thông báo ra trước:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Console.Write(<span style="color:#e6db74">&#34;Your name: &#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Console.Write(<span style="color:#e6db74">&#34;Your name: &#34;</span>);
 <span style="color:#66d9ef">string</span> name = Console.ReadLine();
 Console.Write(<span style="color:#e6db74">&#34;Your age: &#34;</span>);
 <span style="color:#66d9ef">int</span> age = Convert.ToInt32(Console.ReadLine());
@@ -225,7 +226,7 @@ Console.Write(weightInKg);
 Console.WriteLine(<span style="color:#e6db74">&#34; kg&#34;</span>);
 </code></pre></div><p>In từng giá trị như trên sẽ rất phiền phức, nên <code>Console</code> có cho phép dùng
 <code>Write</code> và <code>WriteLine</code> theo một cách khác ngắn gọn hơn:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Console.Write(<span style="color:#e6db74">&#34;Your name: &#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Console.Write(<span style="color:#e6db74">&#34;Your name: &#34;</span>);
 <span style="color:#66d9ef">string</span> name = Console.ReadLine();
 Console.Write(<span style="color:#e6db74">&#34;Your age: &#34;</span>);
 <span style="color:#66d9ef">int</span> age = Convert.ToInt32(Console.ReadLine());
@@ -239,7 +240,7 @@ Console.WriteLine(<span style="color:#e6db74">&#34;    Weight: {0} kg&#34;</span
 mô tả kết quả sau khi in sẽ ra cái gì. Phía sau có thể truyền bao nhiêu giá trị
 cũng được, giá trị đầu tiên có số thứ tự là 0 và sẽ được dùng để thế vào <code>{0}</code>
 trong chuỗi định dạng. Một giá trị có thể dùng nhiều lần trong chuỗi định dạng:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Console.WriteLine(<span style="color:#e6db74">&#34;{0}{1}{0}&#34;</span>, <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>); <span style="color:#75715e">// In ra &#34;aba&#34;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Console.WriteLine(<span style="color:#e6db74">&#34;{0}{1}{0}&#34;</span>, <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>); <span style="color:#75715e">// In ra &#34;aba&#34;
 </span></code></pre></div><h2 id="mảng">Mảng</h2>
 <p>Biến thuộc các kiểu dữ liệu ở phía trước chỉ lưu một giá trị. Khi cần
 lưu nhiều giá trị thì không thể cứ khai báo biến cho từng giá trị được,
@@ -257,20 +258,20 @@ Biến thuộc kiểu mảng chỉ chứa địa chỉ của nơi lưu các ph�
 <code>0x1000</code> về sau còn biến <code>arr</code> lại nằm ở địa chỉ <code>0x444</code>.</p>
 <p>Để sử dụng mảng, trước hết cần khai báo một biến kiểu mảng để chỉ tới vùng
 lưu giá trị các phần tử.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr;
 </code></pre></div><p><img src="img/Array-uninitialized.svg" alt="Hình minh họa biến kiểu mảng chưa được khởi tạo"></p>
 <p>Sau đó là tạo mảng mới bằng toán tử <code>new</code>, lúc này bộ nhớ sẽ được cấp cho
 chương trình để lưu các phần tử của mảng, cho nên trong cặp ngoặc vuông cần
 phải có kích thước cụ thể của mảng.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr;
 <span style="color:#75715e">// Cấp phát 1 vùng nhớ đủ chứa 4 phần tử kiểu int và cho `arr` trỏ đến
 </span><span style="color:#75715e"></span>arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>]; 
 </code></pre></div><p><img src="img/Array-new.svg" alt="Hình minh họa biến kiểu mảng sau khi đã khởi tạo"></p>
 <p>Có thể kết hợp 2 bước khai báo và khởi tạo lại</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
 </code></pre></div><p>Đọc/ghi giá trị từng phần tử trong mảng bằng toán tử <code>[]</code>, trong cặp ngoặc vuông
 ghi chỉ số (index) của phần tử cần truy cập, phần tử đầu của mảng có chỉ số là <code>0</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
 arr[<span style="color:#ae81ff">0</span>] = <span style="color:#ae81ff">123</span>;
 arr[<span style="color:#ae81ff">1</span>] = <span style="color:#ae81ff">456</span>;
 arr[<span style="color:#ae81ff">2</span>] = <span style="color:#ae81ff">789</span>;
@@ -281,44 +282,44 @@ mặc định của kiểu, đối với kiểu số thì giá trị mặc đị
 <code>bool</code> là <code>false</code>, kiểu đối tượng là <code>null</code>, &hellip; Vậy cho nên dòng
 <code>arr[3] = 0</code> bên trên có thể loại bỏ mà không làm thay đổi ý nghĩa
 của chương trình.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
 arr[<span style="color:#ae81ff">0</span>] = <span style="color:#ae81ff">123</span>;
 arr[<span style="color:#ae81ff">1</span>] = <span style="color:#ae81ff">456</span>;
 arr[<span style="color:#ae81ff">2</span>] = <span style="color:#ae81ff">789</span>;
 Console.WriteLine(<span style="color:#e6db74">&#34;{0} {1} {2} {3}&#34;</span>, arr[<span style="color:#ae81ff">0</span>], arr[<span style="color:#ae81ff">1</span>], arr[<span style="color:#ae81ff">2</span>], arr[<span style="color:#ae81ff">3</span>]);
 </code></pre></div><p>Có thể khởi tạo giá trị các phần tử ngay khi cấp phát bộ nhớ bằng <code>new</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>] { <span style="color:#ae81ff">123</span>, <span style="color:#ae81ff">456</span>, <span style="color:#ae81ff">789</span>, <span style="color:#ae81ff">0</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>] { <span style="color:#ae81ff">123</span>, <span style="color:#ae81ff">456</span>, <span style="color:#ae81ff">789</span>, <span style="color:#ae81ff">0</span> };
 Console.WriteLine(<span style="color:#e6db74">&#34;{0} {1} {2} {3}&#34;</span>, arr[<span style="color:#ae81ff">0</span>], arr[<span style="color:#ae81ff">1</span>], arr[<span style="color:#ae81ff">2</span>], arr[<span style="color:#ae81ff">3</span>]);
 </code></pre></div><p>Nếu trong cặp ngoặc nhọn có đủ giá trị cho tất cả các phần tử đều thì
 có thể bỏ trống kích thước mảng, trình biên dịch nó tự biết đếm số phần
 tử trong cặp ngoặc nhọn.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// arr vẫn là mảng 4 phần tử
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// arr vẫn là mảng 4 phần tử
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] { <span style="color:#ae81ff">123</span>, <span style="color:#ae81ff">456</span>, <span style="color:#ae81ff">789</span>, <span style="color:#ae81ff">0</span> };
 Console.WriteLine(<span style="color:#e6db74">&#34;{0} {1} {2} {3}&#34;</span>, arr[<span style="color:#ae81ff">0</span>], arr[<span style="color:#ae81ff">1</span>], arr[<span style="color:#ae81ff">2</span>], arr[<span style="color:#ae81ff">3</span>]);
 </code></pre></div><p><code>new int[] { 123, 456, 789, 0 }</code> tạo một mảng và khởi tạo cho các phần tử
 của nó bằng những giá trị được ghi trong cặp ngoặc nhọn.</p>
 <p>Nếu khởi tạo giá trị các phần tử của mảng ngay khi khai báo biến kiểu mảng thì
 có thể bỏ qua <code>new</code> luôn</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">123</span>, <span style="color:#ae81ff">456</span>, <span style="color:#ae81ff">789</span>, <span style="color:#ae81ff">0</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">123</span>, <span style="color:#ae81ff">456</span>, <span style="color:#ae81ff">789</span>, <span style="color:#ae81ff">0</span> };
 Console.WriteLine(<span style="color:#e6db74">&#34;{0} {1} {2} {3}&#34;</span>, arr[<span style="color:#ae81ff">0</span>], arr[<span style="color:#ae81ff">1</span>], arr[<span style="color:#ae81ff">2</span>], arr[<span style="color:#ae81ff">3</span>]);
 </code></pre></div><p>Trong trường hợp biến đã được khai báo trước đó thì không bỏ <code>new</code> được</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr;
 <span style="color:#75715e">// Nếu viết như dòng này sẽ bị lỗi biên dịch
 </span><span style="color:#75715e">// arr = { 123, 456, 789, 0 }; 
 </span><span style="color:#75715e"></span>arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] { <span style="color:#ae81ff">123</span>, <span style="color:#ae81ff">456</span>, <span style="color:#ae81ff">789</span>, <span style="color:#ae81ff">0</span> };
 Console.WriteLine(<span style="color:#e6db74">&#34;{0} {1} {2} {3}&#34;</span>, arr[<span style="color:#ae81ff">0</span>], arr[<span style="color:#ae81ff">1</span>], arr[<span style="color:#ae81ff">2</span>], arr[<span style="color:#ae81ff">3</span>]);
 </code></pre></div><p>Lưu ý là trong trường hợp không khởi tạo tất cả phần tử trong mảng thì không thể
 bỏ qua kích thước mảng, nếu không sẽ làm thay đổi ý nghĩa chương trình.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr1 = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>] { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Mảng 4 phần tử 1, 2, 3, 0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr1 = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>] { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Mảng 4 phần tử 1, 2, 3, 0
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>[] arr2 = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Mảng 3 phần tử 1, 2, 3
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>[] arr3 = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Như trên, mảng 3 phần tử 1, 2, 3
 </span></code></pre></div><p>Kích thước của mảng (số phần tử) được lưu trong thuộc tính (property) <code>Length</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
 Console.WriteLine(<span style="color:#e6db74">&#34;Length of arr = {0}&#34;</span>, arr.Length);
 </code></pre></div><p>Có thể dùng <code>foreach</code> để duyệt qua từng phần tử trong mảng, hoặc dùng <code>for</code> với
 biến lặp duyệt qua từng chỉ số (index) của mảng, sau đó dùng biến lặp (đang chứa
 chỉ số phần tử mảng) để truy cập phần tử trong mảng.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
 <span style="color:#75715e">// Duyệt qua mảng bằng vòng lặp for, chỉ số của
 </span><span style="color:#75715e">// phần tử hiện tại được lưu trong biến i
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; arr.Length; ++i)
@@ -333,7 +334,7 @@ chỉ số phần tử mảng) để truy cập phần tử trong mảng.</p>
 }
 </code></pre></div><p><code>foreach</code> sẽ lần lượt lấy từng giá trị trong mảng gán cho biến tạm rồi
 thực thi đoạn code trong thân vòng lặp.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
 <span style="color:#75715e">/*
 </span><span style="color:#75715e">Vòng lặp foreach bên dưới tương tự với đoạn code này:
 </span><span style="color:#75715e">
@@ -353,13 +354,13 @@ thực thi đoạn code trong thân vòng lặp.</p>
 }
 </code></pre></div><p>Biến kiểu mảng chỉ chứa địa chỉ của nơi lưu các phần tử trên bộ nhớ,
 cho nên không thể sao chép mảng bằng phép gán.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
 <span style="color:#66d9ef">int</span>[] anotherArray = arr;
 arr[<span style="color:#ae81ff">0</span>] = <span style="color:#ae81ff">0</span>;
 Console.WriteLine(anotherArray[<span style="color:#ae81ff">0</span>]); <span style="color:#75715e">// In ra 0 chứ không phải 1
 </span></code></pre></div><p><img src="img/Array-assign.svg" alt="Hình minh họa kết quả phép gán của biến kiểu mảng"></p>
 <p>Để chép nội dung mảng cần tạo mảng mới trước rồi chép giá trị từng phần tử sang.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
 <span style="color:#66d9ef">int</span>[] anotherArray = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[arr.Length];
 <span style="color:#75715e">// Đây là một trường hợp không thể dùng foreach, tại vì
 </span><span style="color:#75715e">// mình cần sử dụng giá trị của chỉ số hiện tại.
@@ -372,7 +373,7 @@ Console.WriteLine(anotherArray[<span style="color:#ae81ff">0</span>]); <span sty
 <p>Bởi vì việc sao chép nội dung mảng rất thường gặp nên C# có cung cấp sẵn
 phương thức cho việc sao chép trong lớp <code>Array</code> (một lớp chứa các phương
 thức giúp thao tác với mảng tiện lợi hơn).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
 <span style="color:#66d9ef">int</span>[] anotherArray = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[arr.Length];
 <span style="color:#75715e">// Mảng nguồn, mảng đích, số phần tử cần chép
 </span><span style="color:#75715e"></span>Array.Copy(arr, anotherArray, arr.Length);
@@ -385,7 +386,7 @@ thức giúp thao tác với mảng tiện lợi hơn).</p>
 <p>Chỉ sử dụng các kiểu cơ bản như <code>int</code>, <code>float</code>, <code>char</code>, <code>bool</code> không đủ để
 viết ra code dễ đọc. Lấy ví dụ như đoạn chương trình nhập 2 điểm và in ra
 khoảng cách giữa 2 điểm vừa nhập</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Console.WriteLine(<span style="color:#e6db74">&#34;Nhập tọa độ điểm thứ nhất: &#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Console.WriteLine(<span style="color:#e6db74">&#34;Nhập tọa độ điểm thứ nhất: &#34;</span>);
 <span style="color:#66d9ef">double</span> x1 = Convert.ToDouble(Console.ReadLine());
 <span style="color:#66d9ef">double</span> y1 = Convert.ToDouble(Console.ReadLine());
 
@@ -406,28 +407,28 @@ những dữ liệu được công khai, và trường (field) cho những dữ 
 tượng không cần công khai.</p>
 <h3 id="khai-báo-lớp-trường-phương-thức">Khai báo lớp, trường, phương thức</h3>
 <p>Để sử dụng đối tượng cần khai báo lớp, sử dụng từ khóa <code>class</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
 {
 }
 </code></pre></div><p>Trong class có thể có trường (field), cách khai báo giống với khai báo biến.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
-{
-<span style="display:block;width:100%;background-color:#3c3d38">	<span style="color:#66d9ef">double</span> x;
-</span><span style="display:block;width:100%;background-color:#3c3d38">	<span style="color:#66d9ef">double</span> y;
-</span>}
-</code></pre></div><p>Trong class cũng có thể có phương thức (method), khai báo theo cú pháp
-<code>&lt;kiểu trả về&gt; &lt;tên&gt;(&lt;các tham số&gt;)</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
 {
 	<span style="color:#66d9ef">double</span> x;
 	<span style="color:#66d9ef">double</span> y;
-<span style="display:block;width:100%;background-color:#3c3d38">	<span style="color:#66d9ef">double</span> Distance(Point other)
-</span>	{
+}
+</code></pre></div><p>Trong class cũng có thể có phương thức (method), khai báo theo cú pháp
+<code>&lt;kiểu trả về&gt; &lt;tên&gt;(&lt;các tham số&gt;)</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
+{
+	<span style="color:#66d9ef">double</span> x;
+	<span style="color:#66d9ef">double</span> y;
+	<span style="color:#66d9ef">double</span> Distance(Point other)
+	{
 		<span style="color:#66d9ef">return</span> Math.Sqrt(Math.Pow(x - other.x, <span style="color:#ae81ff">2</span>), Math.Pow(y - other.y, <span style="color:#ae81ff">2</span>));
 	}
 }
 </code></pre></div><p>Tạo object bằng <code>new</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -470,7 +471,7 @@ tượng không cần công khai.</p>
 </ul>
 <p>Chương trình lúc này dài hơn chương trình ban đầu, nhưng phần xử lý việc nhập
 2 điểm và tính khoảng cách trở thành</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Point firstPoint = ReadFromConsole(<span style="color:#e6db74">&#34;Nhập thông tin điểm thứ nhất:&#34;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Point firstPoint = ReadFromConsole(<span style="color:#e6db74">&#34;Nhập thông tin điểm thứ nhất:&#34;</span>);
 Point secondPoint = ReadFromConsole(<span style="color:#e6db74">&#34;Nhập thông tin điểm thứ hai:&#34;</span>);
 Console.WriteLine(<span style="color:#e6db74">&#34;Khoảng cách giữa 2 điểm vừa nhập là {0}&#34;</span>,
 		firstPoint.Distance(secondPoint));
@@ -484,7 +485,8 @@ truy cập trong chính lớp đó. Từ khóa này được thêm trước ki�
 <p>Thông thường trường (field) sẽ được khai báo <code>private</code>, còn thuộc tính (property)
 và phương thức (method) thì được khai báo <code>public</code>. Nếu một phương thức chỉ được
 dùng bên trong lớp thì có thể khai báo <code>private</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<p>Chương trình lúc này sẽ ra như bên dưới, chỉ có một vấn đề: không biên dịch được.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -531,7 +533,7 @@ Trong trường hợp này C# cung cấp một tính năng khác phù hợp hơn
 đó là thuộc tính (property). Thuộc tính có thể được sử dụng tương tự như trường,
 nhưng có thể định nghĩa getter (phương thức được dùng khi property được đọc)
 và setter (phương thức được dùng khi property được ghi).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -592,7 +594,7 @@ và setter (phương thức được dùng khi property được ghi).</p>
 	}
 }
 </code></pre></div><p>Sử dụng thuộc tính, đoạn code trên có thể sửa thành</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -637,14 +639,14 @@ và setter (phương thức được dùng khi property được ghi).</p>
 </code></pre></div><h3 id="phương-thức-khởi-tạo">Phương thức khởi tạo</h3>
 <p>Với những gì đã biết đến hiện tại, để tạo một đối tượng thể hiện cho điểm (1,2)
 <code>Point</code> cần phải viết</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Point pt = <span style="color:#66d9ef">new</span> Point();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Point pt = <span style="color:#66d9ef">new</span> Point();
 pt.X = <span style="color:#ae81ff">1</span>;
 pt.Y = <span style="color:#ae81ff">2</span>;
 </code></pre></div><p>Khởi tạo từng thành viên trong đối tượng theo cách này rất dễ bỏ sót thành viên.
 Hơn nữa phần code khởi tạo sẽ bị rải ra khắp nơi, khi cần thay đổi sẽ phải tìm
 tới từng chỗ để sửa. Để giải quyết vấn đề này, C# có phương thức khởi tạo (constructor),
 phương thức này <strong>trùng tên với lớp</strong> và <strong>không ghi kiểu trả về</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Point</span>
 {
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> X;
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> Y;
@@ -660,7 +662,7 @@ phương thức này <strong>trùng tên với lớp</strong> và <strong>không
 	}
 }
 </code></pre></div><p>Phương thức khởi tạo sẽ được gọi khi dùng <code>new</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -692,7 +694,7 @@ tham số và kiểu của từng tham số, <strong>kiểu trả về không d�
 nên không thể định nghĩa 2 phương thức giống y nhau chỉ khác kiểu trả về được.</p>
 <p>Đoạn chương trình dưới này cho ra cùng kết quả với đoạn phía trên, nhưng lần
 này không dùng giá trị mặc định cho tham số nữa mà dùng nạp chồng.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -720,12 +722,12 @@ này không dùng giá trị mặc định cho tham số nữa mà dùng nạp c
 		}
 	}
 }
-</code></pre></div><h3 id="this-và-static"><code>this</code> và <code>static</code></h3>
+</code></pre></div><h3 id="this"><code>this</code></h3>
 <p>Đối tượng có những hành động (thể hiện trong code qua phương thức) và những
 đặc tính (thể hiện trong code dưới dạng các trường và thuộc tính). Những
 phương thức thông thường cần có đối tượng mới có thể gọi, ví dụ như trong
 lớp <code>Point</code> dưới đây, phương thức <code>Distance</code> cần</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -765,7 +767,7 @@ Bên trong phương thức <code>Distance</code> có một giá trị đặc bi�
 buộc phải ghi rõ <code>this.X</code> để chỉ thuộc tính X của đối tượng hiện tại, chỉ cần
 ghi <code>X</code> là nó tự hiểu &ldquo;truy cập <code>X</code> của đối tượng hiện tại&rdquo;. Đoạn code trên
 có thể viết lại như sau:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> System;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">namespace</span> Application
 {
@@ -799,15 +801,96 @@ có thể viết lại như sau:</p>
 		}
 	}
 }
-</code></pre></div><p>Tuy nhiên, cách viết này quá dài dòng mà không có ích lợi gì, nên là nếu tránh được cứ tránh.
-Viết trực tiếp <code>X</code> là được rồi, không cần <code>this.X</code>.</p>
-<p><code>this</code> trỏ tới đối tượng gọi phương thức lên, vậy trong <code>Main()</code> thì this trỏ tới đâu?
+</code></pre></div><p>Tuy nhiên, cách viết này quá dài dòng mà không có ích lợi gì, nên là nếu
+được cứ tránh. Viết trực tiếp <code>X</code> là được rồi, không cần <code>this.X</code>.</p>
+<p>Ngoài ra <code>this</code> còn dùng trong một trường hợp khác nữa. Xem đoạn code dưới đây:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Window</span>
+{
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> width;
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> height;
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> title;
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+	<span style="color:#66d9ef">public</span> Window(<span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height)
+	{
+		<span style="color:#66d9ef">this</span>.width = width;
+		<span style="color:#66d9ef">this</span>.height = height;
+	}
+	<span style="color:#66d9ef">public</span> Window(<span style="color:#66d9ef">string</span> title, <span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height)
+	{
+		<span style="color:#66d9ef">this</span>.width = width;
+		<span style="color:#66d9ef">this</span>.height = height;
+		<span style="color:#66d9ef">this</span>.title = title;
+	}
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>Trong đoạn code trên, phần khởi tạo của 2 trường <code>width</code> và <code>height</code> bị
+lặp lại trong mỗi phương thức khởi tạo. Đối với phương thức thông thường
+thì để tránh lặp lại có thể đưa phần code chung ra một phương thức mới
+rồi gọi tới. Cái đó là cho phương thức thông thường, còn với phương thức
+khởi tạo thì cần viết khác đi:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Window</span>
+{
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> width;
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> height;
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> title;
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>
+	<span style="color:#66d9ef">public</span> Window(<span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height)
+	{
+		<span style="color:#66d9ef">this</span>.width = width;
+		<span style="color:#66d9ef">this</span>.height = height;
+	}
+	<span style="color:#66d9ef">public</span> Window(<span style="color:#66d9ef">string</span> title, <span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height): <span style="color:#66d9ef">this</span>(width, height)
+	{
+		<span style="color:#66d9ef">this</span>.title = title;
+	}
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p><code>this()</code> ở đây không phải chỉ tới đối tượng hiện tại nữa, mà được xài như
+là tên phương thức khởi tạo của lớp hiện tại, còn cái nào được chọn để chạy
+sẽ phụ thuộc vào danh sách tham số.</p>
+<p>Về nguồn gốc, cách viết này (thêm dấu hai chấm rồi ghi <code>this(...)</code>
+thay vì viết bên trong thân phương thức khởi tạo) bắt nguồn từ C++.
+C# quyết định đơn giản hóa nó rồi giữ lại xài luôn. Bên dưới là đoạn
+code ở trên được viết lại bằng C++</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Window</span>
+{
+<span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+	<span style="color:#66d9ef">int</span> width;
+	<span style="color:#66d9ef">int</span> height;
+	std<span style="color:#f92672">::</span>string title;
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+	Window(<span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height)
+	{
+	  <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>width <span style="color:#f92672">=</span> width;
+	  <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>height <span style="color:#f92672">=</span> height;
+	}
+	Window(std<span style="color:#f92672">::</span>string title, <span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height) <span style="color:#f92672">:</span> Window(width, height)
+	{
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>title <span style="color:#f92672">=</span> title;
+	}
+	<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>};
+</code></pre></div><p>Bên C++ có 2 cách để khởi tạo giá trị của thành viên trong lớp. Cách thứ nhất
+là cách được dùng với phương thức khởi tạo 2 tham số trong đoạn code trên,
+tức là viết các câu lệnh gán trong thân của phương thức khởi tạo. Cách thứ hai
+là viết dấu hai chấm ngay sau phần khai báo của phương thức khởi tạo, sau đó
+khởi tạo cho các thành viên theo cú pháp <code>&lt;thành viên&gt;(&lt;giá trị&gt;)</code>. Để gọi tới
+phương thức khởi tạo khác thì dùng tên lớp. Bởi vì viết như vầy thì đổi tên lớp
+là phải sửa lại nên C# không chọn dùng tên lớp mà chọn <code>this</code>, vậy nên trong C++
+viết <code>Window(width, height)</code> còn bên C# thì viết <code>this(width, height)</code>.</p>
+<h3 id="thành-viên-static">Thành viên <code>static</code></h3>
+<p><code>this</code> trỏ tới đối tượng gọi phương thức lên, vậy trong <code>Main()</code> thì <code>this</code> trỏ tới đâu?
 Câu trả lời là: <code>Main()</code> không có <code>this</code>. Những phương thức như <code>Main()</code> có thể được
 gọi lên để thực thi luôn mà không cần đối tượng. Những phương thức như vậy được khai báo
 bằng từ khóa <code>static</code>, khi truy cập thì dùng tên lớp thay vì một đối tượng nào đó.</p>
 <p>Phương thức <code>static</code> không có <code>this</code> nên nó không thể gọi tới phương thức không có khai báo
 <code>static</code>. Xem đoạn code dưới này:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cls</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cls</span>
 {
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Method1()
 	{
@@ -830,13 +913,13 @@ trên: thành viên <code>static</code> là thành viên thuộc về lớp, kh�
 được), Java với C# lại rẽ ra từ C++ nên từ khóa <code>static</code> cũng theo đó mà chạy qua, thế là
 có cái từ khóa dịch ra thấy chả liên quan gì với chức năng của nó.</p>
 <p>Vậy <code>static</code> xài để làm gì được? Trước hết là, bên C# không có hàm, chỉ có phương thức,
-nên nếu muốn khai báo một phương thức có thể xài như hàm (tức là khỏi cần đối tượng vẫn
-gọi hàm được) như bên ngôn ngữ khác thì phải thêm <code>static</code> vô. Ví dụ cho trường hợp này
-thì có rất nhiều, mấy đoạn code trước đó cũng có xài tới vài cái: <code>Sqrt</code> (tính căn bậc
-hai) hay <code>Pow</code> (tính lũy thừa) trong lớp <code>Math</code>, hoặc lùi về tới Hello world thì có
-<code>Write</code> với <code>WriteLine</code> của lớp <code>Console</code>, mấy cái đó đều là phương thức <code>static</code>.</p>
+mà phương thức thông thường thì lúc gọi lên phải có đối tượng. Để có thể khai báo phương
+thức giống như hàm trong mấy ngôn ngữ lập trình khác thì phải thêm static vô phương thức.
+Ví dụ cho trường hợp này thì có rất nhiều, mấy đoạn code trước đó cũng có xài tới vài cái:
+<code>Sqrt</code> (tính căn bậc hai) hay <code>Pow</code> (tính lũy thừa) trong lớp <code>Math</code>, hoặc lùi về trước
+nữa thì có <code>Write</code> với <code>WriteLine</code> của lớp <code>Console</code>, mấy cái đó đều là <code>static</code>.</p>
 <p>Còn làm gì được với nó nữa? Xem đoạn code dưới đây</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span> <span style="color:#75715e">// Hình chữ nhật
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span> <span style="color:#75715e">// Hình chữ nhật
 </span><span style="color:#75715e"></span>{
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Left
 	{
@@ -882,9 +965,8 @@ góc trên bên trái và tọa độ góc dưới bên phải của hình chữ
 bằng cách nhận góc trên bên trái và kích thước của hình. Vấn đề ở đây là, tên tham
 số không nằm trong dấu hiệu của phương thức, nên là 2 phương thức khởi tạo ở trên
 trùng dấu hiệu với nhau, thành ra không nạp chồng được.</p>
-<p>Vậy <code>static</code> giúp ích gì được trong trường hợp này? Nhìn đoạn code được viết lại
-với <code>static</code> sẽ thấy</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span>
+<p>Vậy <code>static</code> giúp ích gì được trong trường hợp này? Xem đoạn code được viết lại</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span>
 {
 	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Left
 	{
@@ -936,16 +1018,23 @@ với <code>static</code> sẽ thấy</p>
 	}
 	<span style="color:#75715e">// ...
 </span><span style="color:#75715e"></span>}
+</code></pre></div><p>Khi viết như ở trên thì lúc dùng lớp <code>Rectangle</code> cũng sẽ viết khác đi,
+không còn cần <code>new</code> nữa.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Rectangle firstRect = Rectangle.fromPointPair(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">11</span>);
+Rectangle secondRect = Rectangle.fromPointAndSize(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>);
 </code></pre></div><p>Dựa theo định nghĩa của constructor trong C# thì 2 phương thức ở trên không thể
 gọi là phương thức khởi tạo được, tại vì nó sai hết cả 2 yêu cầu (tên không giống
 tên lớp, lại có kiểu trả về). Tuy nhiên, vì nó được sử dụng để tạo ra đối tượng,
 mà nó lại có thể được đặt tên tùy ý nên người ta gọi nó là phương thức khởi tạo
-có tên (named constructor). Cách viết này rất phổ biến, và thường được ưu tiên hơn
-vì nó có thể được đặt tên mô tả chức năng của nó, chứ không bắt buộc phải dùng tên
-lớp nữa. Khi dùng lớp <code>Rectangle</code> sẽ viết khác trước, không còn cần <code>new</code> nữa.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Rectangle firstRect = Rectangle.fromPointPair(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">11</span>);
-Rectangle secondRect = Rectangle.fromPointAndSize(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>);
-</code></pre></div><h3 id="kế-thừa">Kế thừa</h3>
+có tên (named constructor). Cách viết này rất phổ biến, và thường được ưu tiên
+hơn vì nó có thể được đặt tên mô tả chức năng của nó, chứ không bắt buộc phải
+dùng tên lớp nữa.</p>
+<h3 id="kế-thừa">Kế thừa</h3>
+<p>Lớp trong C# có thể kế thừa lớp khác để thừa hưởng tất cả các thành viên từ lớp đó.
+Lúc này lớp được kế thừa sẽ được gọi là lớp cơ sở (base class) và lớp kế thừa gọi là
+lớp dẫn xuất (derived class). Ngoài cách gọi này vẫn có những cách gọi khác, như ở
+nước mình hay kêu là lớp con (child class) với lớp cha (parent class). Tuy nhiên,
+dùng từ base và derived thì nó</p>
 <p>override, base, inherit</p>
 <p>TODO: Write this</p>
 <h2 id="tìm-hiểu-kỹ-hơn-về-phương-thức">Tìm hiểu kỹ hơn về phương thức</h2>
