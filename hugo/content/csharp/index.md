@@ -129,6 +129,7 @@ int hoursWorked;
 
 Lần đầu tiên gán giá trị cho biến được gọi là khởi tạo. Có thể khởi tạo ngay sau khi
 khai báo biến luôn:
+
 ```cs
 int paymentPerHour = 20000;
 int hoursWorked = 80;
@@ -136,6 +137,7 @@ int hoursWorked = 80;
 
 Có thể sử dụng biến với các phép toán mà kiểu của nó có (ví dụ số nguyên có phép toán
 cộng, trừ, nhân, chia, chia dư, ...)
+
 ```cs
 int paymentPerHour = 20000;
 int hoursWorked = 80;
@@ -153,11 +155,11 @@ in 1 giá trị. Muốn in nhiều giá trị thì viết nhiều câu lệnh,
 mỗi lần truyền 1 giá trị.
 
 ```cs
-Console.Write("Hello");
-Console.WriteLine("world");
 // Đoạn chương trình trên in ra `Helloworld` (không có khoảng trắng ở giữa).
 // `Console.Write()` chỉ in cái được truyền vào, không in thêm gì khác.
 // Sau `world` có ký tự xuống dòng do `Console.WriteLine()` in kèm.
+Console.Write("Hello");
+Console.WriteLine("world");
 ```
 
 Đọc 1 dòng từ bàn phím bằng `Console.ReadLine()`, kết quả được đưa về
@@ -166,6 +168,7 @@ dưới dạng chuỗi.
 Để chuyển chuỗi đọc được sang kiểu khác, có thể dùng lớp `Convert`,
 lớp này có các phương thức như `ToInt32()` để chuyển sang kiểu `int`,
 `ToDouble()` để sang kiểu `double`
+
 ```cs
 string name = Console.ReadLine();
 int age = Convert.ToInt32(Console.ReadLine());
@@ -174,6 +177,7 @@ double weightInKg = Convert.ToDouble(Console.ReadLine());
 
 Lưu ý là đoạn code trên chỉ đọc vào chứ không in ra, nên lúc chạy sẽ thấy như chương trình
 không phản hồi người dùng. Để người dùng biết cần nhập gì, cần in thông báo ra trước:
+
 ```cs
 Console.Write("Your name: ");
 string name = Console.ReadLine();
@@ -193,6 +197,7 @@ Console.WriteLine(" kg");
 
 In từng giá trị như trên sẽ rất phiền phức, nên `Console` có cho phép dùng
 `Write` và `WriteLine` theo một cách khác ngắn gọn hơn:
+
 ```cs
 Console.Write("Your name: ");
 string name = Console.ReadLine();
@@ -206,10 +211,11 @@ Console.WriteLine("    Age: {0}", age);
 Console.WriteLine("    Weight: {0} kg", weightInKg);
 ```
 
-Chuỗi đầu tiên được gọi là chuỗi định dạng, tức là chuỗi dùng để mô tả kết quả
-sau khi in sẽ ra cái gì. Phía sau có thể truyền bao nhiêu giá trị cũng được,
-giá trị đầu tiên có số thứ tự là 0 và sẽ được dùng để thế vào `{0}` trong chuỗi
-định dạng. Một giá trị có thể xuất hiện nhiều lần trong chuỗi định dạng:
+Chuỗi đầu tiên được gọi là chuỗi định dạng (format string), tức là chuỗi dùng để
+mô tả kết quả sau khi in sẽ ra cái gì. Phía sau có thể truyền bao nhiêu giá trị
+cũng được, giá trị đầu tiên có số thứ tự là 0 và sẽ được dùng để thế vào `{0}`
+trong chuỗi định dạng. Một giá trị có thể dùng nhiều lần trong chuỗi định dạng:
+
 ```cs
 Console.WriteLine("{0}{1}{0}", 'a', 'b'); // In ra "aba"
 ```
@@ -235,8 +241,9 @@ Biến thuộc kiểu mảng chỉ chứa địa chỉ của nơi lưu các ph�
 Nhìn hình bên trên có thể thấy, các phần tử của mảng được lưu ở địa chỉ từ
 `0x1000` về sau còn biến `arr` lại nằm ở địa chỉ `0x444`.
 
-Để sử dụng mảng, trước hết cần khai báo một biến kiểu mảng (hay nói đúng hơn
-thì nó là một con trỏ) để chỉ tới vùng lưu giá trị các phần tử.
+Để sử dụng mảng, trước hết cần khai báo một biến kiểu mảng để chỉ tới vùng
+lưu giá trị các phần tử.
+
 ```cs
 int[] arr;
 ```
@@ -246,13 +253,14 @@ int[] arr;
 Sau đó là tạo mảng mới bằng toán tử `new`, lúc này bộ nhớ sẽ được cấp cho
 chương trình để lưu các phần tử của mảng, cho nên trong cặp ngoặc vuông cần
 phải có kích thước cụ thể của mảng.
+
 ```cs
 int[] arr;
 // Cấp phát 1 vùng nhớ đủ chứa 4 phần tử kiểu int và cho `arr` trỏ đến
 arr = new int[4]; 
 ```
 
-![Hình minh họa biến kiểu mảng chưa được khởi tạo](img/Array-new.svg)
+![Hình minh họa biến kiểu mảng sau khi đã khởi tạo](img/Array-new.svg)
 
 Có thể kết hợp 2 bước khai báo và khởi tạo lại
 ```cs
@@ -260,47 +268,57 @@ int[] arr = new int[4];
 ```
 
 Đọc/ghi giá trị từng phần tử trong mảng bằng toán tử `[]`, trong cặp ngoặc vuông
-ghi chỉ số (index) của phần tử cần truy cập, phần tử đầu của mảng có chỉ số là 0.
+ghi chỉ số (index) của phần tử cần truy cập, phần tử đầu của mảng có chỉ số là `0`.
+
 ```cs
 int[] arr = new int[4];
 arr[0] = 123;
 arr[1] = 456;
 arr[2] = 789;
 arr[3] = 0;
-Console.WriteLine("{0}, {1}, {2}, {3}", arr[0], arr[1], arr[2], arr[3]);
+Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
 
 Khi dùng `new`, các phần tử của mảng đều được khởi tạo bằng giá trị
-mặc định của kiểu, đối với kiểu số thì giá trịmặc định là 0, kiểu
-`bool` là `false`, kiểu con trỏ là `null`, ... Vậy cho nên dòng
+mặc định của kiểu, đối với kiểu số thì giá trị mặc định là `0`, kiểu
+`bool` là `false`, kiểu đối tượng là `null`, ... Vậy cho nên dòng
 `arr[3] = 0` bên trên có thể loại bỏ mà không làm thay đổi ý nghĩa
 của chương trình.
+
 ```cs
 int[] arr = new int[4];
 arr[0] = 123;
 arr[1] = 456;
 arr[2] = 789;
-Console.WriteLine("{0}, {1}, {2}, {3}", arr[0], arr[1], arr[2], arr[3]);
+Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
 
 Có thể khởi tạo giá trị các phần tử ngay khi cấp phát bộ nhớ bằng `new`
+
 ```cs
 int[] arr = new int[4] { 123, 456, 789, 0 };
-Console.WriteLine("{0}, {1}, {2}, {3}", arr[0], arr[1], arr[2], arr[3]);
+Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
 
-Nếu tất cả các phần tử đều được khởi tạo thì có thể bỏ qua kích thước mảng:
+Nếu trong cặp ngoặc nhọn có đủ giá trị cho tất cả các phần tử đều thì
+có thể bỏ trống kích thước mảng, trình biên dịch nó tự biết đếm số phần
+tử trong cặp ngoặc nhọn.
+
 ```cs
 // arr vẫn là mảng 4 phần tử
 int[] arr = new int[] { 123, 456, 789, 0 };
-Console.WriteLine("{0}, {1}, {2}, {3}", arr[0], arr[1], arr[2], arr[3]);
+Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
+
+`new int[] { 123, 456, 789, 0 }` tạo một mảng và khởi tạo cho các phần tử
+của nó bằng những giá trị được ghi trong cặp ngoặc nhọn.
 
 Nếu khởi tạo giá trị các phần tử của mảng ngay khi khai báo biến kiểu mảng thì
 có thể bỏ qua `new` luôn
+
 ```cs
 int[] arr = { 123, 456, 789, 0 };
-Console.WriteLine("{0}, {1}, {2}, {3}", arr[0], arr[1], arr[2], arr[3]);
+Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
 
 Trong trường hợp biến đã được khai báo trước đó thì không bỏ `new` được
@@ -309,26 +327,29 @@ int[] arr;
 // Nếu viết như dòng này sẽ bị lỗi biên dịch
 // arr = { 123, 456, 789, 0 }; 
 arr = new int[] { 123, 456, 789, 0 };
-Console.WriteLine("{0}, {1}, {2}, {3}", arr[0], arr[1], arr[2], arr[3]);
+Console.WriteLine("{0} {1} {2} {3}", arr[0], arr[1], arr[2], arr[3]);
 ```
 
 Lưu ý là trong trường hợp không khởi tạo tất cả phần tử trong mảng thì không thể
 bỏ qua kích thước mảng, nếu không sẽ làm thay đổi ý nghĩa chương trình.
+
 ```cs
 int[] arr1 = new int[4] { 1, 2, 3 }; // Mảng 4 phần tử 1, 2, 3, 0
 int[] arr2 = new int[] { 1, 2, 3 }; // Mảng 3 phần tử 1, 2, 3
 int[] arr3 = { 1, 2, 3 }; // Như trên, mảng 3 phần tử 1, 2, 3
 ```
 
-Độ dài của mảng được lưu trong thuộc tính (property) `Length`.
+Kích thước của mảng (số phần tử) được lưu trong thuộc tính (property) `Length`.
+
 ```cs
 int[] arr = new int[4];
 Console.WriteLine("Length of arr = {0}", arr.Length);
 ```
 
-Có thể lặp qua từng phần tử trong mảng bằng vòng lặp `for` hoặc `foreach`.
-`foreach` dễ đọc hơn nhưng không có lưu chỉ số của phần tử hiện tại nên đôi
-khi vẫn cần dùng `for` để duyệt qua mảng.
+Có thể dùng `foreach` để duyệt qua từng phần tử trong mảng, hoặc dùng `for` với
+biến lặp duyệt qua từng chỉ số (index) của mảng, sau đó dùng biến lặp (đang chứa
+chỉ số phần tử mảng) để truy cập phần tử trong mảng.
+
 ```cs
 int[] arr = { 1, 2, 3 };
 // Duyệt qua mảng bằng vòng lặp for, chỉ số của
@@ -337,8 +358,8 @@ for (int i = 0; i < arr.Length; ++i)
 {
 	Console.WriteLine(arr[i]);
 }
-// Duyệt qua mảng bằng vòng lặp foreach, chỉ số
-// của phần tử hiện tại không được lưu
+// Duyệt qua mảng bằng vòng lặp foreach, không có
+// chỉ số của phần tử hiện tại không được lưu
 foreach (int value in arr)
 {
 	Console.WriteLine(value);
@@ -347,6 +368,7 @@ foreach (int value in arr)
 
 `foreach` sẽ lần lượt lấy từng giá trị trong mảng gán cho biến tạm rồi
 thực thi đoạn code trong thân vòng lặp.
+
 ```cs
 int[] arr = { 1, 2, 3 };
 /*
@@ -368,8 +390,9 @@ foreach (int value in arr)
 }
 ```
 
-Biến kiểu mảng chỉ là một con trỏ dùng để chỉ đến chỗ lưu các phần tử trên bộ nhớ,
+Biến kiểu mảng chỉ chứa địa chỉ của nơi lưu các phần tử trên bộ nhớ,
 cho nên không thể sao chép mảng bằng phép gán.
+
 ```cs
 int[] arr = { 1, 2, 3 };
 int[] anotherArray = arr;
@@ -380,6 +403,7 @@ Console.WriteLine(anotherArray[0]); // In ra 0 chứ không phải 1
 ![Hình minh họa kết quả phép gán của biến kiểu mảng](img/Array-assign.svg)
 
 Để chép nội dung mảng cần tạo mảng mới trước rồi chép giá trị từng phần tử sang.
+
 ```cs
 int[] arr = { 1, 2, 3 };
 int[] anotherArray = new int[arr.Length];
@@ -395,8 +419,9 @@ Console.WriteLine(anotherArray[0]); // Lúc này in ra 1
 ![Hình minh họa việc sao chép mảng](img/Array-copy.svg)
 
 Bởi vì việc sao chép nội dung mảng rất thường gặp nên C# có cung cấp sẵn
-phương thức cho việc sao chép trong lớp `Array`. Lớp này chứa các phương
-thức giúp thao tác với mảng tiện lợi hơn.
+phương thức cho việc sao chép trong lớp `Array` (một lớp chứa các phương
+thức giúp thao tác với mảng tiện lợi hơn).
+
 ```cs
 int[] arr = { 1, 2, 3 };
 int[] anotherArray = new int[arr.Length];
@@ -413,6 +438,7 @@ foreach (int value in anotherArray)
 Chỉ sử dụng các kiểu cơ bản như `int`, `float`, `char`, `bool` không đủ để
 viết ra code dễ đọc. Lấy ví dụ như đoạn chương trình nhập 2 điểm và in ra
 khoảng cách giữa 2 điểm vừa nhập
+
 ```cs
 Console.WriteLine("Nhập tọa độ điểm thứ nhất: ");
 double x1 = Convert.ToDouble(Console.ReadLine());
@@ -439,6 +465,7 @@ tượng không cần công khai.
 
 ### Khai báo lớp, trường, phương thức
 Để sử dụng đối tượng cần khai báo lớp, sử dụng từ khóa `class`
+
 ```cs
 class Point
 {
@@ -446,7 +473,8 @@ class Point
 ```
 
 Trong class có thể có trường (field), cách khai báo giống với khai báo biến.
-```cs
+
+```cs {hl_lines=[3,4]}
 class Point
 {
 	double x;
@@ -456,7 +484,8 @@ class Point
 
 Trong class cũng có thể có phương thức (method), khai báo theo cú pháp
 `<kiểu trả về> <tên>(<các tham số>)`.
-```cs
+
+```cs {hl_lines=[5-8]}
 class Point
 {
 	double x;
@@ -469,6 +498,7 @@ class Point
 ```
 
 Tạo object bằng `new`
+
 ```cs
 using System;
 
