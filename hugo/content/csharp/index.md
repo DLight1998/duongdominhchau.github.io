@@ -1188,11 +1188,540 @@ dùng tên lớp nữa.
 Lớp trong C# có thể kế thừa lớp khác để thừa hưởng tất cả các thành viên từ lớp đó.
 Lúc này lớp được kế thừa sẽ được gọi là lớp cơ sở (base class) và lớp kế thừa gọi là
 lớp dẫn xuất (derived class). Ngoài cách gọi này vẫn có những cách gọi khác, như ở
-nước mình hay kêu là lớp con (child class) với lớp cha (parent class). Tuy nhiên,
-dùng từ base và derived thì nó 
+nước mình hay kêu là lớp con (child class) với lớp cha (parent class), thích gọi sao
+thì gọi nhưng mà trong bài viết này sẽ chỉ sử dụng cách gọi lớp cơ sở – lớp kế thừa.
 
-override, base, inherit
+Cú pháp để kế thừa cũng khá đơn giản: Thêm dấu hai chấm sau tên lớp rồi ghi tên lớp
+cơ sở để kế thừa.
 
+```c#
+using System;
+
+// Widget là từ để chỉ chung mấy cái thành phần trên giao diện,
+// ví dụ như button, checkbox, text box, list view, ...
+class Widget
+{
+  public int id = -1;
+  public void Draw()
+  {
+	Console.WriteLine("Widget.Draw()");
+  }
+}
+
+class Button : Widget // Lớp Button kế thừa lớp Widget
+{
+  public void Click()
+  {
+	Console.WriteLine("Button.Click");
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+	Button button = new Button();
+	Console.WriteLine(button.id); // In ra -1
+	button.Draw(); // In ra "Widget.Draw()"
+	button.Click();
+  }
+}
+```
+
+Lớp `Button` không có định nghĩa phương thức `Draw()`, nhưng mà nó kế thừa
+lớp `Widget` nên nó vẫn có trường `id` và phương thức `Draw()`, vậy nên
+đoạn code trong `Main()` không bị lỗi.
+
+#### Mức truy cập khi kế thừa và từ khóa `protected`
+Ví dụ ở trên chỉ toàn thành viên `public`, vậy nếu dùng `private` thì sao?
+
+```c#
+using System;
+
+class Widget
+{
+  private int id = -1;
+  public void Draw()
+  {
+	Console.WriteLine("Widget.Draw()");
+  }
+}
+
+class Button : Widget
+{
+  public void Click()
+  {
+	Console.WriteLine("Button.Click");
+  }
+  public void PrintId()
+  {
+	// Console.WriteLine(id);
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+	Button button = new Button();
+	// Console.WriteLine(button.id);
+	button.Draw(); // In ra "Widget.Draw()"
+	button.Click();
+  }
+}
+```
+
+Đoạn code bên trên có 2 dòng code nằm trong chú thích, bỏ chú thích dòng nào
+trong đó cũng đều gây ra lỗi biên dịch. Đây là vì `private` chỉ có thể được
+truy cập trong lớp chứa nó, lớp `Button` kế thừa `Widget` nhưng mà nó vẫn là
+lớp bên ngoài nên không thể truy cập trường `id`.
+
+`private` và `public` là dạng tất cả hoặc không gì cả, chỉ dùng 2 mức truy cập
+này là không đủ cho mọi trường hợp, cho nên có thêm mức truy cập khác được đưa
+ra: `protected`. Thành viên có mức truy cập `protected` sẽ có thể được truy cập
+ở những lớp dẫn xuất, còn những lớp khác vẫn không có quyền truy cập.
+
+```c#
+using System;
+
+class Widget
+{
+  protected int id = -1;
+  public void Draw()
+  {
+	Console.WriteLine("Widget.Draw()");
+  }
+}
+
+class Button : Widget
+{
+  public void Click()
+  {
+	Console.WriteLine("Button.Click");
+  }
+  public void PrintId()
+  {
+	// Lúc này không lỗi nữa vì Button kế thừa Widget
+	Console.WriteLine(id);
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+	Button button = new Button();
+	// Nhưng mà dòng này vẫn lỗi vì Program không kế thừa Widget
+	// Console.WriteLine(button.id);
+	button.Draw(); // In ra "Widget.Draw()"
+	button.Click();
+  }
+}
+```
+
+#### Gọi đế phương thức khởi tạo của lớp cơ sở
+Khi kế thừa thì các trường cũng được đem sang (kể cả private, chỉ là
+không truy cập được nó thôi chứ nó vẫn tồn tại). Khi khởi tạo đối tượng
+cần phải khởi tạo luôn cho phần kế thừa được, thông qua phương thức khởi
+tạo của lớp cơ sở. Cách viết giống với khi gọi tới phương thức khởi tạo
+trong cùng lớp, chỉ có điều lúc này không gọi tới phương thức khởi tạo
+của lớp hiện tại nữa (lúc này đang muốn gọi tới cái phương thức khởi tạo
+của lớp cơ sở), cho nên không dùng `this` mà dùng một từ khóa khác: `base`.
+
+```c#
+using System;
+
+class Widget
+{
+  private string name;
+
+  public Widget(string name)
+  {
+	this.name = name;
+  }
+  public void Draw()
+  {
+	Console.WriteLine("{0} is drawing", name);
+  }
+}
+
+class Button : Widget
+{
+  private string text;
+
+  public Button(string name, string labelText) : base(name)
+  {
+	text = labelText;
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+	Button button = new Button("btn1", "Click me");
+	button.Draw();
+  }
+}
+```
+
+#### Nạp chồng trên nhiều lớp
+Những phương thức kế thừa được vẫn có thể nạp chồng (overload) như bình thường.
+
+```c#
+using System;
+
+class Base
+{
+  public void Print()
+  {
+	Console.WriteLine("Base.Print()");
+  }
+}
+
+class Derived : Base
+{
+  public void Print(int unused)
+  {
+	Console.WriteLine("Derived.Print(int)");
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+	new Derived().Print(); // Gọi tới Print() kế thừa được từ Base
+	new Derived().Print(1); // Gọi tới Print(int) được nạp chồng
+  }
+}
+```
+
+#### Che phương thức kế thừa được
+Không chỉ dừng ở nạp chồng, C# còn cho phép định nghĩa một
+phương thức hoàn toàn giống với phương thức ở lớp cơ sở.
+
+```c#
+using System;
+
+class Base
+{
+  public void Print()
+  {
+	Console.WriteLine("Base.Print()");
+  }
+}
+
+class Derived : Base
+{
+  public void Print()
+  {
+	Console.WriteLine("Derived.Print()");
+  }
+}
+
+class Program
+{
+  static void Main()
+  {
+	Derived a = new Derived();
+	a.Print(); // Gọi tới Print() của Derived
+	Base b = new Derived();
+	b.Print(); // Gọi tới Print() của Base
+  }
+}
+```
+
+Đoạn chương trình trên có một vài điểm đặc biệt chưa được nói đến.
+Trước hết là phép gán trong `Main()`: biến có kiểu là lớp cơ sở có
+thể trỏ tới đối tượng của lớp dẫn xuất. Tiếp đó là biến kiểu gì sẽ
+gọi phương thức của lớp đó: biến `b` trỏ tới đối tượng kiểu `Derived`
+nhưng mà vì nó kiểu `Base` nên vẫn gọi tới phương thức của `Base`.
+Trường hợp này gọi là phương thức `Print()` của `Derived` đã giấu (hide)
+phương thức `Print()` của `Base` đi. Nói như vậy là vì khi sử dụng lớp
+`Derived` mới không dùng được `Print()` của `Base`, khi khai báo biến
+kiểu `Base` là lại dùng được tiếp, không bị giấu nữa, chỉ khi dùng
+`Derived` thì `Print()` của `Base` mới bị giấu đi.
+
+#### Gọi phương thức ở lớp cơ sở, lại gặp `base`
+Lại nói một chút về việc tránh lặp code. Rất nhiều lúc lớp dẫn xuất
+cần gọi tới phương thức ở lớp cơ sở để tránh lặp code, C# dùng từ khóa
+`base` cho mục đích này, cũng một từ khóa dùng với 2 nghĩa gần nhau như
+`this` (`this` có 2 chức năng: dùng như tên phương thức khởi tạo của lớp
+hiện tại và dùng để chỉ đến đối tượng gọi phương thức, `base`cũng vậy: dùng
+như tên phương thức khởi tạo của lớp cơ sở và dùng để trỏ tới phần kế thừa
+từ lớp cơ sở).
+
+Ví dụ với đoạn code bên dưới:
+
+```c#
+using System;
+
+class Widget
+{
+  public void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+  }
+}
+
+class Button : Widget
+{
+  public void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+	Console.WriteLine("Vẽ chữ bên trong");
+  }
+}
+
+class TextBox : Widget
+{
+  public void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+  }
+}
+```
+
+Phần vẽ viền là phần chung và bị lặp ở từng lớp kế thừa nó. Để
+giải quyết vấn đề này có thể viết lại bằng cách dùng `base`.
+
+```c#
+using System;
+
+class Widget
+{
+  public void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+  }
+}
+
+class Button : Widget
+{
+  public void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Vẽ chữ bên trong");
+  }
+}
+
+class TextBox : Widget
+{
+  public void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+  }
+}
+```
+
+#### Nạp đè
+Mọi chuyện đều vẫn rất tốt, cho tới khi kiểu của đối tượng không
+còn rõ ràng nữa.
+
+```c#
+using System;
+
+class Widget
+{
+  public void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+  }
+}
+
+class Button : Widget
+{
+  public void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Vẽ chữ bên trong");
+  }
+}
+
+class TextBox : Widget
+{
+  public void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+  }
+}
+
+class Window
+{
+  private Widget[] widgets;
+
+  public Window(Widget[] widgets)
+  {
+	this.widgets = widgets;
+  }
+  public void Draw()
+  {
+	foreach (Widget widget in widgets)
+	{
+	  widget.Draw(); // ???
+	}
+  }
+  static void Main()
+  {
+	Button button = new Button();
+	TextBox textBox = new TextBox();
+	Window window = new Window(new Widget[] { button, textBox });
+	window.Draw();
+  }
+}
+```
+
+Chú ý dòng có chú thích `// ???`. Bởi vì biến `widget` có kiểu là
+`Widget` nên khi nó chỉ tới một `Button` thì nó vẫn chỉ vẽ viền rồi
+thôi, trong khi đúng ra nó cần phải vẽ phần chữ bên trong nữa. Vấn
+đề này không thể sửa bằng cách đổi kiểu của mảng `widgets` thành
+`Button[]` được, biết đâu có cái widget nào đó là `TextBox` chứ
+không phải Button rồi sao?
+
+Vì sao nó lại ra như vầy? Hành vi quan sát được từ đoạn code này
+hoàn toàn giống với phần mô tả về che phương thức được viết trước
+đó. Vậy là tại mình chọn cách che đi phương thức của lớp cơ sở.
+Muốn đoạn code trên chạy đúng thì phương thức ở lớp dẫn xuất phải
+thay thế luôn phương thức ở lớp cơ sở chứ không chỉ che đi.
+
+Việc thay thế một phương thức kế thừa từ lớp cơ sở như vậy gọi là
+nạp đè (override). Để làm vậy được thì trước hết cần khai báo
+phương thức là `virtual` (ảo), chỉ có `virtual` mới nạp đè (override)
+được. Sau đó ở mỗi lớp dẫn xuất phải thêm từ khóa `override` để thể
+hiện là mình muốn nạp đè thay vì che phương thức cũ đi.
+
+```c#
+using System;
+
+class Widget
+{
+  public virtual void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+  }
+}
+
+class Button : Widget
+{
+  public override void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Vẽ chữ bên trong");
+  }
+}
+
+class TextBox : Widget
+{
+  public override void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+  }
+}
+
+class Window
+{
+  private Widget[] widgets;
+
+  public Window(Widget[] widgets)
+  {
+	this.widgets = widgets;
+  }
+  public void Draw()
+  {
+	foreach (Widget widget in widgets)
+	{
+	  widget.Draw(); // OK
+	}
+  }
+  static void Main()
+  {
+	Button button = new Button();
+	TextBox textBox = new TextBox();
+	Window window = new Window(new Widget[] { button, textBox });
+	window.Draw();
+  }
+}
+```
+
+Lúc này chương trình mới chạy đúng như mong muốn.
+
+#### Che phương thức ảo
+Nếu bỏ qua từ khóa `override` chương trình vẫn chạy, nhưng chạy sai.
+
+```c#
+using System;
+
+class Widget
+{
+  public virtual void Draw()
+  {
+	Console.WriteLine("Vẽ viền hình chữ nhật");
+  }
+}
+
+class Button : Widget
+{
+  public void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Vẽ chữ bên trong");
+  }
+}
+
+class TextBox : Widget
+{
+  public void Draw()
+  {
+	base.Draw();
+	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+  }
+}
+
+class Window
+{
+  private Widget[] widgets;
+
+  public Window(Widget[] widgets)
+  {
+	this.widgets = widgets;
+  }
+  public void Draw()
+  {
+	foreach (Widget widget in widgets)
+	{
+	  widget.Draw();
+	}
+  }
+  static void Main()
+  {
+	Button button = new Button();
+	TextBox textBox = new TextBox();
+	Window window = new Window(new Widget[] { button, textBox });
+	window.Draw();
+  }
+}
+```
+
+Khi không viết `override` thì chuyện gì xảy ra mà nó lại sai? C# che
+phương thức! Nếu để ý kỹ sẽ thấy khi bỏ trống sẽ có một warning cho
+dòng đó. Có 2 lựa chọn khi định nghĩa phương thức giống y phương thức
+ở lớp cơ sở: nạp đè hoặc che phương thức cơ sở đi. Để chọn giữa 2 cái
+này C# có 2 từ khóa tương ứng: `override` và `new` (vẫn như cũ, cùng
+một từ khóa bị đem ra dùng cho nhiều mục đích khác nhau, `new` trong
+trường hợp này không phải để tạo đối tượng). Khi bỏ trống thì trình
+biên dịch sẽ coi như mình chọn dùng `new` thay vì `override`.
+
+Dưới góc nhìn cá nhân thì che phương thức là một tính năng của C# mà
+không ai cần tới, đã vậy còn gây ra ảnh hưởng xấu tới code. Cho nên nếu
+viết phương thức cứ cho tất cả tụi nó thành `virtual` hết và khi định
+nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ `override` hết.
+
+#### Giao diện (interface) và đa kế thừa
 TODO: Write this
 
 ## Tìm hiểu kỹ hơn về phương thức
