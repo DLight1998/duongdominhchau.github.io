@@ -22,7 +22,7 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://duongdominhchau.github.io/csharp/" />
 <meta property="article:published_time" content="2020-06-09T01:08:20+07:00" />
-<meta property="article:modified_time" content="2020-06-09T14:47:36+07:00" />
+<meta property="article:modified_time" content="2020-06-10T01:52:25+07:00" />
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C#"/>
@@ -45,7 +45,7 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
 	<h1>C#</h1>
 	<p class="publish-date">Published: 2020-06-09 01:08:20 &#43;07:00</p>
 	
-		<p class="last-modified-date">Last modified: 2020-06-09 14:47:36 &#43;07:00</p>
+		<p class="last-modified-date">Last modified: 2020-06-10 01:52:25 &#43;07:00</p>
 	
 </section>
 <article class="post-content">
@@ -57,7 +57,13 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
     <li><a href="#câu-lệnh-giá-trị-phép-toán">Câu lệnh, giá trị, phép toán</a></li>
     <li><a href="#kiểu-dữ-liệu-biến">Kiểu dữ liệu, biến</a></li>
     <li><a href="#nhập-xuất-với-console">Nhập xuất với <code>Console</code></a></li>
-    <li><a href="#mảng">Mảng</a></li>
+    <li><a href="#mảng">Mảng</a>
+      <ul>
+        <li><a href="#khai-báo-và-khởi-tạo">Khai báo và khởi tạo</a></li>
+        <li><a href="#duyệt-qua-mảng">Duyệt qua mảng</a></li>
+        <li><a href="#sao-chép-nội-dung-mảng">Sao chép nội dung mảng</a></li>
+      </ul>
+    </li>
     <li><a href="#lớp">Lớp</a>
       <ul>
         <li><a href="#khai-báo-lớp-trường-phương-thức">Khai báo lớp, trường, phương thức</a></li>
@@ -81,7 +87,7 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
         </li>
       </ul>
     </li>
-    <li><a href="#tìm-hiểu-kỹ-hơn-về-phương-thức">Tìm hiểu kỹ hơn về phương thức</a></li>
+    <li><a href="#chi-tiết-về-phương-thức">Chi tiết về phương thức</a></li>
     <li><a href="#todo">TODO</a></li>
   </ul>
 </nav>
@@ -253,6 +259,7 @@ cũng được, giá trị đầu tiên có số thứ tự là 0 và sẽ đư�
 trong chuỗi định dạng. Một giá trị có thể dùng nhiều lần trong chuỗi định dạng:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">Console.WriteLine(<span style="color:#e6db74">&#34;{0}{1}{0}&#34;</span>, <span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>); <span style="color:#75715e">// In ra &#34;aba&#34;
 </span></code></pre></div><h2 id="mảng">Mảng</h2>
+<h3 id="khai-báo-và-khởi-tạo">Khai báo và khởi tạo</h3>
 <p>Biến thuộc các kiểu dữ liệu ở phía trước chỉ lưu một giá trị. Khi cần
 lưu nhiều giá trị thì không thể cứ khai báo biến cho từng giá trị được,
 lúc này cần dùng tới mảng (array).</p>
@@ -324,7 +331,8 @@ bỏ qua kích thước mảng, nếu không sẽ làm thay đổi ý nghĩa ch�
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr1 = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>] { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Mảng 4 phần tử 1, 2, 3, 0
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>[] arr2 = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[] { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Mảng 3 phần tử 1, 2, 3
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span>[] arr3 = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> }; <span style="color:#75715e">// Như trên, mảng 3 phần tử 1, 2, 3
-</span></code></pre></div><p>Kích thước của mảng (số phần tử) được lưu trong thuộc tính (property) <code>Length</code>.</p>
+</span></code></pre></div><h3 id="duyệt-qua-mảng">Duyệt qua mảng</h3>
+<p>Kích thước của mảng (số phần tử) được lưu trong thuộc tính (property) <code>Length</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#ae81ff">4</span>];
 Console.WriteLine(<span style="color:#e6db74">&#34;Length of arr = {0}&#34;</span>, arr.Length);
 </code></pre></div><p>Có thể dùng <code>foreach</code> để duyệt qua từng phần tử trong mảng, hoặc dùng <code>for</code> với
@@ -363,7 +371,8 @@ thực thi đoạn code trong thân vòng lặp.</p>
 {
 	Console.WriteLine(<span style="color:#66d9ef">value</span>);
 }
-</code></pre></div><p>Biến kiểu mảng chỉ chứa địa chỉ của nơi lưu các phần tử trên bộ nhớ,
+</code></pre></div><h3 id="sao-chép-nội-dung-mảng">Sao chép nội dung mảng</h3>
+<p>Biến kiểu mảng chỉ chứa địa chỉ của nơi lưu các phần tử trên bộ nhớ,
 cho nên không thể sao chép mảng bằng phép gán.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span>[] arr = { <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span> };
 <span style="color:#66d9ef">int</span>[] anotherArray = arr;
@@ -1525,7 +1534,7 @@ viết phương thức cứ cho tất cả tụi nó thành <code>virtual</code>
 nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ <code>override</code> hết.</p>
 <h4 id="giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</h4>
 <p>TODO: Write this</p>
-<h2 id="tìm-hiểu-kỹ-hơn-về-phương-thức">Tìm hiểu kỹ hơn về phương thức</h2>
+<h2 id="chi-tiết-về-phương-thức">Chi tiết về phương thức</h2>
 <p>callback, predicate, lambda
 out, ref
 operator overloading</p>

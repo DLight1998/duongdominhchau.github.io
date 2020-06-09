@@ -221,6 +221,7 @@ Console.WriteLine("{0}{1}{0}", 'a', 'b'); // In ra "aba"
 ```
 
 ## Mảng
+### Khai báo và khởi tạo
 Biến thuộc các kiểu dữ liệu ở phía trước chỉ lưu một giá trị. Khi cần
 lưu nhiều giá trị thì không thể cứ khai báo biến cho từng giá trị được,
 lúc này cần dùng tới mảng (array).
@@ -339,6 +340,7 @@ int[] arr2 = new int[] { 1, 2, 3 }; // Mảng 3 phần tử 1, 2, 3
 int[] arr3 = { 1, 2, 3 }; // Như trên, mảng 3 phần tử 1, 2, 3
 ```
 
+### Duyệt qua mảng
 Kích thước của mảng (số phần tử) được lưu trong thuộc tính (property) `Length`.
 
 ```c#
@@ -390,6 +392,7 @@ foreach (int value in arr)
 }
 ```
 
+### Sao chép nội dung mảng
 Biến kiểu mảng chỉ chứa địa chỉ của nơi lưu các phần tử trên bộ nhớ,
 cho nên không thể sao chép mảng bằng phép gán.
 
@@ -1724,7 +1727,7 @@ nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ `override`
 #### Giao diện (interface) và đa kế thừa
 TODO: Write this
 
-## Tìm hiểu kỹ hơn về phương thức
+## Chi tiết về phương thức
 callback, predicate, lambda
 out, ref
 operator overloading
