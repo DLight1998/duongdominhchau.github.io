@@ -23,43 +23,22 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 4rem;
 	line-height: 5rem;
-body {
-	background: #000;
-	color: #fff;
-	font-family: PT Serif, Georgia, serif;
-	font-size: 16px;
-	line-height: 1.5rem;
 }
-@media screen {
-	body{
-		padding: 2rem 15rem;
-	}
-}
-
-/* Blog post */
-.post-header  {
-	border-bottom: 2px solid white;
-}
-
-/* Heading */
-h1, h2, h3, h4, h5, h6 {
-	font-family: Fira Sans, Calibri, sans-serif;
-}
-h1 {
-	font-size: 4rem;
+h2 {
+	font-size: 2.5rem;
 	line-height: 3rem;
 }
-h2 {
-	font-size: 2.5rem;
-}
 h3 {
 	font-size: 2rem;
+	line-height: 2.5rem;
 }
 h4 {
 	font-size: 1.5rem;
+	line-height: 2rem;
 }
 h5 {
 	font-size: 1.25rem;
+	line-height: 1.5rem;
 }
 h6 {
 	font-size: 1rem;
@@ -67,62 +46,11 @@ h6 {
 
 /* Image */
 img {
-	background: #fff;
-	box-shadow: 0 0 5px 5px #555;
+	background: #ffe;
+	border-radius: 25px;
+	box-shadow: 0 0 1rem 0.5rem #999;
 	display: block;
-	margin: 0 auto;
-	max-width: 100%;
-	padding: 2.5rem;
-}
-
-/* Link */
-a {
-	color: #0af;
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
-}
-
-/* Syntax highlighting */
-code, .highlight * {
-	font-family: Fira Code, Source Code Pro, PT Sans Mono, monospace;
-}
-code:not([class]) {
-	background: #404040;
-	padding: 0 0.25rem;
-	display: inline-block;
-}
-.highlight > * {
-	padding: 0 2rem;
-}
-.highlight > :first-child,
-.highlight > :last-child {
-	padding: 2rem;
-}
-}
-h2 {
-	font-size: 2.5rem;
-}
-h3 {
-	font-size: 2rem;
-}
-h4 {
-	font-size: 1.5rem;
-}
-h5 {
-	font-size: 1.25rem;
-}
-h6 {
-	font-size: 1rem;
-}
-
-/* Image */
-img {
-	background: #fff;
-	box-shadow: 0 0 5px 5px #555;
-	display: block;
-	margin: 0 auto;
+	margin: 3rem auto;
 	max-width: 100%;
 	padding: 2.5rem;
 }

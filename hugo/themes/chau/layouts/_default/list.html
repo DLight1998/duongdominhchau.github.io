@@ -5,7 +5,11 @@
 			<h1>{{ .Title }}</h1>
 			{{ .Content }}
 			{{ range .Pages}}
-			<p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+				<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+				<div class="post-summary">{{ .Summary }}</div>
+				{{ if .Truncated }}
+					<div><a href="{{ .RelPermalink }}">Đọc tiếp…</a></div>
+				{{ end }}
 			{{ end }}
 		</div>
 	</section>
