@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Tạo blog bằng Hugo và GitHub Pages</title>
+      <link>https://duongdominhchau.github.io/t%E1%BA%A1o-blog-b%E1%BA%B1ng-hugo-v%C3%A0-github-pages/</link>
+      <pubDate>Wed, 10 Jun 2020 15:50:23 +0700</pubDate>
+      
+      <guid>https://duongdominhchau.github.io/t%E1%BA%A1o-blog-b%E1%BA%B1ng-hugo-v%C3%A0-github-pages/</guid>
+      <description>Bài viết này sẽ hướng dẫn cách tạo blog bằng Hugo và host bằng GitHub Pages. Đây cũng là cách mình đang dùng để viết trang blog này.
+Giới thiệu Hugo là một static site generator, nói cách đơn giản thì nó giống như trình biên dịch, chỉ có điều trình biên dịch nhận code vào và cho ra mã máy, còn Hugo nhận nội dung (thường là Markdown) và sinh ra website hoàn chỉnh.</description>
+    </item>
+    
+    <item>
       <title>C#</title>
       <link>https://duongdominhchau.github.io/csharp/</link>
       <pubDate>Tue, 09 Jun 2020 01:08:20 +0700</pubDate>

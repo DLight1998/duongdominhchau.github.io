@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi-vn"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		
+			
+				Tạo blog bằng Hugo và GitHub Pages |
+			
+		
+		Blog của Châu
+	</title>
+	<meta name="description" content="Bài viết này sẽ hướng dẫn cách tạo blog bằng Hugo và host bằng GitHub Pages. Đây cũng là cách mình đang dùng để viết trang blog này.
+Giới thiệu Hugo là một static site generator, nói cách đơn giản thì nó giống như trình biên dịch, chỉ có điều trình biên dịch nhận code vào và cho ra mã máy, còn Hugo nhận nội dung (thường là Markdown) và sinh ra website hoàn chỉnh.">
+	<link rel="canonical" href="https://duongdominhchau.github.io/t%E1%BA%A1o-blog-b%E1%BA%B1ng-hugo-v%C3%A0-github-pages/">
+	<link rel="stylesheet" href="https://duongdominhchau.github.io/css/base.css">
+	<meta property="og:title" content="Tạo blog bằng Hugo và GitHub Pages" />
+<meta property="og:description" content="Bài viết này sẽ hướng dẫn cách tạo blog bằng Hugo và host bằng GitHub Pages. Đây cũng là cách mình đang dùng để viết trang blog này.
+Giới thiệu Hugo là một static site generator, nói cách đơn giản thì nó giống như trình biên dịch, chỉ có điều trình biên dịch nhận code vào và cho ra mã máy, còn Hugo nhận nội dung (thường là Markdown) và sinh ra website hoàn chỉnh." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://duongdominhchau.github.io/t%E1%BA%A1o-blog-b%E1%BA%B1ng-hugo-v%C3%A0-github-pages/" />
+<meta property="article:published_time" content="2020-06-10T15:50:23+07:00" />
+<meta property="article:modified_time" content="2020-06-10T15:50:23+07:00" />
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tạo blog bằng Hugo và GitHub Pages"/>
+<meta name="twitter:description" content="Bài viết này sẽ hướng dẫn cách tạo blog bằng Hugo và host bằng GitHub Pages. Đây cũng là cách mình đang dùng để viết trang blog này.
+Giới thiệu Hugo là một static site generator, nói cách đơn giản thì nó giống như trình biên dịch, chỉ có điều trình biên dịch nhận code vào và cho ra mã máy, còn Hugo nhận nội dung (thường là Markdown) và sinh ra website hoàn chỉnh."/>
+
+</head>
+<body><header>
+	<nav role="navigation">
+		<a href="https://duongdominhchau.github.io/" title="Home">
+			<span class="logo">Blog của Châu</span>
+		</a>
+		
+		</a>
+	</nav>
+</header>
+<div id="content">
+<section class="post-header">
+	<h1>Tạo blog bằng Hugo và GitHub Pages</h1>
+	<p class="publish-date">Published: 2020-06-10 15:50:23 &#43;07:00</p>
+	
+</section>
+<article class="post-content">
+	<h2>Mục lục</h2>
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#giới-thiệu">Giới thiệu</a></li>
+    <li><a href="#lập-một-trang-web-với-github-pages">Lập một trang web với GitHub Pages</a></li>
+    <li><a href="#cài-đặt-và-sử-dụng-hugo">Cài đặt và sử dụng Hugo</a>
+      <ul>
+        <li><a href="#cài-đặt">Cài đặt</a></li>
+        <li><a href="#tạo-site-mới">Tạo site mới</a></li>
+        <li><a href="#thêm-theme">Thêm theme</a></li>
+        <li><a href="#tạo-bài-viết-thử-nghiệm">Tạo bài viết thử nghiệm</a></li>
+        <li><a href="#tự-tạo-theme-cho-website">Tự tạo theme cho website</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+	<div>
+		<p>Bài viết này sẽ hướng dẫn cách tạo blog bằng Hugo và host bằng GitHub Pages.
+Đây cũng là cách mình đang dùng để viết trang blog này.</p>
+<h2 id="giới-thiệu">Giới thiệu</h2>
+<p>Hugo là một static site generator, nói cách đơn giản thì nó giống như trình
+biên dịch, chỉ có điều trình biên dịch nhận code vào và cho ra mã máy, còn
+Hugo nhận nội dung (thường là Markdown) và sinh ra website hoàn chỉnh. Static
+site ở đây có ý nói là nội dung của trang không thay đổi, chứ không phải có ý
+là không xài JavaScript.</p>
+<p>Có website rồi thì cần tìm hosting để treo nó lên cho người khác truy cập.
+GitHub Pages là dịch vụ miễn phí của GitHub cho phép người dùng host web tĩnh
+trên đó. Điểm đặc biệt của nó là GitHub bắt buộc người dùng đăng trang web lên
+dưới dạng một Git repo, cho nên tất cả nội dung đều được quản lý phiên bản bởi
+Git, lỡ có sửa bài viết xong thấy không vừa ý thì vẫn khôi phục về bản cũ được.
+Nếu bạn chưa biết cách sử dụng Git thì nên xem bài viết này trước: <a href="Git">Git</a></p>
+<p>Hai bước này độc lập nhau nên là làm cái nào trước cũng được. Hugo chỉ phụ trách
+sinh ra nội dung website, còn GitHub Pages thì phụ trách hiển thị nội dung website
+cho người khác truy cập. Ở đây mình sẽ bắt đầu từ GitHub Pages trước vì nội dung
+về nó ngắn hơn.</p>
+<h2 id="lập-một-trang-web-với-github-pages">Lập một trang web với GitHub Pages</h2>
+<p>Trước tiên là cần có tài khoản GitHub, nếu chưa có thì <a href="">đăng ký ở đây</a>.</p>
+<p>Tạo một repo với tên <code>&lt;username&gt;.github.io</code> (thay <code>&lt;username&gt;</code> bằng tên đăng nhập
+của tài khoản GitHub đang dùng, ví dụ tài khoản GitHub của mình có tên đăng nhập là
+<code>duongdominhchau</code> thì tạo repo tên <code>duongdominhchau.github.io</code>). Viết tên khác với
+tên đăng nhập của tài khoản GitHub là nó sẽ không hoạt động.</p>
+<p>Sau khi tạo repo rồi thì clone nó về máy. Tạo file <code>index.html</code> với nội dung bất kỳ,
+ví dụ như</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">Chạy rồi nè!
+</code></pre></div><p>Xong rồi <code>commit</code> file đó vào repo và <code>push</code> lên GitHub.</p>
+<p>Truy cập địa chỉ <code>&lt;username&gt;.github.io</code> sẽ nếu thấy nó hiện nội dung vừa viết.
+Sau khi <code>push</code> nội dung trang web sẽ chưa được cập nhật liền mà phải đợi vài
+giây sau, nên nếu truy cập vào sớm quá chưa thấy gì thì chờ vài giây sau tải
+lại xem sao. Thông thường thì bên mình mất khoảng 5–15 giây để web cập nhật
+nội dung mới.</p>
+<p>Đến đây là xong phần GitHub Pages rồi, giờ sang Hugo.</p>
+<h2 id="cài-đặt-và-sử-dụng-hugo">Cài đặt và sử dụng Hugo</h2>
+<h3 id="cài-đặt">Cài đặt</h3>
+<p>Trước hết phải tải Hugo về đã. Nếu xài Linux thì chắc tự biết phải làm gì rồi,
+tìm package tên <code>hugo</code> rồi cài thôi. Còn nếu xài Windows thì lên GitHub rồi
+tìm bản cho Windows mà tải về xài (<a href="https://github.com/gohugoio/hugo/releases),">https://github.com/gohugoio/hugo/releases),</a>
+chọn cái <code>hugo</code> hay <code>hugo_extended</code> đều được, cái sau có thêm SASS/SCSS thôi,
+thiếu cũng không sao, không quan trọng lắm.</p>
+<p>Trên Windows lúc tải về giải nén ra sẽ có file <code>hugo.exe</code>, đem nó bỏ vào
+một thư mục (ở đâu cũng được, quăng trực tiếp ở <code>C:\</code> cũng không sao), xong
+thêm thư mục đó vào biến môi trường <code>PATH</code>. Thêm ra sao thì tự goole đi.</p>
+<p>Hugo không có giao diện đồ họa, nên lúc xài nó trên Windows thì chịu khó
+bật <code>cmd</code> hoặc <code>PowerShell</code> lên.</p>
+<h3 id="tạo-site-mới">Tạo site mới</h3>
+<p>Tạo website mới bằng lệnh <code>hugo new site &lt;tên-thư-mục&gt;</code> (thay <code>&lt;tên-thư-mục&gt;</code>
+bằng tên muốn dùng).</p>
+<p>Sau khi chạy lệnh này Hugo sẽ tạo thư mục với tên được truyền vào ở trên. Di
+chuyển vào trong đó bằng lệnh <code>cd &lt;tên-thư-mục&gt;</code>. Lúc này thư mục sẽ có những
+thứ như trong hình bên dưới.</p>
+<p><img src="img/hugo-new-site.png" alt="Cấu trúc thư mục sau khi tạo site"></p>
+<p>Hiện tại chỉ cần biết <code>config.toml</code> là file cấu hình, <code>content</code> là thư mục chứa
+các file nội dung, <code>themes</code> là thư mục chứa theme.</p>
+<h3 id="thêm-theme">Thêm theme</h3>
+<p>Trong bài này mình sẽ dùng Ananke để làm mẫu. <a href="https://github.com/budparr/gohugo-theme-ananke/archive/master.zip">Tải
+file này về</a>,
+giải nén vào thư mục <code>themes</code>, sau đó đổi tên thư mục giải nén được thành <code>ananke</code>.</p>
+<p>Mở file <code>config.toml</code> thêm dòng <code>theme = &quot;ananke&quot;</code> vào (<code>ananke</code> là tên
+thư mục nằm trong thư mục <code>themes</code>).</p>
+<p><img src="img/hugo-config-ananke-theme.png" alt="Nội dung file cấu hình lúc này"></p>
+<p>Phần này đang làm quen với Hugo nên dùng theme có sẵn, phần sau của bài viết
+này sẽ hướng dẫn cách tự viết theme.</p>
+<h3 id="tạo-bài-viết-thử-nghiệm">Tạo bài viết thử nghiệm</h3>
+<p>Khi đang ở trong thư mục của site được Hugo tạo, chạy lệnh <code>hugo new Hello.md</code>
+để tạo một bài viết mới. Sau khi thực hiện lệnh này sẽ thấy có file <code>Hello.md</code>
+trong thư mục <code>content</code>.</p>
+<p><img src="img/hugo-new-post.png" alt="Bài viết rỗng do Hugo tạo"></p>
+<p>Mở file lên viết <strong>thêm</strong> đoạn này vào cuối (đừng xóa phần có sẵn trong đó):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"># Heading 1
+Hello
+</code></pre></div><p>Sau đó chạy lệnh <code>hugo server -D</code> và truy cập vào <a href="localhost:1313/hello">localhost:1313/hello</a> để
+xem kết quả.</p>
+<p><img src="img/hugo-serve-hello.png" alt="Bài viết sau khi được Hugo xử lý"></p>
+<h3 id="tự-tạo-theme-cho-website">Tự tạo theme cho website</h3>
+<p>TODO: Table of contents, summary, about, &hellip;</p>
+
+	</div>
+</article>
+
+        </div></body>
+</html>
