@@ -67,24 +67,24 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
     <li><a href="#lớp">Lớp</a>
       <ul>
         <li><a href="#khai-báo-lớp-trường-phương-thức">Khai báo lớp, trường, phương thức</a></li>
-        <li><a href="#giới-hạn-quyền-truy-cập">Giới hạn quyền truy cập</a></li>
+        <li><a href="#mức-truy-cập">Mức truy cập</a></li>
         <li><a href="#thuộc-tính">Thuộc tính</a></li>
         <li><a href="#phương-thức-khởi-tạo">Phương thức khởi tạo</a></li>
         <li><a href="#nạp-chồng">Nạp chồng</a></li>
         <li><a href="#this"><code>this</code></a></li>
         <li><a href="#thành-viên-static">Thành viên <code>static</code></a></li>
-        <li><a href="#kế-thừa">Kế thừa</a>
-          <ul>
-            <li><a href="#mức-truy-cập-khi-kế-thừa-và-từ-khóa-protected">Mức truy cập khi kế thừa và từ khóa <code>protected</code></a></li>
-            <li><a href="#gọi-đế-phương-thức-khởi-tạo-của-lớp-cơ-sở">Gọi đế phương thức khởi tạo của lớp cơ sở</a></li>
-            <li><a href="#nạp-chồng-trên-nhiều-lớp">Nạp chồng trên nhiều lớp</a></li>
-            <li><a href="#che-phương-thức-kế-thừa-được">Che phương thức kế thừa được</a></li>
-            <li><a href="#gọi-phương-thức-ở-lớp-cơ-sở-lại-gặp-base">Gọi phương thức ở lớp cơ sở, lại gặp <code>base</code></a></li>
-            <li><a href="#nạp-đè">Nạp đè</a></li>
-            <li><a href="#che-phương-thức-ảo">Che phương thức ảo</a></li>
-            <li><a href="#giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</a></li>
-          </ul>
-        </li>
+      </ul>
+    </li>
+    <li><a href="#kế-thừa">Kế thừa</a>
+      <ul>
+        <li><a href="#mức-truy-cập-khi-kế-thừa-và-từ-khóa-protected">Mức truy cập khi kế thừa và từ khóa <code>protected</code></a></li>
+        <li><a href="#gọi-đến-phương-thức-khởi-tạo-của-lớp-cơ-sở">Gọi đến phương thức khởi tạo của lớp cơ sở</a></li>
+        <li><a href="#nạp-chồng-trên-nhiều-lớp">Nạp chồng trên nhiều lớp</a></li>
+        <li><a href="#che-phương-thức-kế-thừa-được">Che phương thức kế thừa được</a></li>
+        <li><a href="#gọi-phương-thức-ở-lớp-cơ-sở-lại-gặp-base">Gọi phương thức ở lớp cơ sở, lại gặp <code>base</code></a></li>
+        <li><a href="#nạp-đè">Nạp đè</a></li>
+        <li><a href="#che-phương-thức-ảo">Che phương thức ảo</a></li>
+        <li><a href="#giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</a></li>
       </ul>
     </li>
     <li><a href="#chi-tiết-về-phương-thức">Chi tiết về phương thức</a></li>
@@ -497,7 +497,7 @@ Console.WriteLine(<span style="color:#e6db74">&#34;Khoảng cách giữa 2 đi�
 		firstPoint.Distance(secondPoint));
 </code></pre></div><p>Nếu để ý kỹ sẽ thấy mỗi câu lệnh bên trên tương ứng với một hành động
 được mô tả bằng lời trước đó.</p>
-<h3 id="giới-hạn-quyền-truy-cập">Giới hạn quyền truy cập</h3>
+<h3 id="mức-truy-cập">Mức truy cập</h3>
 <p>Các thành viên của một lớp có thể được khai báo 1 trong 3 mức truy cập
 <code>public</code>, <code>protected</code>, <code>private</code>. Khai báo <code>public</code> sẽ cho phép truy cập
 thành viên đó ở bất cứ đâu. Ngược lại, khai báo <code>private</code> sẽ chỉ cho phép
@@ -1049,7 +1049,7 @@ mà nó lại có thể được đặt tên tùy ý nên người ta gọi nó 
 có tên (named constructor). Cách viết này rất phổ biến, và thường được ưu tiên
 hơn vì nó có thể được đặt tên mô tả chức năng của nó, chứ không bắt buộc phải
 dùng tên lớp nữa.</p>
-<h3 id="kế-thừa">Kế thừa</h3>
+<h2 id="kế-thừa">Kế thừa</h2>
 <p>Lớp trong C# có thể kế thừa lớp khác để thừa hưởng tất cả các thành viên từ lớp đó.
 Lúc này lớp được kế thừa sẽ được gọi là lớp cơ sở (base class) và lớp kế thừa gọi là
 lớp dẫn xuất (derived class). Ngoài cách gọi này vẫn có những cách gọi khác, như ở
@@ -1091,7 +1091,7 @@ cơ sở để kế thừa.</p>
 </code></pre></div><p>Lớp <code>Button</code> không có định nghĩa phương thức <code>Draw()</code>, nhưng mà nó kế thừa
 lớp <code>Widget</code> nên nó vẫn có trường <code>id</code> và phương thức <code>Draw()</code>, vậy nên
 đoạn code trong <code>Main()</code> không bị lỗi.</p>
-<h4 id="mức-truy-cập-khi-kế-thừa-và-từ-khóa-protected">Mức truy cập khi kế thừa và từ khóa <code>protected</code></h4>
+<h3 id="mức-truy-cập-khi-kế-thừa-và-từ-khóa-protected">Mức truy cập khi kế thừa và từ khóa <code>protected</code></h3>
 <p>Ví dụ ở trên chỉ toàn thành viên <code>public</code>, vậy nếu dùng <code>private</code> thì sao?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
@@ -1169,7 +1169,7 @@ ra: <code>protected</code>. Thành viên có mức truy cập <code>protected</c
 </span><span style="color:#75715e"></span>	button.Click();
   }
 }
-</code></pre></div><h4 id="gọi-đế-phương-thức-khởi-tạo-của-lớp-cơ-sở">Gọi đế phương thức khởi tạo của lớp cơ sở</h4>
+</code></pre></div><h3 id="gọi-đến-phương-thức-khởi-tạo-của-lớp-cơ-sở">Gọi đến phương thức khởi tạo của lớp cơ sở</h3>
 <p>Khi kế thừa thì các trường cũng được đem sang (kể cả private, chỉ là
 không truy cập được nó thôi chứ nó vẫn tồn tại). Khi khởi tạo đối tượng
 cần phải khởi tạo luôn cho phần kế thừa được, thông qua phương thức khởi
@@ -1211,7 +1211,7 @@ của lớp cơ sở), cho nên không dùng <code>this</code> mà dùng một t
 	button.Draw();
   }
 }
-</code></pre></div><h4 id="nạp-chồng-trên-nhiều-lớp">Nạp chồng trên nhiều lớp</h4>
+</code></pre></div><h3 id="nạp-chồng-trên-nhiều-lớp">Nạp chồng trên nhiều lớp</h3>
 <p>Những phương thức kế thừa được vẫn có thể nạp chồng (overload) như bình thường.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
@@ -1239,7 +1239,7 @@ của lớp cơ sở), cho nên không dùng <code>this</code> mà dùng một t
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">new</span> Derived().Print(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">// Gọi tới Print(int) được nạp chồng
 </span><span style="color:#75715e"></span>  }
 }
-</code></pre></div><h4 id="che-phương-thức-kế-thừa-được">Che phương thức kế thừa được</h4>
+</code></pre></div><h3 id="che-phương-thức-kế-thừa-được">Che phương thức kế thừa được</h3>
 <p>Không chỉ dừng ở nạp chồng, C# còn cho phép định nghĩa một
 phương thức hoàn toàn giống với phương thức ở lớp cơ sở.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
@@ -1280,7 +1280,7 @@ phương thức <code>Print()</code> của <code>Base</code> đi. Nói như vậ
 <code>Derived</code> mới không dùng được <code>Print()</code> của <code>Base</code>, khi khai báo biến
 kiểu <code>Base</code> là lại dùng được tiếp, không bị giấu nữa, chỉ khi dùng
 <code>Derived</code> thì <code>Print()</code> của <code>Base</code> mới bị giấu đi.</p>
-<h4 id="gọi-phương-thức-ở-lớp-cơ-sở-lại-gặp-base">Gọi phương thức ở lớp cơ sở, lại gặp <code>base</code></h4>
+<h3 id="gọi-phương-thức-ở-lớp-cơ-sở-lại-gặp-base">Gọi phương thức ở lớp cơ sở, lại gặp <code>base</code></h3>
 <p>Lại nói một chút về việc tránh lặp code. Rất nhiều lúc lớp dẫn xuất
 cần gọi tới phương thức ở lớp cơ sở để tránh lặp code, C# dùng từ khóa
 <code>base</code> cho mục đích này, cũng một từ khóa dùng với 2 nghĩa gần nhau như
@@ -1345,7 +1345,7 @@ giải quyết vấn đề này có thể viết lại bằng cách dùng <code>
 	Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
   }
 }
-</code></pre></div><h4 id="nạp-đè">Nạp đè</h4>
+</code></pre></div><h3 id="nạp-đè">Nạp đè</h3>
 <p>Mọi chuyện đều vẫn rất tốt, cho tới khi kiểu của đối tượng không
 còn rõ ràng nữa.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
@@ -1467,7 +1467,7 @@ hiện là mình muốn nạp đè thay vì che phương thức cũ đi.</p>
   }
 }
 </code></pre></div><p>Lúc này chương trình mới chạy đúng như mong muốn.</p>
-<h4 id="che-phương-thức-ảo">Che phương thức ảo</h4>
+<h3 id="che-phương-thức-ảo">Che phương thức ảo</h3>
 <p>Nếu bỏ qua từ khóa <code>override</code> chương trình vẫn chạy, nhưng chạy sai.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
@@ -1532,7 +1532,7 @@ biên dịch sẽ coi như mình chọn dùng <code>new</code> thay vì <code>ov
 không ai cần tới, đã vậy còn gây ra ảnh hưởng xấu tới code. Cho nên nếu
 viết phương thức cứ cho tất cả tụi nó thành <code>virtual</code> hết và khi định
 nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ <code>override</code> hết.</p>
-<h4 id="giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</h4>
+<h3 id="giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</h3>
 <p>TODO: Write this</p>
 <h2 id="chi-tiết-về-phương-thức">Chi tiết về phương thức</h2>
 <p>callback, predicate, lambda

@@ -1,2 +1,3 @@
 - Port résumé to Hugo
 - Add a frame for images
+- Divide `Lớp` section to multiple smaller ones

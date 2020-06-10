@@ -558,7 +558,7 @@ Console.WriteLine("Khoảng cách giữa 2 điểm vừa nhập là {0}",
 Nếu để ý kỹ sẽ thấy mỗi câu lệnh bên trên tương ứng với một hành động
 được mô tả bằng lời trước đó.
 
-### Giới hạn quyền truy cập
+### Mức truy cập
 Các thành viên của một lớp có thể được khai báo 1 trong 3 mức truy cập
 `public`, `protected`, `private`. Khai báo `public` sẽ cho phép truy cập
 thành viên đó ở bất cứ đâu. Ngược lại, khai báo `private` sẽ chỉ cho phép
@@ -1187,7 +1187,7 @@ có tên (named constructor). Cách viết này rất phổ biến, và thườn
 hơn vì nó có thể được đặt tên mô tả chức năng của nó, chứ không bắt buộc phải
 dùng tên lớp nữa.
 
-### Kế thừa
+## Kế thừa
 Lớp trong C# có thể kế thừa lớp khác để thừa hưởng tất cả các thành viên từ lớp đó.
 Lúc này lớp được kế thừa sẽ được gọi là lớp cơ sở (base class) và lớp kế thừa gọi là
 lớp dẫn xuất (derived class). Ngoài cách gọi này vẫn có những cách gọi khác, như ở
@@ -1235,7 +1235,7 @@ Lớp `Button` không có định nghĩa phương thức `Draw()`, nhưng mà n�
 lớp `Widget` nên nó vẫn có trường `id` và phương thức `Draw()`, vậy nên
 đoạn code trong `Main()` không bị lỗi.
 
-#### Mức truy cập khi kế thừa và từ khóa `protected`
+### Mức truy cập khi kế thừa và từ khóa `protected`
 Ví dụ ở trên chỉ toàn thành viên `public`, vậy nếu dùng `private` thì sao?
 
 ```c#
@@ -1322,7 +1322,7 @@ class Program
 }
 ```
 
-#### Gọi đế phương thức khởi tạo của lớp cơ sở
+### Gọi đến phương thức khởi tạo của lớp cơ sở
 Khi kế thừa thì các trường cũng được đem sang (kể cả private, chỉ là
 không truy cập được nó thôi chứ nó vẫn tồn tại). Khi khởi tạo đối tượng
 cần phải khởi tạo luôn cho phần kế thừa được, thông qua phương thức khởi
@@ -1368,7 +1368,7 @@ class Program
 }
 ```
 
-#### Nạp chồng trên nhiều lớp
+### Nạp chồng trên nhiều lớp
 Những phương thức kế thừa được vẫn có thể nạp chồng (overload) như bình thường.
 
 ```c#
@@ -1400,7 +1400,7 @@ class Program
 }
 ```
 
-#### Che phương thức kế thừa được
+### Che phương thức kế thừa được
 Không chỉ dừng ở nạp chồng, C# còn cho phép định nghĩa một
 phương thức hoàn toàn giống với phương thức ở lớp cơ sở.
 
@@ -1446,7 +1446,7 @@ phương thức `Print()` của `Base` đi. Nói như vậy là vì khi sử d�
 kiểu `Base` là lại dùng được tiếp, không bị giấu nữa, chỉ khi dùng
 `Derived` thì `Print()` của `Base` mới bị giấu đi.
 
-#### Gọi phương thức ở lớp cơ sở, lại gặp `base`
+### Gọi phương thức ở lớp cơ sở, lại gặp `base`
 Lại nói một chút về việc tránh lặp code. Rất nhiều lúc lớp dẫn xuất
 cần gọi tới phương thức ở lớp cơ sở để tránh lặp code, C# dùng từ khóa
 `base` cho mục đích này, cũng một từ khóa dùng với 2 nghĩa gần nhau như
@@ -1520,7 +1520,7 @@ class TextBox : Widget
 }
 ```
 
-#### Nạp đè
+### Nạp đè
 Mọi chuyện đều vẫn rất tốt, cho tới khi kiểu của đối tượng không
 còn rõ ràng nữa.
 
@@ -1653,7 +1653,7 @@ class Window
 
 Lúc này chương trình mới chạy đúng như mong muốn.
 
-#### Che phương thức ảo
+### Che phương thức ảo
 Nếu bỏ qua từ khóa `override` chương trình vẫn chạy, nhưng chạy sai.
 
 ```c#
@@ -1724,7 +1724,7 @@ không ai cần tới, đã vậy còn gây ra ảnh hưởng xấu tới code. 
 viết phương thức cứ cho tất cả tụi nó thành `virtual` hết và khi định
 nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ `override` hết.
 
-#### Giao diện (interface) và đa kế thừa
+### Giao diện (interface) và đa kế thừa
 TODO: Write this
 
 ## Chi tiết về phương thức
