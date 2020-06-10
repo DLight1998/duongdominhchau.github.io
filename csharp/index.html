@@ -22,7 +22,7 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://duongdominhchau.github.io/csharp/" />
 <meta property="article:published_time" content="2020-06-09T01:08:20+07:00" />
-<meta property="article:modified_time" content="2020-06-10T01:52:25+07:00" />
+<meta property="article:modified_time" content="2020-06-09T01:08:20+07:00" />
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C#"/>
@@ -44,8 +44,6 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
 <section class="post-header">
 	<h1>C#</h1>
 	<p class="publish-date">Published: 2020-06-09 01:08:20 &#43;07:00</p>
-	
-		<p class="last-modified-date">Last modified: 2020-06-10 01:52:25 &#43;07:00</p>
 	
 </section>
 <article class="post-content">
@@ -84,11 +82,12 @@ C# là ngôn ngữ lập trình bậc cao, tức là code của nó gần với 
         <li><a href="#gọi-phương-thức-ở-lớp-cơ-sở-lại-gặp-base">Gọi phương thức ở lớp cơ sở, lại gặp <code>base</code></a></li>
         <li><a href="#nạp-đè">Nạp đè</a></li>
         <li><a href="#che-phương-thức-ảo">Che phương thức ảo</a></li>
+        <li><a href="#abstract"><code>abstract</code>???</a></li>
         <li><a href="#giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</a></li>
       </ul>
     </li>
     <li><a href="#chi-tiết-về-phương-thức">Chi tiết về phương thức</a></li>
-    <li><a href="#todo">TODO</a></li>
+    <li><a href="#misc">Misc</a></li>
   </ul>
 </nav>
 	<div>
@@ -234,11 +233,11 @@ Console.Write(<span style="color:#e6db74">&#34;Your age: &#34;</span>);
 Console.Write(<span style="color:#e6db74">&#34;Your weight in kg: &#34;</span>);
 <span style="color:#66d9ef">double</span> weightInKg = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine(<span style="color:#e6db74">&#34;Here is what you entered:&#34;</span>);
-Console.Write(<span style="color:#e6db74">&#34;    Name: &#34;</span>);
+Console.Write(<span style="color:#e6db74">&#34;		 Name: &#34;</span>);
 Console.WriteLine(name);
-Console.Write(<span style="color:#e6db74">&#34;    Age: &#34;</span>);
+Console.Write(<span style="color:#e6db74">&#34;		 Age: &#34;</span>);
 Console.WriteLine(age);
-Console.Write(<span style="color:#e6db74">&#34;    Weight: &#34;</span>);
+Console.Write(<span style="color:#e6db74">&#34;		 Weight: &#34;</span>);
 Console.Write(weightInKg);
 Console.WriteLine(<span style="color:#e6db74">&#34; kg&#34;</span>);
 </code></pre></div><p>In từng giá trị như trên sẽ rất phiền phức, nên <code>Console</code> có cho phép dùng
@@ -250,9 +249,9 @@ Console.Write(<span style="color:#e6db74">&#34;Your age: &#34;</span>);
 Console.Write(<span style="color:#e6db74">&#34;Your weight in kg: &#34;</span>);
 <span style="color:#66d9ef">double</span> weightInKg = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine(<span style="color:#e6db74">&#34;Here is what you entered:&#34;</span>);
-Console.WriteLine(<span style="color:#e6db74">&#34;    Name: {0}&#34;</span>, name);
-Console.WriteLine(<span style="color:#e6db74">&#34;    Age: {0}&#34;</span>, age);
-Console.WriteLine(<span style="color:#e6db74">&#34;    Weight: {0} kg&#34;</span>, weightInKg);
+Console.WriteLine(<span style="color:#e6db74">&#34;		 Name: {0}&#34;</span>, name);
+Console.WriteLine(<span style="color:#e6db74">&#34;		 Age: {0}&#34;</span>, age);
+Console.WriteLine(<span style="color:#e6db74">&#34;		 Weight: {0} kg&#34;</span>, weightInKg);
 </code></pre></div><p>Chuỗi đầu tiên được gọi là chuỗi định dạng (format string), tức là chuỗi dùng để
 mô tả kết quả sau khi in sẽ ra cái gì. Phía sau có thể truyền bao nhiêu giá trị
 cũng được, giá trị đầu tiên có số thứ tự là 0 và sẽ được dùng để thế vào <code>{0}</code>
@@ -605,7 +604,7 @@ và setter (phương thức được dùng khi property được ghi).</p>
 </span><span style="color:#75715e"></span>			i.Value = -<span style="color:#ae81ff">1</span>; <span style="color:#75715e">// Sửa giá trị của thuộc tính (property) Value
 </span><span style="color:#75715e"></span>			<span style="color:#75715e">// Dòng này sẽ gây ra lỗi biên dịch, thuộc tính này
 </span><span style="color:#75715e"></span>			<span style="color:#75715e">// không có setter nên không thể sửa giá trị của nó.
-</span><span style="color:#75715e"></span>			<span style="color:#75715e">// i.One = 2;	
+</span><span style="color:#75715e"></span>			<span style="color:#75715e">// i.One = 2; 
 </span><span style="color:#75715e"></span>			i.NonnegativeValue = -<span style="color:#ae81ff">123</span>;
 			Console.WriteLine(i.NonnegativeValue); <span style="color:#75715e">// In ra 0
 </span><span style="color:#75715e"></span>			i.NonnegativeValue = <span style="color:#ae81ff">123</span>;
@@ -886,8 +885,8 @@ code ở trên được viết lại bằng C++</p>
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
 	Window(<span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height)
 	{
-	  <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>width <span style="color:#f92672">=</span> width;
-	  <span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>height <span style="color:#f92672">=</span> height;
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>width <span style="color:#f92672">=</span> width;
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">-&gt;</span>height <span style="color:#f92672">=</span> height;
 	}
 	Window(std<span style="color:#f92672">::</span>string title, <span style="color:#66d9ef">int</span> width, <span style="color:#66d9ef">int</span> height) <span style="color:#f92672">:</span> Window(width, height)
 	{
@@ -1063,68 +1062,72 @@ cơ sở để kế thừa.</p>
 </span><span style="color:#75715e">// ví dụ như button, checkbox, text box, list view, ...
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> id = -<span style="color:#ae81ff">1</span>;
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Widget.Draw()&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> id = -<span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Widget.Draw()&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget <span style="color:#75715e">// Lớp Button kế thừa lớp Widget
 </span><span style="color:#75715e"></span>{
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Click()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Button.Click&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Click()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Button.Click&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button();
-	Console.WriteLine(button.id); <span style="color:#75715e">// In ra -1
-</span><span style="color:#75715e"></span>	button.Draw(); <span style="color:#75715e">// In ra &#34;Widget.Draw()&#34;
-</span><span style="color:#75715e"></span>	button.Click();
-  }
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button();
+		Console.WriteLine(button.id); <span style="color:#75715e">// In ra -1
+</span><span style="color:#75715e"></span>		button.Draw(); <span style="color:#75715e">// In ra &#34;Widget.Draw()&#34;
+</span><span style="color:#75715e"></span>		button.Click();
+	}
 }
 </code></pre></div><p>Lớp <code>Button</code> không có định nghĩa phương thức <code>Draw()</code>, nhưng mà nó kế thừa
 lớp <code>Widget</code> nên nó vẫn có trường <code>id</code> và phương thức <code>Draw()</code>, vậy nên
 đoạn code trong <code>Main()</code> không bị lỗi.</p>
+<p>Nếu không kế thừa lớp nào thì sao? Nó sẽ tự động được coi là kế thừa lớp
+<code>object</code>, một lớp có sẵn của C#. Mục đích của việc làm như vầy là để tất
+cả các lớp trong C# đều bắt nguồn từ cùng 1 lớp, nhờ vậy khi cần lưu một
+đối tượng bất kỳ có thể dùng kiểu <code>object</code>.</p>
 <h3 id="mức-truy-cập-khi-kế-thừa-và-từ-khóa-protected">Mức truy cập khi kế thừa và từ khóa <code>protected</code></h3>
 <p>Ví dụ ở trên chỉ toàn thành viên <code>public</code>, vậy nếu dùng <code>private</code> thì sao?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id = -<span style="color:#ae81ff">1</span>;
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Widget.Draw()&#34;</span>);
-  }
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> id = -<span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Widget.Draw()&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Click()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Button.Click&#34;</span>);
-  }
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PrintId()
-  {
-	<span style="color:#75715e">// Console.WriteLine(id);
-</span><span style="color:#75715e"></span>  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Click()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Button.Click&#34;</span>);
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PrintId()
+	{
+		<span style="color:#75715e">// Console.WriteLine(id);
+</span><span style="color:#75715e"></span>	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button();
-	<span style="color:#75715e">// Console.WriteLine(button.id);
-</span><span style="color:#75715e"></span>	button.Draw(); <span style="color:#75715e">// In ra &#34;Widget.Draw()&#34;
-</span><span style="color:#75715e"></span>	button.Click();
-  }
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button();
+		<span style="color:#75715e">// Console.WriteLine(button.id);
+</span><span style="color:#75715e"></span>		button.Draw(); <span style="color:#75715e">// In ra &#34;Widget.Draw()&#34;
+</span><span style="color:#75715e"></span>		button.Click();
+	}
 }
 </code></pre></div><p>Đoạn code bên trên có 2 dòng code nằm trong chú thích, bỏ chú thích dòng nào
 trong đó cũng đều gây ra lỗi biên dịch. Đây là vì <code>private</code> chỉ có thể được
@@ -1138,36 +1141,36 @@ ra: <code>protected</code>. Thành viên có mức truy cập <code>protected</c
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> id = -<span style="color:#ae81ff">1</span>;
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Widget.Draw()&#34;</span>);
-  }
+	<span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">int</span> id = -<span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Widget.Draw()&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Click()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Button.Click&#34;</span>);
-  }
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PrintId()
-  {
-	<span style="color:#75715e">// Lúc này không lỗi nữa vì Button kế thừa Widget
-</span><span style="color:#75715e"></span>	Console.WriteLine(id);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Click()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Button.Click&#34;</span>);
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PrintId()
+	{
+		<span style="color:#75715e">// Lúc này không lỗi nữa vì Button kế thừa Widget
+</span><span style="color:#75715e"></span>		Console.WriteLine(id);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button();
-	<span style="color:#75715e">// Nhưng mà dòng này vẫn lỗi vì Program không kế thừa Widget
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Console.WriteLine(button.id);
-</span><span style="color:#75715e"></span>	button.Draw(); <span style="color:#75715e">// In ra &#34;Widget.Draw()&#34;
-</span><span style="color:#75715e"></span>	button.Click();
-  }
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button();
+		<span style="color:#75715e">// Nhưng mà dòng này vẫn lỗi vì Program không kế thừa Widget
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">// Console.WriteLine(button.id);
+</span><span style="color:#75715e"></span>		button.Draw(); <span style="color:#75715e">// In ra &#34;Widget.Draw()&#34;
+</span><span style="color:#75715e"></span>		button.Click();
+	}
 }
 </code></pre></div><h3 id="gọi-đến-phương-thức-khởi-tạo-của-lớp-cơ-sở">Gọi đến phương thức khởi tạo của lớp cơ sở</h3>
 <p>Khi kế thừa thì các trường cũng được đem sang (kể cả private, chỉ là
@@ -1181,35 +1184,35 @@ của lớp cơ sở), cho nên không dùng <code>this</code> mà dùng một t
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> name;
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> name;
 
-  <span style="color:#66d9ef">public</span> Widget(<span style="color:#66d9ef">string</span> name)
-  {
-	<span style="color:#66d9ef">this</span>.name = name;
-  }
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;{0} is drawing&#34;</span>, name);
-  }
+	<span style="color:#66d9ef">public</span> Widget(<span style="color:#66d9ef">string</span> name)
+	{
+		<span style="color:#66d9ef">this</span>.name = name;
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;{0} is drawing&#34;</span>, name);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> text;
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> text;
 
-  <span style="color:#66d9ef">public</span> Button(<span style="color:#66d9ef">string</span> name, <span style="color:#66d9ef">string</span> labelText) : <span style="color:#66d9ef">base</span>(name)
-  {
-	text = labelText;
-  }
+	<span style="color:#66d9ef">public</span> Button(<span style="color:#66d9ef">string</span> name, <span style="color:#66d9ef">string</span> labelText) : <span style="color:#66d9ef">base</span>(name)
+	{
+		text = labelText;
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button(<span style="color:#e6db74">&#34;btn1&#34;</span>, <span style="color:#e6db74">&#34;Click me&#34;</span>);
-	button.Draw();
-  }
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button(<span style="color:#e6db74">&#34;btn1&#34;</span>, <span style="color:#e6db74">&#34;Click me&#34;</span>);
+		button.Draw();
+	}
 }
 </code></pre></div><h3 id="nạp-chồng-trên-nhiều-lớp">Nạp chồng trên nhiều lớp</h3>
 <p>Những phương thức kế thừa được vẫn có thể nạp chồng (overload) như bình thường.</p>
@@ -1217,27 +1220,27 @@ của lớp cơ sở), cho nên không dùng <code>this</code> mà dùng một t
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Base.Print()&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Base.Print()&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span> : Base
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print(<span style="color:#66d9ef">int</span> unused)
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Derived.Print(int)&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print(<span style="color:#66d9ef">int</span> unused)
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Derived.Print(int)&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	<span style="color:#66d9ef">new</span> Derived().Print(); <span style="color:#75715e">// Gọi tới Print() kế thừa được từ Base
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">new</span> Derived().Print(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">// Gọi tới Print(int) được nạp chồng
-</span><span style="color:#75715e"></span>  }
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		<span style="color:#66d9ef">new</span> Derived().Print(); <span style="color:#75715e">// Gọi tới Print() kế thừa được từ Base
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">new</span> Derived().Print(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">// Gọi tới Print(int) được nạp chồng
+</span><span style="color:#75715e"></span>	}
 }
 </code></pre></div><h3 id="che-phương-thức-kế-thừa-được">Che phương thức kế thừa được</h3>
 <p>Không chỉ dừng ở nạp chồng, C# còn cho phép định nghĩa một
@@ -1246,29 +1249,29 @@ phương thức hoàn toàn giống với phương thức ở lớp cơ sở.</p
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Base</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Base.Print()&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Base.Print()&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Derived</span> : Base
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Derived.Print()&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Derived.Print()&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Derived a = <span style="color:#66d9ef">new</span> Derived();
-	a.Print(); <span style="color:#75715e">// Gọi tới Print() của Derived
-</span><span style="color:#75715e"></span>	Base b = <span style="color:#66d9ef">new</span> Derived();
-	b.Print(); <span style="color:#75715e">// Gọi tới Print() của Base
-</span><span style="color:#75715e"></span>  }
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Derived a = <span style="color:#66d9ef">new</span> Derived();
+		a.Print(); <span style="color:#75715e">// Gọi tới Print() của Derived
+</span><span style="color:#75715e"></span>		Base b = <span style="color:#66d9ef">new</span> Derived();
+		b.Print(); <span style="color:#75715e">// Gọi tới Print() của Base
+</span><span style="color:#75715e"></span>	}
 }
 </code></pre></div><p>Đoạn chương trình trên có một vài điểm đặc biệt chưa được nói đến.
 Trước hết là phép gán trong <code>Main()</code>: biến có kiểu là lớp cơ sở có
@@ -1293,28 +1296,28 @@ từ lớp cơ sở).</p>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-	Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+		Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
+	}
 }
 </code></pre></div><p>Phần vẽ viền là phần chung và bị lặp ở từng lớp kế thừa nó. Để
 giải quyết vấn đề này có thể viết lại bằng cách dùng <code>base</code>.</p>
@@ -1322,28 +1325,28 @@ giải quyết vấn đề này có thể viết lại bằng cách dùng <code>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
+	}
 }
 </code></pre></div><h3 id="nạp-đè">Nạp đè</h3>
 <p>Mọi chuyện đều vẫn rất tốt, cho tới khi kiểu của đối tượng không
@@ -1352,52 +1355,52 @@ còn rõ ràng nữa.</p>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Window</span>
 {
-  <span style="color:#66d9ef">private</span> Widget[] widgets;
+	<span style="color:#66d9ef">private</span> Widget[] widgets;
 
-  <span style="color:#66d9ef">public</span> Window(Widget[] widgets)
-  {
-	<span style="color:#66d9ef">this</span>.widgets = widgets;
-  }
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">foreach</span> (Widget widget <span style="color:#66d9ef">in</span> widgets)
+	<span style="color:#66d9ef">public</span> Window(Widget[] widgets)
 	{
-	  widget.Draw(); <span style="color:#75715e">// ???
-</span><span style="color:#75715e"></span>	}
-  }
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button();
-	TextBox textBox = <span style="color:#66d9ef">new</span> TextBox();
-	Window window = <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> Widget[] { button, textBox });
-	window.Draw();
-  }
+		<span style="color:#66d9ef">this</span>.widgets = widgets;
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">foreach</span> (Widget widget <span style="color:#66d9ef">in</span> widgets)
+		{
+			widget.Draw(); <span style="color:#75715e">// ???
+</span><span style="color:#75715e"></span>		}
+	}
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button();
+		TextBox textBox = <span style="color:#66d9ef">new</span> TextBox();
+		Window window = <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> Widget[] { button, textBox });
+		window.Draw();
+	}
 }
 </code></pre></div><p>Chú ý dòng có chú thích <code>// ???</code>. Bởi vì biến <code>widget</code> có kiểu là
 <code>Widget</code> nên khi nó chỉ tới một <code>Button</code> thì nó vẫn chỉ vẽ viền rồi
@@ -1419,52 +1422,52 @@ hiện là mình muốn nạp đè thay vì che phương thức cũ đi.</p>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Window</span>
 {
-  <span style="color:#66d9ef">private</span> Widget[] widgets;
+	<span style="color:#66d9ef">private</span> Widget[] widgets;
 
-  <span style="color:#66d9ef">public</span> Window(Widget[] widgets)
-  {
-	<span style="color:#66d9ef">this</span>.widgets = widgets;
-  }
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">foreach</span> (Widget widget <span style="color:#66d9ef">in</span> widgets)
+	<span style="color:#66d9ef">public</span> Window(Widget[] widgets)
 	{
-	  widget.Draw(); <span style="color:#75715e">// OK
-</span><span style="color:#75715e"></span>	}
-  }
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button();
-	TextBox textBox = <span style="color:#66d9ef">new</span> TextBox();
-	Window window = <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> Widget[] { button, textBox });
-	window.Draw();
-  }
+		<span style="color:#66d9ef">this</span>.widgets = widgets;
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">foreach</span> (Widget widget <span style="color:#66d9ef">in</span> widgets)
+		{
+			widget.Draw(); <span style="color:#75715e">// OK
+</span><span style="color:#75715e"></span>		}
+	}
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button();
+		TextBox textBox = <span style="color:#66d9ef">new</span> TextBox();
+		Window window = <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> Widget[] { button, textBox });
+		window.Draw();
+	}
 }
 </code></pre></div><p>Lúc này chương trình mới chạy đúng như mong muốn.</p>
 <h3 id="che-phương-thức-ảo">Che phương thức ảo</h3>
@@ -1473,52 +1476,52 @@ hiện là mình muốn nạp đè thay vì che phương thức cũ đi.</p>
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Widget</span>
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ viền hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Button</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Vẽ chữ bên trong&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TextBox</span> : Widget
 {
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">base</span>.Draw();
-	Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">base</span>.Draw();
+		Console.WriteLine(<span style="color:#e6db74">&#34;Tô màu phần bên trong hình chữ nhật&#34;</span>);
+	}
 }
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Window</span>
 {
-  <span style="color:#66d9ef">private</span> Widget[] widgets;
+	<span style="color:#66d9ef">private</span> Widget[] widgets;
 
-  <span style="color:#66d9ef">public</span> Window(Widget[] widgets)
-  {
-	<span style="color:#66d9ef">this</span>.widgets = widgets;
-  }
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
-  {
-	<span style="color:#66d9ef">foreach</span> (Widget widget <span style="color:#66d9ef">in</span> widgets)
+	<span style="color:#66d9ef">public</span> Window(Widget[] widgets)
 	{
-	  widget.Draw();
+		<span style="color:#66d9ef">this</span>.widgets = widgets;
 	}
-  }
-  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
-  {
-	Button button = <span style="color:#66d9ef">new</span> Button();
-	TextBox textBox = <span style="color:#66d9ef">new</span> TextBox();
-	Window window = <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> Widget[] { button, textBox });
-	window.Draw();
-  }
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Draw()
+	{
+		<span style="color:#66d9ef">foreach</span> (Widget widget <span style="color:#66d9ef">in</span> widgets)
+		{
+			widget.Draw();
+		}
+	}
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		Button button = <span style="color:#66d9ef">new</span> Button();
+		TextBox textBox = <span style="color:#66d9ef">new</span> TextBox();
+		Window window = <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> Widget[] { button, textBox });
+		window.Draw();
+	}
 }
 </code></pre></div><p>Khi không viết <code>override</code> thì chuyện gì xảy ra mà nó lại sai? C# che
 phương thức! Nếu để ý kỹ sẽ thấy khi bỏ trống sẽ có một warning cho
@@ -1530,19 +1533,135 @@ trường hợp này không phải để tạo đối tượng). Khi bỏ trốn
 biên dịch sẽ coi như mình chọn dùng <code>new</code> thay vì <code>override</code>.</p>
 <p>Dưới góc nhìn cá nhân thì che phương thức là một tính năng của C# mà
 không ai cần tới, đã vậy còn gây ra ảnh hưởng xấu tới code. Cho nên nếu
-viết phương thức cứ cho tất cả tụi nó thành <code>virtual</code> hết và khi định
-nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ <code>override</code> hết.</p>
+viết phương thức cứ cho tất cả tụi nó thành <code>virtual</code> hết khi định nghĩa
+phương thức trùng tên trong lớp dẫn xuất thì cứ <code>override</code> hết đi.</p>
+<h3 id="abstract"><code>abstract</code>???</h3>
+<p>TODO: Write this?</p>
 <h3 id="giao-diện-interface-và-đa-kế-thừa">Giao diện (interface) và đa kế thừa</h3>
-<p>TODO: Write this</p>
+<p>Lớp kế thừa lớp để thể hiện mối quan hệ &ldquo;is-a&rdquo;, có nghĩa là đối tượng
+của lớp dẫn xuất cũng có thể xài y như đối tượng của lớp cơ sở. Tuy
+nhiên hạn chế của nó rất lớn vì khó kiếm được mối quan hệ thỏa mãn
+điều kiện trên.</p>
+<p>Bởi vì mối quan hệ này khó đạt được quá, nên người ta tăng tính trừu
+tượng của chương trình bằng cách khác: thể hiện khả năng thay vì thể
+hiện mối quan hệ kế thừa. C# hỗ trợ làm việc này bằng giao diện, với
+từ khóa để khai báo là <code>interface</code>. Đừng nhầm lẫn nó với giao diện
+người dùng, giao diện có nghĩa là mặt tiếp xúc giữa 2 đơn vị, không
+phải lúc nào 2 đơn vị này cũng là máy tính và con người, xem đoạn
+code dưới này:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Printable</span>
+{
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Print()
+	{
+	}
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> : Printable
+{
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Hello world&#34;</span>);
+	}
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IntNumber</span> : Printable
+{
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">value</span>;
+	<span style="color:#66d9ef">public</span> IntNumber(<span style="color:#66d9ef">int</span> val)
+	{
+		<span style="color:#66d9ef">value</span> = val;
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#66d9ef">value</span>);
+	}
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> PrintObject(Printable obj)
+	{
+		obj.Print();
+	}
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		PrintObject(<span style="color:#66d9ef">new</span> HelloWorld());
+		PrintObject(<span style="color:#66d9ef">new</span> IntNumber(<span style="color:#ae81ff">123</span>));
+	}
+}
+</code></pre></div><p>Trong đoạn code trên, <code>PrintObject()</code> không cần biết đối tượng được
+truyền vào là cái gì, nó chỉ quan tâm một việc: có <code>Print()</code> được hay
+không, miễn là được thì nó đều chấp nhận. <code>PrintObject()</code> tương tác với
+đối tượng thuộc kiểu <code>HelloWorld</code> hoặc <code>IntNumber</code> thông qua <code>Print()</code>,
+cho nên cái phương thức <code>Print()</code> này chính là cái giao diện (chỗ 2 bên
+tiếp xúc nhau). Đây chỉ là ví dụ cho cái khái niệm &ldquo;giao diện&rdquo; thôi, còn
+cách viết trong C# thì cần đọc tiếp bên dưới.</p>
+<p>Ở đoạn code trên, <code>Printable</code> được dùng như một tên lớp, nó thể hiện vấn
+đề khi đọc code: từ trước tới giờ tên lớp đều là danh từ, nhưng bây giờ
+nó lại không phải (printable là tính từ). Để giữ cho tên lớp đều là danh
+từ, C# thêm từ khóa <code>interface</code> để khai báo giao diện. Cách viết cũng tương
+tự như khi viết một class, nhưng có những điểm đặc biệt này:</p>
+<ul>
+<li>Không cần viết phần thân phương thức. Giao diện chỉ dùng để mô tả coi nó
+có thể làm gì, chứ không phải để định nghĩa nó làm như thế nào.</li>
+<li>Không cần viết <code>public</code>. Đã là chỗ tiếp xúc của 2 bên thì làm sao có thể
+không công khai được, nên tất cả trong giao diện đều mặc định là public.</li>
+</ul>
+<p>Khi mà một lớp muốn thể hiện là mình có thể đáp ứng được yêu cầu của một cái
+giao diện, lớp đó sẽ thực thi (&ldquo;implement&rdquo;) giao diện đó. Cú pháp giống với
+kế thừa, chỉ khác là xài tên giao diện thay vì tên lớp. Lớp thực thi một giao
+diện nào đó sẽ được gọi là implementation. Trong phần định nghĩa của lớp sẽ
+có một phương thức có cùng dấu hiệu với phương thức được mô tả trong <code>interface</code>.</p>
+<p>Chương trình bên trên viết lại bằng <code>interface</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
+
+<span style="color:#66d9ef">interface</span> IPrintable
+{
+	<span style="color:#66d9ef">void</span> Print();
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorld</span> : IPrintable
+{
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#e6db74">&#34;Hello world&#34;</span>);
+	}
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IntNumber</span> : IPrintable
+{
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">value</span>;
+	<span style="color:#66d9ef">public</span> IntNumber(<span style="color:#66d9ef">int</span> val)
+	{
+		<span style="color:#66d9ef">value</span> = val;
+	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Print()
+	{
+		Console.WriteLine(<span style="color:#66d9ef">value</span>);
+	}
+}
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> PrintObject(IPrintable obj)
+	{
+		obj.Print();
+	}
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main()
+	{
+		PrintObject(<span style="color:#66d9ef">new</span> HelloWorld());
+		PrintObject(<span style="color:#66d9ef">new</span> IntNumber(<span style="color:#ae81ff">123</span>));
+	}
+}
+</code></pre></div><p>TODO: Write about Explicit interface implementation?</p>
 <h2 id="chi-tiết-về-phương-thức">Chi tiết về phương thức</h2>
 <p>callback, predicate, lambda
 out, ref
 operator overloading</p>
-<p>TODO: Write this</p>
-<h2 id="todo">TODO</h2>
-<p>Namespace
-Collections, foreach
-Implement collections</p>
+<h2 id="misc">Misc</h2>
+<p>Namespace</p>
 
 	</div>
 </article>

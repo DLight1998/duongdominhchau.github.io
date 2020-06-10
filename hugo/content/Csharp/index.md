@@ -186,11 +186,11 @@ int age = Convert.ToInt32(Console.ReadLine());
 Console.Write("Your weight in kg: ");
 double weightInKg = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Here is what you entered:");
-Console.Write("    Name: ");
+Console.Write("		 Name: ");
 Console.WriteLine(name);
-Console.Write("    Age: ");
+Console.Write("		 Age: ");
 Console.WriteLine(age);
-Console.Write("    Weight: ");
+Console.Write("		 Weight: ");
 Console.Write(weightInKg);
 Console.WriteLine(" kg");
 ```
@@ -206,9 +206,9 @@ int age = Convert.ToInt32(Console.ReadLine());
 Console.Write("Your weight in kg: ");
 double weightInKg = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Here is what you entered:");
-Console.WriteLine("    Name: {0}", name);
-Console.WriteLine("    Age: {0}", age);
-Console.WriteLine("    Weight: {0} kg", weightInKg);
+Console.WriteLine("		 Name: {0}", name);
+Console.WriteLine("		 Age: {0}", age);
+Console.WriteLine("		 Weight: {0} kg", weightInKg);
 ```
 
 Chuỗi đầu tiên được gọi là chuỗi định dạng (format string), tức là chuỗi dùng để
@@ -674,7 +674,7 @@ namespace Application
 			i.Value = -1; // Sửa giá trị của thuộc tính (property) Value
 			// Dòng này sẽ gây ra lỗi biên dịch, thuộc tính này
 			// không có setter nên không thể sửa giá trị của nó.
-			// i.One = 2;	
+			// i.One = 2; 
 			i.NonnegativeValue = -123;
 			Console.WriteLine(i.NonnegativeValue); // In ra 0
 			i.NonnegativeValue = 123;
@@ -999,8 +999,8 @@ private:
 public:
 	Window(int width, int height)
 	{
-	  this->width = width;
-	  this->height = height;
+		this->width = width;
+		this->height = height;
 	}
 	Window(std::string title, int width, int height) : Window(width, height)
 	{
@@ -1204,36 +1204,41 @@ using System;
 // ví dụ như button, checkbox, text box, list view, ...
 class Widget
 {
-  public int id = -1;
-  public void Draw()
-  {
-	Console.WriteLine("Widget.Draw()");
-  }
+	public int id = -1;
+	public void Draw()
+	{
+		Console.WriteLine("Widget.Draw()");
+	}
 }
 
 class Button : Widget // Lớp Button kế thừa lớp Widget
 {
-  public void Click()
-  {
-	Console.WriteLine("Button.Click");
-  }
+	public void Click()
+	{
+		Console.WriteLine("Button.Click");
+	}
 }
 
 class Program
 {
-  static void Main()
-  {
-	Button button = new Button();
-	Console.WriteLine(button.id); // In ra -1
-	button.Draw(); // In ra "Widget.Draw()"
-	button.Click();
-  }
+	static void Main()
+	{
+		Button button = new Button();
+		Console.WriteLine(button.id); // In ra -1
+		button.Draw(); // In ra "Widget.Draw()"
+		button.Click();
+	}
 }
 ```
 
 Lớp `Button` không có định nghĩa phương thức `Draw()`, nhưng mà nó kế thừa
 lớp `Widget` nên nó vẫn có trường `id` và phương thức `Draw()`, vậy nên
 đoạn code trong `Main()` không bị lỗi.
+
+Nếu không kế thừa lớp nào thì sao? Nó sẽ tự động được coi là kế thừa lớp
+`object`, một lớp có sẵn của C#. Mục đích của việc làm như vầy là để tất
+cả các lớp trong C# đều bắt nguồn từ cùng 1 lớp, nhờ vậy khi cần lưu một
+đối tượng bất kỳ có thể dùng kiểu `object`.
 
 ### Mức truy cập khi kế thừa và từ khóa `protected`
 Ví dụ ở trên chỉ toàn thành viên `public`, vậy nếu dùng `private` thì sao?
@@ -1243,34 +1248,34 @@ using System;
 
 class Widget
 {
-  private int id = -1;
-  public void Draw()
-  {
-	Console.WriteLine("Widget.Draw()");
-  }
+	private int id = -1;
+	public void Draw()
+	{
+		Console.WriteLine("Widget.Draw()");
+	}
 }
 
 class Button : Widget
 {
-  public void Click()
-  {
-	Console.WriteLine("Button.Click");
-  }
-  public void PrintId()
-  {
-	// Console.WriteLine(id);
-  }
+	public void Click()
+	{
+		Console.WriteLine("Button.Click");
+	}
+	public void PrintId()
+	{
+		// Console.WriteLine(id);
+	}
 }
 
 class Program
 {
-  static void Main()
-  {
-	Button button = new Button();
-	// Console.WriteLine(button.id);
-	button.Draw(); // In ra "Widget.Draw()"
-	button.Click();
-  }
+	static void Main()
+	{
+		Button button = new Button();
+		// Console.WriteLine(button.id);
+		button.Draw(); // In ra "Widget.Draw()"
+		button.Click();
+	}
 }
 ```
 
@@ -1289,36 +1294,36 @@ using System;
 
 class Widget
 {
-  protected int id = -1;
-  public void Draw()
-  {
-	Console.WriteLine("Widget.Draw()");
-  }
+	protected int id = -1;
+	public void Draw()
+	{
+		Console.WriteLine("Widget.Draw()");
+	}
 }
 
 class Button : Widget
 {
-  public void Click()
-  {
-	Console.WriteLine("Button.Click");
-  }
-  public void PrintId()
-  {
-	// Lúc này không lỗi nữa vì Button kế thừa Widget
-	Console.WriteLine(id);
-  }
+	public void Click()
+	{
+		Console.WriteLine("Button.Click");
+	}
+	public void PrintId()
+	{
+		// Lúc này không lỗi nữa vì Button kế thừa Widget
+		Console.WriteLine(id);
+	}
 }
 
 class Program
 {
-  static void Main()
-  {
-	Button button = new Button();
-	// Nhưng mà dòng này vẫn lỗi vì Program không kế thừa Widget
-	// Console.WriteLine(button.id);
-	button.Draw(); // In ra "Widget.Draw()"
-	button.Click();
-  }
+	static void Main()
+	{
+		Button button = new Button();
+		// Nhưng mà dòng này vẫn lỗi vì Program không kế thừa Widget
+		// Console.WriteLine(button.id);
+		button.Draw(); // In ra "Widget.Draw()"
+		button.Click();
+	}
 }
 ```
 
@@ -1336,35 +1341,35 @@ using System;
 
 class Widget
 {
-  private string name;
+	private string name;
 
-  public Widget(string name)
-  {
-	this.name = name;
-  }
-  public void Draw()
-  {
-	Console.WriteLine("{0} is drawing", name);
-  }
+	public Widget(string name)
+	{
+		this.name = name;
+	}
+	public void Draw()
+	{
+		Console.WriteLine("{0} is drawing", name);
+	}
 }
 
 class Button : Widget
 {
-  private string text;
+	private string text;
 
-  public Button(string name, string labelText) : base(name)
-  {
-	text = labelText;
-  }
+	public Button(string name, string labelText) : base(name)
+	{
+		text = labelText;
+	}
 }
 
 class Program
 {
-  static void Main()
-  {
-	Button button = new Button("btn1", "Click me");
-	button.Draw();
-  }
+	static void Main()
+	{
+		Button button = new Button("btn1", "Click me");
+		button.Draw();
+	}
 }
 ```
 
@@ -1376,27 +1381,27 @@ using System;
 
 class Base
 {
-  public void Print()
-  {
-	Console.WriteLine("Base.Print()");
-  }
+	public void Print()
+	{
+		Console.WriteLine("Base.Print()");
+	}
 }
 
 class Derived : Base
 {
-  public void Print(int unused)
-  {
-	Console.WriteLine("Derived.Print(int)");
-  }
+	public void Print(int unused)
+	{
+		Console.WriteLine("Derived.Print(int)");
+	}
 }
 
 class Program
 {
-  static void Main()
-  {
-	new Derived().Print(); // Gọi tới Print() kế thừa được từ Base
-	new Derived().Print(1); // Gọi tới Print(int) được nạp chồng
-  }
+	static void Main()
+	{
+		new Derived().Print(); // Gọi tới Print() kế thừa được từ Base
+		new Derived().Print(1); // Gọi tới Print(int) được nạp chồng
+	}
 }
 ```
 
@@ -1409,29 +1414,29 @@ using System;
 
 class Base
 {
-  public void Print()
-  {
-	Console.WriteLine("Base.Print()");
-  }
+	public void Print()
+	{
+		Console.WriteLine("Base.Print()");
+	}
 }
 
 class Derived : Base
 {
-  public void Print()
-  {
-	Console.WriteLine("Derived.Print()");
-  }
+	public void Print()
+	{
+		Console.WriteLine("Derived.Print()");
+	}
 }
 
 class Program
 {
-  static void Main()
-  {
-	Derived a = new Derived();
-	a.Print(); // Gọi tới Print() của Derived
-	Base b = new Derived();
-	b.Print(); // Gọi tới Print() của Base
-  }
+	static void Main()
+	{
+		Derived a = new Derived();
+		a.Print(); // Gọi tới Print() của Derived
+		Base b = new Derived();
+		b.Print(); // Gọi tới Print() của Base
+	}
 }
 ```
 
@@ -1462,28 +1467,28 @@ using System;
 
 class Widget
 {
-  public void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-  }
+	public void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+	}
 }
 
 class Button : Widget
 {
-  public void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-	Console.WriteLine("Vẽ chữ bên trong");
-  }
+	public void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+		Console.WriteLine("Vẽ chữ bên trong");
+	}
 }
 
 class TextBox : Widget
 {
-  public void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
-  }
+	public void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+		Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+	}
 }
 ```
 
@@ -1495,28 +1500,28 @@ using System;
 
 class Widget
 {
-  public void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-  }
+	public void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+	}
 }
 
 class Button : Widget
 {
-  public void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Vẽ chữ bên trong");
-  }
+	public void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Vẽ chữ bên trong");
+	}
 }
 
 class TextBox : Widget
 {
-  public void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
-  }
+	public void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+	}
 }
 ```
 
@@ -1529,52 +1534,52 @@ using System;
 
 class Widget
 {
-  public void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-  }
+	public void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+	}
 }
 
 class Button : Widget
 {
-  public void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Vẽ chữ bên trong");
-  }
+	public void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Vẽ chữ bên trong");
+	}
 }
 
 class TextBox : Widget
 {
-  public void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
-  }
+	public void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+	}
 }
 
 class Window
 {
-  private Widget[] widgets;
+	private Widget[] widgets;
 
-  public Window(Widget[] widgets)
-  {
-	this.widgets = widgets;
-  }
-  public void Draw()
-  {
-	foreach (Widget widget in widgets)
+	public Window(Widget[] widgets)
 	{
-	  widget.Draw(); // ???
+		this.widgets = widgets;
 	}
-  }
-  static void Main()
-  {
-	Button button = new Button();
-	TextBox textBox = new TextBox();
-	Window window = new Window(new Widget[] { button, textBox });
-	window.Draw();
-  }
+	public void Draw()
+	{
+		foreach (Widget widget in widgets)
+		{
+			widget.Draw(); // ???
+		}
+	}
+	static void Main()
+	{
+		Button button = new Button();
+		TextBox textBox = new TextBox();
+		Window window = new Window(new Widget[] { button, textBox });
+		window.Draw();
+	}
 }
 ```
 
@@ -1602,52 +1607,52 @@ using System;
 
 class Widget
 {
-  public virtual void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-  }
+	public virtual void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+	}
 }
 
 class Button : Widget
 {
-  public override void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Vẽ chữ bên trong");
-  }
+	public override void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Vẽ chữ bên trong");
+	}
 }
 
 class TextBox : Widget
 {
-  public override void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
-  }
+	public override void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+	}
 }
 
 class Window
 {
-  private Widget[] widgets;
+	private Widget[] widgets;
 
-  public Window(Widget[] widgets)
-  {
-	this.widgets = widgets;
-  }
-  public void Draw()
-  {
-	foreach (Widget widget in widgets)
+	public Window(Widget[] widgets)
 	{
-	  widget.Draw(); // OK
+		this.widgets = widgets;
 	}
-  }
-  static void Main()
-  {
-	Button button = new Button();
-	TextBox textBox = new TextBox();
-	Window window = new Window(new Widget[] { button, textBox });
-	window.Draw();
-  }
+	public void Draw()
+	{
+		foreach (Widget widget in widgets)
+		{
+			widget.Draw(); // OK
+		}
+	}
+	static void Main()
+	{
+		Button button = new Button();
+		TextBox textBox = new TextBox();
+		Window window = new Window(new Widget[] { button, textBox });
+		window.Draw();
+	}
 }
 ```
 
@@ -1661,52 +1666,52 @@ using System;
 
 class Widget
 {
-  public virtual void Draw()
-  {
-	Console.WriteLine("Vẽ viền hình chữ nhật");
-  }
+	public virtual void Draw()
+	{
+		Console.WriteLine("Vẽ viền hình chữ nhật");
+	}
 }
 
 class Button : Widget
 {
-  public void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Vẽ chữ bên trong");
-  }
+	public void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Vẽ chữ bên trong");
+	}
 }
 
 class TextBox : Widget
 {
-  public void Draw()
-  {
-	base.Draw();
-	Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
-  }
+	public void Draw()
+	{
+		base.Draw();
+		Console.WriteLine("Tô màu phần bên trong hình chữ nhật");
+	}
 }
 
 class Window
 {
-  private Widget[] widgets;
+	private Widget[] widgets;
 
-  public Window(Widget[] widgets)
-  {
-	this.widgets = widgets;
-  }
-  public void Draw()
-  {
-	foreach (Widget widget in widgets)
+	public Window(Widget[] widgets)
 	{
-	  widget.Draw();
+		this.widgets = widgets;
 	}
-  }
-  static void Main()
-  {
-	Button button = new Button();
-	TextBox textBox = new TextBox();
-	Window window = new Window(new Widget[] { button, textBox });
-	window.Draw();
-  }
+	public void Draw()
+	{
+		foreach (Widget widget in widgets)
+		{
+			widget.Draw();
+		}
+	}
+	static void Main()
+	{
+		Button button = new Button();
+		TextBox textBox = new TextBox();
+		Window window = new Window(new Widget[] { button, textBox });
+		window.Draw();
+	}
 }
 ```
 
@@ -1721,21 +1726,146 @@ biên dịch sẽ coi như mình chọn dùng `new` thay vì `override`.
 
 Dưới góc nhìn cá nhân thì che phương thức là một tính năng của C# mà
 không ai cần tới, đã vậy còn gây ra ảnh hưởng xấu tới code. Cho nên nếu
-viết phương thức cứ cho tất cả tụi nó thành `virtual` hết và khi định
-nghĩa phương thức trùng tên trong lớp dẫn xuất thì cứ `override` hết.
+viết phương thức cứ cho tất cả tụi nó thành `virtual` hết khi định nghĩa
+phương thức trùng tên trong lớp dẫn xuất thì cứ `override` hết đi.
+
+### `abstract`???
+TODO: Write this?
 
 ### Giao diện (interface) và đa kế thừa
-TODO: Write this
+Lớp kế thừa lớp để thể hiện mối quan hệ "is-a", có nghĩa là đối tượng
+của lớp dẫn xuất cũng có thể xài y như đối tượng của lớp cơ sở. Tuy
+nhiên hạn chế của nó rất lớn vì khó kiếm được mối quan hệ thỏa mãn
+điều kiện trên.
+
+Bởi vì mối quan hệ này khó đạt được quá, nên người ta tăng tính trừu
+tượng của chương trình bằng cách khác: thể hiện khả năng thay vì thể
+hiện mối quan hệ kế thừa. C# hỗ trợ làm việc này bằng giao diện, với
+từ khóa để khai báo là `interface`. Đừng nhầm lẫn nó với giao diện
+người dùng, giao diện có nghĩa là mặt tiếp xúc giữa 2 đơn vị, không
+phải lúc nào 2 đơn vị này cũng là máy tính và con người, xem đoạn
+code dưới này:
+
+```c#
+using System;
+
+class Printable
+{
+	public virtual void Print()
+	{
+	}
+}
+
+class HelloWorld : Printable
+{
+	public override void Print()
+	{
+		Console.WriteLine("Hello world");
+	}
+}
+
+class IntNumber : Printable
+{
+	private int value;
+	public IntNumber(int val)
+	{
+		value = val;
+	}
+	public override void Print()
+	{
+		Console.WriteLine(value);
+	}
+}
+
+class Program
+{
+	private static void PrintObject(Printable obj)
+	{
+		obj.Print();
+	}
+	static void Main()
+	{
+		PrintObject(new HelloWorld());
+		PrintObject(new IntNumber(123));
+	}
+}
+```
+
+Trong đoạn code trên, `PrintObject()` không cần biết đối tượng được
+truyền vào là cái gì, nó chỉ quan tâm một việc: có `Print()` được hay
+không, miễn là được thì nó đều chấp nhận. `PrintObject()` tương tác với
+đối tượng thuộc kiểu `HelloWorld` hoặc `IntNumber` thông qua `Print()`,
+cho nên cái phương thức `Print()` này chính là cái giao diện (chỗ 2 bên
+tiếp xúc nhau). Đây chỉ là ví dụ cho cái khái niệm "giao diện" thôi, còn
+cách viết trong C# thì cần đọc tiếp bên dưới.
+
+Ở đoạn code trên, `Printable` được dùng như một tên lớp, nó thể hiện vấn
+đề khi đọc code: từ trước tới giờ tên lớp đều là danh từ, nhưng bây giờ
+nó lại không phải (printable là tính từ). Để giữ cho tên lớp đều là danh
+từ, C# thêm từ khóa `interface` để khai báo giao diện. Cách viết cũng tương
+tự như khi viết một class, nhưng có những điểm đặc biệt này:
+- Không cần viết phần thân phương thức. Giao diện chỉ dùng để mô tả coi nó
+có thể làm gì, chứ không phải để định nghĩa nó làm như thế nào.
+- Không cần viết `public`. Đã là chỗ tiếp xúc của 2 bên thì làm sao có thể
+không công khai được, nên tất cả trong giao diện đều mặc định là public.
+
+Khi mà một lớp muốn thể hiện là mình có thể đáp ứng được yêu cầu của một cái
+giao diện, lớp đó sẽ thực thi ("implement") giao diện đó. Cú pháp giống với
+kế thừa, chỉ khác là xài tên giao diện thay vì tên lớp. Lớp thực thi một giao
+diện nào đó sẽ được gọi là implementation. Trong phần định nghĩa của lớp sẽ
+có một phương thức có cùng dấu hiệu với phương thức được mô tả trong `interface`.
+
+Chương trình bên trên viết lại bằng `interface`:
+
+```c#
+using System;
+
+interface IPrintable
+{
+	void Print();
+}
+
+class HelloWorld : IPrintable
+{
+	public void Print()
+	{
+		Console.WriteLine("Hello world");
+	}
+}
+
+class IntNumber : IPrintable
+{
+	private int value;
+	public IntNumber(int val)
+	{
+		value = val;
+	}
+	public void Print()
+	{
+		Console.WriteLine(value);
+	}
+}
+
+class Program
+{
+	private static void PrintObject(IPrintable obj)
+	{
+		obj.Print();
+	}
+	static void Main()
+	{
+		PrintObject(new HelloWorld());
+		PrintObject(new IntNumber(123));
+	}
+}
+```
+
+TODO: Write about Explicit interface implementation?
 
 ## Chi tiết về phương thức
 callback, predicate, lambda
 out, ref
 operator overloading
 
-TODO: Write this
-
-## TODO
+## Misc
 Namespace
-Collections, foreach
-Implement collections
-
