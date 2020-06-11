@@ -125,7 +125,7 @@ Kế tiếp là sửa file `config.toml`.
 đổi giá trị nó thành `vi-VN`.
 - Đổi tiêu đề website lại bằng cách sửa giá trị của `title`.
 - Chỉnh thư mục xuất file thành thư mục bên ngoài bằng cách thêm dòng
-`publishDir = "..". `..` là thư mục cha của thư mục hiện tại, lúc Hugo
+`publishDir = ".."`. `..` là thư mục cha của thư mục hiện tại, lúc Hugo
 chạy thì thư mục hiện tại là `hugo-src` và `..` lúc đó chính là thư mục
 `<username>.github.io`. Đổi như vầy để người ta truy cập trang của mình
 là thấy ngay nội dung được Hugo sinh ra.
