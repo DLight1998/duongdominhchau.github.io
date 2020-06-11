@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Blog của Châu</title>
 	<link rel="stylesheet" href="/css/main.css">
 </head>
@@ -20,6 +22,7 @@
     <li><a href="#thêm-file-css-để-trang-trí">Thêm file CSS để trang trí</a></li>
     <li><a href="#một-số-tùy-chỉnh-trong-configtoml">Một số tùy chỉnh trong <code>config.toml</code></a></li>
     <li><a href="#phân-trang">Phân trang</a></li>
+    <li><a href="#nội-dung-bị-bỏ-sót">Nội dung bị bỏ sót</a></li>
     <li><a href="#bắt-tay-vào-làm-thôi-đọc-cái-giề">Bắt tay vào làm thôi, đọc cái giề</a></li>
   </ul>
 </nav>
@@ -295,12 +298,22 @@ CSS vào <code>static/css/main.css</code></p>
 }
 </code></pre></div><p>Kết quả:</p>
 <p><img src="img/styled-pagination.png" alt="Thanh điều hướng giữa các trang"></p>
-<h2 id="bắt-tay-vào-làm-thôi-đọc-cái-giề">Bắt tay vào làm thôi, đọc cái giề</h2>
+<h2 id="nội-dung-bị-bỏ-sót">Nội dung bị bỏ sót</h2>
+<p>File <code>head.html</code> mình quên viết 2 dòng này, dòng thứ nhất để hiện
+tiếng Việt đúng (trên Windows hình như bị vấn đề này), dòng thứ hai
+để chữ trên điện thoại không quá nhỏ. Lúc viết bài này mình không
+thử 2 trường hợp này nên bỏ sót.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+&lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width,initial-scale=1&#34;</span>&gt;
+</code></pre></div><h2 id="bắt-tay-vào-làm-thôi-đọc-cái-giề">Bắt tay vào làm thôi, đọc cái giề</h2>
 <p>Trên đây mình đã lặp lại từng bước nhỏ từ không có gì đến blog hiện tại mình
 đang dùng. Những gì mình viết ở trên chỉ là một phần nhỏ của Hugo, nếu có
 thời gian bạn có thể tìm hiểu thêm về những tính năng hữu ích của Hugo trên
-<a href="https://gohugo.io/documentation/">trang tài liệu chính thức của Hugo</a>. Còn
-bài viết này tới đây là hết rồi, hy vọng các bạn thấy bài viết này hữu ích.</p>
+<a href="https://gohugo.io/documentation/">trang tài liệu chính thức của Hugo</a>.</p>
+<p>Website ở trên vẫn còn nhiều thứ để làm, chẳng hạn như responsive, lấy
+điện thoại xem trang sẽ thấy vấn đề. Thử sửa theme để giải quyết vấn đề
+này luôn xem sao.</p>
+<p>Bài viết này tới đây là hết rồi, hy vọng các bạn thấy bài viết này hữu ích.</p>
 
 
         </div></body>

@@ -412,9 +412,25 @@ Kết quả:
 
 ![Thanh điều hướng giữa các trang](img/styled-pagination.png)
 
+## Nội dung bị bỏ sót
+File `head.html` mình quên viết 2 dòng này, dòng thứ nhất để hiện
+tiếng Việt đúng (trên Windows hình như bị vấn đề này), dòng thứ hai
+để chữ trên điện thoại không quá nhỏ. Lúc viết bài này mình không
+thử 2 trường hợp này nên bỏ sót.
+
+```html
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+```
+
 ## Bắt tay vào làm thôi, đọc cái giề
 Trên đây mình đã lặp lại từng bước nhỏ từ không có gì đến blog hiện tại mình
 đang dùng. Những gì mình viết ở trên chỉ là một phần nhỏ của Hugo, nếu có
 thời gian bạn có thể tìm hiểu thêm về những tính năng hữu ích của Hugo trên 
-[trang tài liệu chính thức của Hugo](https://gohugo.io/documentation/). Còn
-bài viết này tới đây là hết rồi, hy vọng các bạn thấy bài viết này hữu ích.
+[trang tài liệu chính thức của Hugo](https://gohugo.io/documentation/).
+
+Website ở trên vẫn còn nhiều thứ để làm, chẳng hạn như responsive, lấy
+điện thoại xem trang sẽ thấy vấn đề. Thử sửa theme để giải quyết vấn đề
+này luôn xem sao.
+
+Bài viết này tới đây là hết rồi, hy vọng các bạn thấy bài viết này hữu ích.
