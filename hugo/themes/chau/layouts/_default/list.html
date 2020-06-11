@@ -1,17 +1,10 @@
 {{ define "main" }}
-<div class="container">
-	<section>
-		<div class="content">
-			<h1>{{ .Title }}</h1>
-			{{ .Content }}
-			{{ range .Pages}}
-				<h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-				<div class="post-summary">{{ .Summary }}</div>
-				{{ if .Truncated }}
-					<div><a href="{{ .RelPermalink }}">Đọc tiếp…</a></div>
-				{{ end }}
-			{{ end }}
-		</div>
-	</section>
-</div>
+	{{ range .Paginator.Pages }}
+		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+		<p>{{ .Summary }}</p>
+		{{ if .Truncated }}
+			<p><a href="{{ .RelPermalink }}">Đọc tiếp…</a></p>
+		{{ end }}
+	{{ end }}
+	{{ template "_internal/pagination.html" . }}
 {{ end }}

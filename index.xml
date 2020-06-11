@@ -5,10 +5,20 @@
     <link>https://duongdominhchau.github.io/</link>
     <description>Recent content on Blog của Châu</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>vi-vn</language>
+    <language>vi-VN</language>
     
 	<atom:link href="https://duongdominhchau.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quá trình xây dựng Hugo theme cho blog này</title>
+      <link>https://duongdominhchau.github.io/qu%C3%A1-tr%C3%ACnh-x%C3%A2y-d%E1%BB%B1ng-hugo-theme-cho-blog-n%C3%A0y/</link>
+      <pubDate>Thu, 11 Jun 2020 16:46:33 +0700</pubDate>
+      
+      <guid>https://duongdominhchau.github.io/qu%C3%A1-tr%C3%ACnh-x%C3%A2y-d%E1%BB%B1ng-hugo-theme-cho-blog-n%C3%A0y/</guid>
+      <description>Không biết là do nó tệ thật hay mình đen quá mà kiếm chục cái theme về không cái nào xài được. Vậy nên mình tự mò cách làm theme luôn, giờ mới có cái để viết ở đây =))
+Tạo theme mới (chưa xài liền được) Tạo theme mới bằng hugo new theme &amp;lt;tên-thư-mục&amp;gt;, Hugo sẽ tạo thư mục mới trong themes, mình sẽ sửa cái đó cho đúng ý mình.</description>
+    </item>
     
     <item>
       <title>Tạo blog bằng Hugo và GitHub Pages</title>

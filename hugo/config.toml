@@ -1,21 +1,21 @@
 baseURL = "https://duongdominhchau.github.io"
-languageCode = "vi-vn"
-defaultContentLanguage = "vi"
+languageCode = "vi-VN"
 title = "Blog của Châu"
 theme = "chau"
-canonifyurls = true
-paginate = 5
-buildDrafts = false
 publishdir = ".."
 enableGitInfo = true
+paginate = 5
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 4
+
+
+
+
+
+canonifyurls = true
 
 [params]
   author = "Duong Do Minh Chau"
   github = "https://github.com/duongdominhchau"
-
-[markup]
-  [markup.highlight]
-    style = "monokai"
-  [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 4

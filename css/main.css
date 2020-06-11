@@ -1,0 +1,64 @@
+body {
+	background: #222;
+	color: #fff;
+	font-family: PT Serif, Georgia, serif;
+	font-size: 16pt;
+	padding: 2rem 10%;
+}
+
+/* Header */
+header {
+	border-bottom: 2px solid #fff;
+}
+
+/* Links */
+a {
+	color: #0af;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+/* Code */
+:not(pre) > code {
+	background: #404040;
+	display: inline-block;
+	padding: 0 0.25rem;
+}
+code, .highlight * {
+	font-family: Fira Code, Source Code Pro, Consolas, monospace;
+}
+.highlight > * {
+	padding: 0 2rem;
+}
+.highlight > :first-child,
+.highlight > :last-child {
+	padding: 2rem;
+}
+
+/* Images */
+img {
+	background: #555;
+	border-radius: 10px;
+	border: 1px solid #fff;
+	/* box-shadow: 0 5px 5px 3px #999; */
+	display: block;
+	margin: 1rem auto;
+	padding: 10px;
+}
+
+/* Pagination */
+.pagination {
+	text-align: center;
+}
+.pagination .page-item {
+	display: inline-block;
+}
+.pagination .page-item.active a {
+	font-weight: bold;
+	text-decoration: underline;
+}
+.pagination .page-item.disabled a {
+	color: #666;
+}
