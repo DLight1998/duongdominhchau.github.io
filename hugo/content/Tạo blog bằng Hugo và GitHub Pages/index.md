@@ -111,5 +111,62 @@ xem kết quả.
 
 ![Bài viết sau khi được Hugo xử lý](img/hugo-serve-hello.png)
 
+### Kết hợp Hugo và GitHub Pages
+Để làm được chuyện này có nhiều cách, mình chỉ hướng dẫn cách mình đang dùng.
+Trong repo của trang trên GitHub của bạn, chạy lệnh `hugo new site hugo-src`
+để tạo thư mục `hugo-src` (dùng chứa mấy file nguồn cho Hugo). Để người ta vừa
+ghé trang `<username>.github.io` là thấy được blog liền thì nội dung Hugo tạo
+ra phải được đặt ở thư mục ngoài cùng, mà nếu để mấy file của Hugo chung với
+trang web nó sinh ra thì khó quản lý nên mình gom về một thư mục như ở trên.
+
+Kế tiếp là sửa file `config.toml`.
+- Thay `baseURL` thành `<username>.github.io`
+- `languageCode` để nguyên nếu viết tiếng Anh, còn dùng tiếng Việt thì
+đổi giá trị nó thành `vi-VN`.
+- Đổi tiêu đề website lại bằng cách sửa giá trị của `title`.
+- Chỉnh thư mục xuất file thành thư mục bên ngoài bằng cách thêm dòng
+`publishDir = "..". `..` là thư mục cha của thư mục hiện tại, lúc Hugo
+chạy thì thư mục hiện tại là `hugo-src` và `..` lúc đó chính là thư mục
+`<username>.github.io`. Đổi như vầy để người ta truy cập trang của mình
+là thấy ngay nội dung được Hugo sinh ra.
+
+Đây là file `config.toml` của mình sau khi sửa:
+
+```toml
+baseURL = "http://duongchau.github.io"
+languageCode = "vi-VN"
+title = "Website dùng làm mẫu cho bài viết về Hugo"
+publishDir = ".."
+```
+
+Còn phần sau đó thì như đã hướng dẫn ở trên, thêm cái theme, viết nội dung
+rồi build. Lúc chạy thử bằng `hugo server -D` sẽ thấy tất cả bài viết, nhưng
+lúc build Hugo sẽ không làm như vậy. Mặc định là bài nháp hoặc bài có ngày giờ
+ở tương lai sẽ không được build. Ở đầu file được Hugo tạo ra lúc chạy
+`hugo new <tên-file>` có đoạn như vầy:
+
+```markdown
+---
+title: "Hello"
+date: 2020-06-11T16:28:11+07:00
+draft: true
+---
+```
+
+`draft: true` nghĩa là bài này là bài nháp, sửa nó thành `false` để công bố
+bài viết (publish).
+
+Để build trang chỉ việc chạy lệnh `hugo` (`hugo server -D` là để coi thử thôi,
+lệnh này mới là build thật nè). Chạy xong thì commit toàn bộ các file ở đây
+rồi push lên. Chờ vài giây sau là trên GitHub sẽ cập nhật nội dung trang theo.
+
 ### Tự tạo theme cho website
+Không biết là do nó tệ thật hay mình đen quá mà kiếm chục cái theme về không
+cái nào xài được. Vậy nên mò cái hướng dẫn tự làm theme luôn, giờ mới có cái
+để viết ở đây =))
+
+Ở bước chọn theme nếu muốn tự thiết kế thì khỏi lên mạng kiếm theme, mà chạy
+lệnh `hugo new theme <tên-thư-mục>` luôn, Hugo sẽ tạo thư mục mới trong `themes`,
+mình sẽ sửa cái đó cho đúng ý mình.
+
 TODO: Table of contents, summary, about, ...

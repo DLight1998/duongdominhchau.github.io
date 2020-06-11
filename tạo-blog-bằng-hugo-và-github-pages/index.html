@@ -20,7 +20,7 @@ Giới thiệu Hugo là một static site generator, nói cách đơn giản th�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://duongdominhchau.github.io/t%E1%BA%A1o-blog-b%E1%BA%B1ng-hugo-v%C3%A0-github-pages/" />
 <meta property="article:published_time" content="2020-06-10T15:50:23+07:00" />
-<meta property="article:modified_time" content="2020-06-10T15:50:23+07:00" />
+<meta property="article:modified_time" content="2020-06-10T18:18:22+07:00" />
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tạo blog bằng Hugo và GitHub Pages"/>
@@ -42,6 +42,8 @@ Giới thiệu Hugo là một static site generator, nói cách đơn giản th�
 	<h1>Tạo blog bằng Hugo và GitHub Pages</h1>
 	<p class="publish-date">Published: 2020-06-10 15:50:23 &#43;07:00</p>
 	
+		<p class="last-modified-date">Last modified: 2020-06-10 18:18:22 &#43;07:00</p>
+	
 </section>
 <article class="post-content">
 	<h2>Mục lục</h2>
@@ -55,6 +57,7 @@ Giới thiệu Hugo là một static site generator, nói cách đơn giản th�
         <li><a href="#tạo-site-mới">Tạo site mới</a></li>
         <li><a href="#thêm-theme">Thêm theme</a></li>
         <li><a href="#tạo-bài-viết-thử-nghiệm">Tạo bài viết thử nghiệm</a></li>
+        <li><a href="#kết-hợp-hugo-và-github-pages">Kết hợp Hugo và GitHub Pages</a></li>
         <li><a href="#tự-tạo-theme-cho-website">Tự tạo theme cho website</a></li>
       </ul>
     </li>
@@ -136,7 +139,50 @@ Hello
 </code></pre></div><p>Sau đó chạy lệnh <code>hugo server -D</code> và truy cập vào <a href="localhost:1313/hello">localhost:1313/hello</a> để
 xem kết quả.</p>
 <p><img src="img/hugo-serve-hello.png" alt="Bài viết sau khi được Hugo xử lý"></p>
+<h3 id="kết-hợp-hugo-và-github-pages">Kết hợp Hugo và GitHub Pages</h3>
+<p>Để làm được chuyện này có nhiều cách, mình chỉ hướng dẫn cách mình đang dùng.
+Trong repo của trang trên GitHub của bạn, chạy lệnh <code>hugo new site hugo-src</code>
+để tạo thư mục <code>hugo-src</code> (dùng chứa mấy file nguồn cho Hugo). Để người ta vừa
+ghé trang <code>&lt;username&gt;.github.io</code> là thấy được blog liền thì nội dung Hugo tạo
+ra phải được đặt ở thư mục ngoài cùng, mà nếu để mấy file của Hugo chung với
+trang web nó sinh ra thì khó quản lý nên mình gom về một thư mục như ở trên.</p>
+<p>Kế tiếp là sửa file <code>config.toml</code>.</p>
+<ul>
+<li>Thay <code>baseURL</code> thành <code>&lt;username&gt;.github.io</code></li>
+<li><code>languageCode</code> để nguyên nếu viết tiếng Anh, còn dùng tiếng Việt thì
+đổi giá trị nó thành <code>vi-VN</code>.</li>
+<li>Đổi tiêu đề website lại bằng cách sửa giá trị của <code>title</code>.</li>
+<li>Chỉnh thư mục xuất file thành thư mục bên ngoài bằng cách thêm dòng
+<code>publishDir = &quot;..&quot;. </code>..<code>là thư mục cha của thư mục hiện tại, lúc Hugo chạy thì thư mục hiện tại là</code>hugo-src<code>và</code>..<code> lúc đó chính là thư mục</code><!-- raw HTML omitted -->.github.io`. Đổi như vầy để người ta truy cập trang của mình
+là thấy ngay nội dung được Hugo sinh ra.</li>
+</ul>
+<p>Đây là file <code>config.toml</code> của mình sau khi sửa:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;http://duongchau.github.io&#34;</span>
+<span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;vi-VN&#34;</span>
+<span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Website dùng làm mẫu cho bài viết về Hugo&#34;</span>
+<span style="color:#a6e22e">publishDir</span> = <span style="color:#e6db74">&#34;..&#34;</span>
+</code></pre></div><p>Còn phần sau đó thì như đã hướng dẫn ở trên, thêm cái theme, viết nội dung
+rồi build. Lúc chạy thử bằng <code>hugo server -D</code> sẽ thấy tất cả bài viết, nhưng
+lúc build Hugo sẽ không làm như vậy. Mặc định là bài nháp hoặc bài có ngày giờ
+ở tương lai sẽ không được build. Ở đầu file được Hugo tạo ra lúc chạy
+<code>hugo new &lt;tên-file&gt;</code> có đoạn như vầy:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+title: &#34;Hello&#34;
+date: 2020-06-11T16:28:11+07:00
+draft: true
+---
+</code></pre></div><p><code>draft: true</code> nghĩa là bài này là bài nháp, sửa nó thành <code>false</code> để công bố
+bài viết (publish).</p>
+<p>Để build trang chỉ việc chạy lệnh <code>hugo</code> (<code>hugo server -D</code> là để coi thử thôi,
+lệnh này mới là build thật nè). Chạy xong thì commit toàn bộ các file ở đây
+rồi push lên. Chờ vài giây sau là trên GitHub sẽ cập nhật nội dung trang theo.</p>
 <h3 id="tự-tạo-theme-cho-website">Tự tạo theme cho website</h3>
+<p>Không biết là do nó tệ thật hay mình đen quá mà kiếm chục cái theme về không
+cái nào xài được. Vậy nên mò cái hướng dẫn tự làm theme luôn, giờ mới có cái
+để viết ở đây =))</p>
+<p>Ở bước chọn theme nếu muốn tự thiết kế thì khỏi lên mạng kiếm theme, mà chạy
+lệnh <code>hugo new theme &lt;tên-thư-mục&gt;</code> luôn, Hugo sẽ tạo thư mục mới trong <code>themes</code>,
+mình sẽ sửa cái đó cho đúng ý mình.</p>
 <p>TODO: Table of contents, summary, about, &hellip;</p>
 
 	</div>
