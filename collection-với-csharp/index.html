@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>
+		
+			Collections với C#
+			—
+		
+		Blog của Châu
+	</title>
+	<link rel="stylesheet" href="https://duongdominhchau.github.io/css/main.css">
+</head>
+<body><header>
+	<h1><a href="https://duongdominhchau.github.io/">Blog của Châu</a></h1>
+</header>
+<div id="content">
+	<h1>Collections với C#</h1>
+	<p>2020-06-10 15:27:41 &#43;0700 &#43;07</p>
+	<h2>Mục lục</h2>
+	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#nhắc-lại-về-kiểu-dữ-liệu-trừu-tượng-và-cấu-trúc-dữ-liệu">Nhắc lại về kiểu dữ liệu trừu tượng và cấu trúc dữ liệu</a></li>
+    <li><a href="#các-kiểu-dữ-liệu-trừu-tượng">Các kiểu dữ liệu trừu tượng</a>
+      <ul>
+        <li><a href="#danh-sách-list">Danh sách (List)</a></li>
+        <li><a href="#ngăn-xếp-stack">Ngăn xếp (Stack)</a></li>
+        <li><a href="#hàng-đợi-queue">Hàng đợi (Queue)</a></li>
+        <li><a href="#hàng-đợi-hai-đầu-deque">Hàng đợi hai đầu (Deque)</a></li>
+        <li><a href="#tập-hợp-set">Tập hợp (Set)</a></li>
+        <li><a href="#ánh-xạ-map--từ-điển-dictionary--mảng-kết-hợp-associative-array">Ánh xạ (Map) / Từ điển (Dictionary) / Mảng kết hợp (Associative array)</a></li>
+      </ul>
+    </li>
+    <li><a href="#nhắc-lại-về-độ-phức-tạp-thuật-toán">Nhắc lại về độ phức tạp thuật toán</a></li>
+    <li><a href="#các-cấu-trúc-dữ-liệu">Các cấu trúc dữ liệu</a>
+      <ul>
+        <li><a href="#mảng-array">Mảng (Array)</a></li>
+        <li><a href="#danh-sách-liên-kết-linked-list">Danh sách liên kết (Linked list)</a></li>
+        <li><a href="#bảng-băm-hash-table">Bảng băm (Hash table)</a></li>
+        <li><a href="#các-cấu-trúc-khác">Các cấu trúc khác</a></li>
+      </ul>
+    </li>
+    <li><a href="#collections--cấu-trúc-dữ-liệu-trong-thư-viện-chuẩn">Collections — Cấu trúc dữ liệu trong thư viện chuẩn</a></li>
+    <li><a href="#todo">TODO</a></li>
+  </ul>
+</nav>
+	<p>Bài viết này sẽ giới thiệu về một vài lớp thường dùng của thư viện
+collections của C#. Sau đó là hướng dẫn chi tiết cách tự viết lại
+những lớp tương tự với mục đích minh họa các tính năng của ngôn ngữ
+C#. Để có thể đọc hiểu bài này nên đọc bài <a href="https://duongdominhchau.github.io/csharp">C#</a> trước.</p>
+<h2 id="nhắc-lại-về-kiểu-dữ-liệu-trừu-tượng-và-cấu-trúc-dữ-liệu">Nhắc lại về kiểu dữ liệu trừu tượng và cấu trúc dữ liệu</h2>
+<p>Môn cấu trúc dữ liệu dạy những cấu trúc như danh sách (list),
+ngăn xếp (stack), hàng đợi (queue), bảng băm (hash table),
+đủ thứ cây, &hellip; Nội dung bài học khá là loạn vì không phân rõ
+giữa kiểu dữ liệu trừu tượng và cấu trúc dữ liệu.</p>
+<p>Kiểu dữ liệu trừu tượng là mô tả về khả năng của kiểu dữ liệu
+(chẳng hạn như stack có thể thêm vào đỉnh và cũng chỉ có thể
+lấy ra từ đỉnh), còn cấu trúc dữ liệu quan tâm đến việc đáp ứng
+các khả năng được hứa hẹn đó. Những điểm chung của các cấu trúc
+dữ liệu được tập hợp lại thành kiểu dữ liệu trừu tượng.</p>
+<p>Dưới đây sẽ tóm tắt về các kiểu dữ liệu trừu tượng</p>
+<h2 id="các-kiểu-dữ-liệu-trừu-tượng">Các kiểu dữ liệu trừu tượng</h2>
+<h3 id="danh-sách-list">Danh sách (List)</h3>
+<p>Kiểu này rất thường được sử dụng. Nó hứa hẹn khá nhiều, cụ thể là
+một danh sách có thể:</p>
+<ul>
+<li>Thêm phần tử vào vị trí bất kỳ.</li>
+<li>Xóa phần tử bất kỳ khỏi danh sách.</li>
+<li>Đọc giá trị của phần tử ở vị trí bất kỳ trong danh sách.</li>
+<li>Tìm xem danh sách có chứa một giá trị nào đó hay không.</li>
+<li>Duyệt qua từng phần tử trong danh sách.</li>
+<li>Đếm số phần tử trong danh sách.</li>
+</ul>
+<h3 id="ngăn-xếp-stack">Ngăn xếp (Stack)</h3>
+<p>Kiểu này hạn chế hơn, một ngăn xếp chỉ có thể:</p>
+<ul>
+<li>Thêm phần tử vào đỉnh.</li>
+<li>Xóa phần tử khỏi đỉnh.</li>
+<li>Đọc giá trị phần tử ở đỉnh.</li>
+<li>Đếm số phần tử trong ngăn xếp.</li>
+</ul>
+<p>Ngăn xếp có đặc điểm là vào trước ra sau (FILO — First In Last Out).</p>
+<h3 id="hàng-đợi-queue">Hàng đợi (Queue)</h3>
+<p>Tương tự như ngăn xếp (chỉ khác 1 chỗ), hàng đợi cũng chỉ có thể:</p>
+<ul>
+<li>Thêm phần tử vào cuối hàng.</li>
+<li>Xóa phần tử ở đầu hàng.</li>
+<li>Đọc giá trị phần tử ở đầu hàng.</li>
+<li>Đếm số phần tử trong hàng đợi.</li>
+</ul>
+<p>Hàng đợi có đặc điểm là vào trước ra trước (FIFO — First In First Out).</p>
+<h3 id="hàng-đợi-hai-đầu-deque">Hàng đợi hai đầu (Deque)</h3>
+<p>Hàng đợi với khả năng thêm và xóa ở cả 2 đầu gọi là Deque.</p>
+<h3 id="tập-hợp-set">Tập hợp (Set)</h3>
+<p>Cái này thì quá quen rồi, y như bên Toán, tập hợp có thể:</p>
+<ul>
+<li>Thêm phần tử mới vào tập hợp.</li>
+<li>Xóa phần tử trong tập hợp.</li>
+<li>Kiểm tra xem một giá trị nào đó có trong tập hợp hay không.</li>
+<li>Đếm số phần tử trong tập hợp.</li>
+<li>Duyệt qua các phần tử.</li>
+</ul>
+<p>Tập hợp có đặc điểm là một đối tượng chỉ được xuất hiện đúng một lần,
+nếu đã có trong tập hợp thì có thêm vào nó cũng không làm gì.</p>
+<h3 id="ánh-xạ-map--từ-điển-dictionary--mảng-kết-hợp-associative-array">Ánh xạ (Map) / Từ điển (Dictionary) / Mảng kết hợp (Associative array)</h3>
+<p>Tên thứ ba chỉ thấy PHP xài thôi, còn mấy ngôn ngữ khác đều dùng từ Map
+hoặc Dictionary thôi. Cấu trúc dạng này có đặc điểm:</p>
+<ul>
+<li>Lưu dữ liệu theo từng cặp khóa — giá trị.</li>
+<li>Khóa không trùng nhau.</li>
+</ul>
+<p>Cấu trúc này có thể:</p>
+<ul>
+<li>Thêm một cặp khóa — giá trị vào.</li>
+<li>Lấy ra một cặp thông qua khóa.</li>
+<li>Xóa cặp có khóa bằng với một giá trị nào đó.</li>
+<li>Tìm cặp khóa — giá trị có khóa được chỉ định.</li>
+<li>Tìm cặp khóa — giá trị có giá trị được chỉ định.</li>
+<li>Đếm số cặp đang chứa.</li>
+<li>Duyệt qua các cặp khóa — giá trị.</li>
+</ul>
+<h2 id="nhắc-lại-về-độ-phức-tạp-thuật-toán">Nhắc lại về độ phức tạp thuật toán</h2>
+<p>Độ phức tạp thường được ký hiệu bằng ký pháp O lớn (Big-O notation),
+ký pháp này thể hiện mối quan hệ giữa kích thước bài toán và thời gian
+thực thi, dựa vào nó có thể biết được khi vấn đề lớn lên thời gian sẽ
+thay đổi thế nào.</p>
+<p>Các độ phức tạp thường gặp (log bên lập trình dùng đều là cơ số 2):</p>
+<ul>
+<li>O(1): Thời gian thực thi không phụ thuộc vào kích thước đầu vào.
+Thường thì rất khó đạt được độ phức tạp như vầy.</li>
+<li>O(log n): Thời gian thực thi tăng theo cùng tốc độ tăng của logarithm
+kích thước đầu vào. Độ phức tạp này cũng rất tốt.</li>
+<li>O(n): Thời gian thực thi tăng theo cùng tốc độ với kích thước đầu vào.
+Những bài toán xử lý tất cả phần tử trong một collection đều cần phải
+duyệt qua từng phần tử, và như vậy thì tụi nó đều có độ phức tạp tối thiểu
+là O(n).</li>
+<li>O(n·log n): Ở độ phức tạp này thời gian thực thi sẽ tăng nhanh hơn O(n)
+nhưng vẫn còn chấp nhận được.</li>
+<li>O(n<sup>2</sup>), O(n<sup>3</sup>), O(n<sup>4</sup>): Ở những độ phức tạp
+này thời gian thực thi sẽ tăng lên khá nhanh.</li>
+<li>O(2<sup>n</sup>): Đến độ phức tạp như vầy rồi thì thời gian thực thi tăng cực
+kỳ nhanh. Thuật toán có độ phức tạp này chỉ có thể xử lý đầu vào cực nhỏ (tầm vài
+chục đến vài trăm). Để dễ hình dung hơn, xem ví dụ này: Một thuật toán nào đó cần
+thực hiện 2<sup>n</sup> chỉ thị. Giả sử máy tính có 16 core, mỗi core có thể xử lý
+4 tỉ phép tính mỗi giây, tức là mỗi giây máy tính thực hiện được 64 tỉ phép tính.
+Với n = 100 thì 2<sup>100</sup> là 1 267 650 600 228 229 401 496 703 205 376, cần
+19 807 040 628 566 085 632 giây để chạy xong thuật toán đó. Đổi ra ngày thì nó sẽ
+là 229 248 155 423 218 ngày, hay đổi ra năm thì sẽ là 627 647 242 774 năm (tính theo
+1 năm = 365.25 ngày). Nếu mình còn sống tiếp được 100 năm thì cần có 6 276 472 428
+(hơn 6 tỉ) máy tính mạnh như mô tả ở trên để có thể chạy xong thuật toán này trước
+khi mình chết.</li>
+</ul>
+<p>Một điểm rất quan trọng cần nhớ là độ phức tạp <strong>không phải hàm thời gian</strong>,
+nó chỉ thể hiện quan hệ giữa kích thước đầu vào và thời gian thực hiện thôi.
+Một thuật toán có độ phức tạp O(1) vẫn có thể chạy chậm hơn thuật toán có
+độ phức tạp O(n) nếu dữ liệu không đủ lớn. Lý do là độ phức tạp không bao gồm
+phần hằng số. Ví dụ cần tìm nhà môt người, bài toán chỉ cho phạm vi có cái nhà
+cần tìm, nếu mình hỏi từng người trong khu vực đó để tìm cái nhà thì đó là thuật
+toán có độ phức tạp O(n), nhưng mà nếu mình đi hỏi hết 7 tỉ người trên thế giới
+này để tìm ra cái nhà thì nó là thuật toán có độ phức tạp O(1), tại vì khu vực
+mà đề khoanh vùng ra có rộng hay hẹp thì cũng không vượt khỏi 7 tỉ người này được.</p>
+<h2 id="các-cấu-trúc-dữ-liệu">Các cấu trúc dữ liệu</h2>
+<h3 id="mảng-array">Mảng (Array)</h3>
+<p>Mảng là kiểu có</p>
+<ul>
+<li>Các phần tử cùng kiểu và nằm liền nhau trên bộ nhớ.</li>
+<li>Kích thước cố định. Nếu muốn mở rộng mảng chỉ có thể tạo mảng mới
+với kích thước lớn hơn rồi chép dữ liệu sang.</li>
+<li>Truy cập ngẫu nhiên (random access): Truy cập phần tử nào cũng mất
+cùng một khoảng thời gian. Có được tính chất truy cập ngẫu nhiên này
+đồng nghĩa với việc truy cập phần tử mảng là một thao tác O(1).</li>
+</ul>
+<h3 id="danh-sách-liên-kết-linked-list">Danh sách liên kết (Linked list)</h3>
+<p>Danh sách liên kết có đặc điểm</p>
+<ul>
+<li>Các phần tử có thể nằm rời rạc trên bộ nhớ, không liền nhau.</li>
+<li>Mỗi phần tử trỏ tới phần tử kế nó, hoặc một giá trị tượng trưng
+(sentinel value) để đánh dấu kết thúc danh sách.</li>
+<li>Kích thước không bị giới hạn. Chỉ cần còn đủ bộ nhớ là danh sách
+liên kết còn có thể lớn lên.</li>
+<li>Truy cập tuần tự (sequential access): Để đọc một phần tử nằm giữa
+phải đi qua tất cả phần tử nằm trước nó. Vì tính tuần tự này nên
+truy cập phần tử trong danh sách liên kết là một thao tác O(n).</li>
+</ul>
+<h3 id="bảng-băm-hash-table">Bảng băm (Hash table)</h3>
+<p>Ý tưởng cơ bản của bảng băm là dữ liệu sẽ được đưa qua hàm băm
+(hash function) để tính ra vị trí lưu nó. Hàm băm luôn có dạng
+<code>f(x) mod n</code> với <code>x</code> là dữ liệu cần lưu, <code>f</code> là một hàm bất kỳ,
+<code>mod</code> là phép chia dư (bên C# dùng dấu <code>%</code> cho phép toán này),
+<code>n</code> là kích thước bảng băm.</p>
+<p>Ví dụ chọn <code>f(x) = x</code> (tức là bỏ cái gì vào <code>f</code> thì nó cho ra giống
+y vậy) thì hàm băm là <code>x mod n</code>. Nếu bảng băm kích thước là <code>5</code> và
+cần thêm giá trị <code>123</code>, <code>456</code>, <code>789</code> vào bảng băm thì nó sẽ lưu vầy:</p>
+<pre><code>123 mod 5 = 3
+456 mod 5 = 1
+789 mod 5 = 4
+</code></pre><table>
+<thead>
+<tr>
+<th align="center">Chỉ số</th>
+<th align="center">Giá trị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">456</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">123</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">789</td>
+</tr>
+</tbody>
+</table>
+<p>Trong tình huống tốt nhất, truy cập phần tử của bảng băm sẽ có độ
+phức tạp bằng với độ phức tạp hàm băm, tức là có thể đạt tới O(1).
+Tuy nhiên thực tế dữ liệu không tự né nhau ra như trong ví dụ trên,
+sẽ có lúc dữ liệu khác nhau được băm ra cùng một vị trí, gọi là đụng độ
+(collision). Có 2 giải pháp chính là dùng danh sách để lưu hoặc tìm chỗ
+khác trên bảng băm để lưu. Vì bài này không lấy xây dựng cấu trúc dữ liệu
+làm chủ đề chính nên sẽ không mô tả rõ cách thực hiện việc này.</p>
+<h3 id="các-cấu-trúc-khác">Các cấu trúc khác</h3>
+<p>Còn nhiều cấu trúc khác nữa, đa số là dạng cây: cây nhị phân tìm kiếm
+(Binary Search Tree), cây đỏ–đen (red–black tree), cây AVL, &hellip; Tuy
+nhiên những cấu trúc này quá phức tạp để có thể nói trong một bài viết
+ngắn như vầy.</p>
+<h2 id="collections--cấu-trúc-dữ-liệu-trong-thư-viện-chuẩn">Collections — Cấu trúc dữ liệu trong thư viện chuẩn</h2>
+<p>Trong C#, các cấu trúc dữ liệu được thiết kế theo sơ đồ này:</p>
+<p>TODO: Add diagram</p>
+<h2 id="todo">TODO</h2>
+<p>Collections, foreach
+Implement collections</p>
+
+
+        </div></body>
+</html>

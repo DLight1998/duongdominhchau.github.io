@@ -31,6 +31,16 @@ Giới thiệu Hugo là một static site generator, nói cách đơn giản th�
     </item>
     
     <item>
+      <title>Collections với C#</title>
+      <link>https://duongdominhchau.github.io/collection-v%E1%BB%9Bi-csharp/</link>
+      <pubDate>Wed, 10 Jun 2020 15:27:41 +0700</pubDate>
+      
+      <guid>https://duongdominhchau.github.io/collection-v%E1%BB%9Bi-csharp/</guid>
+      <description>Bài viết này sẽ giới thiệu về một vài lớp thường dùng của thư viện collections của C#. Sau đó là hướng dẫn chi tiết cách tự viết lại những lớp tương tự với mục đích minh họa các tính năng của ngôn ngữ C#. Để có thể đọc hiểu bài này nên đọc bài C# trước.
+Nhắc lại về kiểu dữ liệu trừu tượng và cấu trúc dữ liệu Môn cấu trúc dữ liệu dạy những cấu trúc như danh sách (list), ngăn xếp (stack), hàng đợi (queue), bảng băm (hash table), đủ thứ cây, &amp;hellip; Nội dung bài học khá là loạn vì không phân rõ giữa kiểu dữ liệu trừu tượng và cấu trúc dữ liệu.</description>
+    </item>
+    
+    <item>
       <title>C#</title>
       <link>https://duongdominhchau.github.io/csharp/</link>
       <pubDate>Tue, 09 Jun 2020 01:08:20 +0700</pubDate>

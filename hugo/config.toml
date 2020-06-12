@@ -5,16 +5,13 @@ theme = "chau"
 publishdir = ".."
 enableGitInfo = true
 paginate = 5
+canonifyurls = true
 
 [markup]
   [markup.tableOfContents]
     endLevel = 4
-
-
-
-
-
-canonifyurls = true
+  [markup.goldmark.renderer]
+      unsafe = true
 
 [params]
   author = "Duong Do Minh Chau"

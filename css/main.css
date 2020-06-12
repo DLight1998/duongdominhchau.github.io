@@ -26,15 +26,13 @@ a:hover {
 	display: inline-block;
 	padding: 0 0.25rem;
 }
+pre {
+	background: #272822;
+	color: #f8f8f2;
+	padding: 2rem;
+}
 code, .highlight * {
 	font-family: Fira Code, Source Code Pro, Consolas, monospace;
-}
-.highlight > * {
-	padding: 0 2rem;
-}
-.highlight > :first-child,
-.highlight > :last-child {
-	padding: 2rem;
 }
 
 /* Images */
@@ -61,4 +59,14 @@ img {
 }
 .pagination .page-item.disabled a {
 	color: #666;
+}
+
+/* Tables */
+table, th, td {
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 0.25rem 1rem;
 }

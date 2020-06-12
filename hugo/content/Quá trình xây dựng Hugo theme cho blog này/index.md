@@ -278,11 +278,7 @@ Loại trừ những thẻ `<code>` trong code block:
 Code block lúc này không có lề, nhìn xấu quá, thêm lề cho nó:
 
 ```css
-.highlight > * {
-	padding: 0 2rem;
-}
-.highlight > :first-child,
-.highlight > :last-child {
+pre {
 	padding: 2rem;
 }
 ```
